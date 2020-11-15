@@ -4,7 +4,7 @@ public class Person {
 	public static ArrayList<Person> personlist = new ArrayList<Person>();
 	private String name;
 	private String surname;
-	private String birthday;
+	private String age;
 	private String gender;
 	private String region;
 	private int testday;
@@ -13,11 +13,11 @@ public class Person {
 	private int AMKA;
 	boolean infected;
 
-	public Person(String name, String surname, String birthday, String gender, String region, int testday,
+	public Person(String name, String surname, String age, String gender, String region, int testday,
 			int testmonth, int testyear, int aMKA, boolean infected) {
 		this.name = name;
 		this.surname = surname;
-		this.birthday = birthday;
+		this.age = age;
 		this.gender = gender;
 		this.region = region;
 		this.testday = testday;
@@ -32,7 +32,7 @@ public class Person {
 		String n = sca.next();
 		System.out.print("Give surname = ");
 		String s = sca.next();
-		System.out.print("Give Birthday = ");
+		System.out.print("Give age = ");
 		String b = sca.next();
 		System.out.print("Give gender = "); 
 		String g = sca.next();
@@ -55,7 +55,7 @@ public class Person {
  
 	@Override
 	public String toString() {
-		return "name=" + name + ", surname=" + surname + ", birthday=" + birthday + ", gender=" + gender
+		return "name=" + name + ", surname=" + surname + ", age=" + age + ", gender=" + gender
 				+ ", region=" + region + ", testday=" + testday + ", testmonth=" + testmonth + ", testyear=" + testyear
 				+ ", AMKA=" + AMKA + ", infected=" + infected +"\n";	
 		
@@ -74,11 +74,11 @@ public class Person {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public String getBirthday() {
-		return birthday;
+	public String getAge() {
+		return age;
 	}
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
+	public void setAge(String age) {
+		this.age = age;
 	}
 	public String getGender() {
 		return gender;
