@@ -46,7 +46,7 @@ public class Person {
 		int y = sca.nextInt();
 		System.out.print("Give AMKA = ");
 		int a = sca.nextInt();
-		System.out.print("You tested Posice or Negatice for covid-19(true/false) = ");
+		System.out.print("You tested Posice  or Negatice for covid-19(true/false) = ");
 		boolean i = sca.nextBoolean();
 
 		personlist.add(new Person(n , s, b, g, r, d, m, y, a, i));
