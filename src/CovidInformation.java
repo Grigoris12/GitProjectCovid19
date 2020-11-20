@@ -12,7 +12,7 @@ public class CovidInformation {
 	System.out.println("8.Εκτύπωση διαθέσιμων κλίνων ΜΕΘ σε κάθε πόλη");
 	}
 	
-	public static void covidSymptoms() {
+    public static void covidSymptoms() {
 		System.out.println("Ο Covid19 προσβάλλει διαφορετικά άτομα με διαφορετικούς τρόπους."
 				+ "Τα περισσότερα μολυσμένα άτομα εμφανίζουν ήπια έως μέτρια συμπτώματα και αναρρώνουν χωρίς να χρειάζεται να νοσηλευτούν."
 				+ "-Πιο συχνά συμπτώματα:"
