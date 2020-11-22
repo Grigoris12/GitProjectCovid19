@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 public class CovidInformation {
 	public static void menu() { 
 	System.out.println("********Μενού Επιλογών********");
@@ -36,7 +36,31 @@ public class CovidInformation {
 				+ "6.Να αποφεύγετε επαφές με άτομα που ανήκουν σε ευπαθείς ομάδες και νοσηλευόμενους ασθενείς."
 				+ "7.Να αποφεύγετε τις άσκοπες μετακινήσεις και τους χώρους συγχρωτισμού."
 				+ "8.Όταν βήχετε ή φτερνιζόσαστε να καλύπτετε το στόμα και την μύτη σας με τον αγκώνα ή ένα χαρτομάντιλο."
-				+ "9.Αν παρουσιάζετε συμπτώματα βήχα,πυρετού ή δυσκολίας στην αναπνοή αναζητήστε 'άμεσα ιατρική βοήθεια "
-				+"  και ενημερώστε το ιατρικό προσωπικό για το ιστορικό των μετακινήσεών σας.");
+				+ "9.Αν παρουσιάζετε συμπτώματα βήχα,πυρετού ή δυσκολίας στην αναπνοή αναζητήστε άμεσα ιατρική βοήθεια "
+				+"  και ενημερώστε άμεσα το ιατρικό προσωπικό για το ιστορικό των μετακινήσεών σας.");
+	}
+	
+	public static void todayInfected(int day, int month , int year) {
+		System.out.println("Θέλετε να δείτε τα σημερινά κρούσματα σε όλη την Ελλάδα ή σε συγκεκριμένη περιοχή;Εισάγετε [Σε όλη την Ελλάδα] ή [Σε συγκεκριμένη περιοχή] αντίστοιχα");
+		Scanner sc = new Scanner(System.in);
+		String answer = sc.next();
+		int countTodayInfected = 0;
+		if (answer == "Σε όλη την Ελλάδα") {
+			for (int j= 0 ; j<=Person.personlist.size() ; j++) {
+				if (Person.personlist.get(0).isInfected() == true && Person.personlist.get(0).getTestday() == day && Person.personlist.get(0).getTestmonth() == month &&  Person.personlist.get(0).getTestyear() == year) {
+					countTodayInfected++;
+				}
+			}
+			System.out.println("Τα σημερινά κρούσματα Covid19 είναι:" + countTodayInfected);
+		}else {
+			System.out.println("Εισάγετε την περιοχή όπου επιθυμείτε να δείτε των αριθμό των σημερινών κρουσμάτων Covid19");
+			String region = sc.next();
+			for (int j= 0 ; j<=Person.personlist.size() ; j++) {
+				if (Person.personlist.get(0).isInfected() == true && Person.personlist.get(0).getRegion() == region && Person.personlist.get(0).getTestday() == day && Person.personlist.get(0).getTestmonth() == month &&  Person.personlist.get(0).getTestyear() == year) {
+					countTodayInfected++;
+				}
+			}
+			System.out.println("Τα σημερινά κρούσματα Covid19 είναι:" + countTodayInfected);
+		}
 	}
 }
