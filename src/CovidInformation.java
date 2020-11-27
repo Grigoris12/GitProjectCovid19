@@ -3,14 +3,14 @@ public class CovidInformation {
 	public static void menu() { 
 	System.out.println("********Menu********");
 	System.out.println("1.Printing the symptoms of Covid19");
-	System.out.println("2.Εκτύπωση των οδηγιών για προστασία των πολιτών απο τον Covid19");
-	System.out.println("3.Εκτύπωση σημερινών κρουσμάτων Covid19");
-	System.out.println("4.Εκτύπωση συνολικών κρουσμάτων Covid19");
-	System.out.println("5.Εκτύπωση σημερινών θανάτων από Covid19");
-	System.out.println("6.Εκτύπωση συνολικών θανάτων από Covid19");
-	System.out.println("7.Εκτύπωση των κρουσμάτων Covid19 που βρίσκονται σε ΜΕΘ");
-	System.out.println("8.Εκτύπωση διαθέσιμων κλίνων ΜΕΘ σε κάθε πόλη");
-	System.out.println("9.");
+	System.out.println("2.Printing the instruction for protecting from Covid19");
+	System.out.println("3.Printing todays people infected by Covid19");
+	System.out.println("4.Printing total people infected by Covid19");
+	System.out.println("5.Printing totays deaths from Covid19");
+	System.out.println("6.Printing total deaths from Covid19");
+	System.out.println("7.Printing the percentage of mortality");
+	System.out.println("8.Printing the number of people infected by Covid19 that are into Meths");
+	System.out.println("9.Printing available Meths in every city");
 	System.out.println("10.");
 	System.out.println("11.");
 	System.out.println("12");
@@ -21,18 +21,18 @@ public class CovidInformation {
 	}
 	
     public static void covidSymptoms() {
-		System.out.println("Ο Covid19 προσβάλλει διαφορετικά άτομα με διαφορετικούς τρόπους."
-				+ "Τα περισσότερα μολυσμένα άτομα εμφανίζουν ήπια έως μέτρια συμπτώματα και αναρρώνουν χωρίς να χρειάζεται να νοσηλευτούν."
-				+ "-Πιο συχνά συμπτώματα:"
-				+ "1)πυρετός, 2)ξηρός βήχας, 3)κούραση"
-				+ "-Πιο σπάνια συμπτώματα:"
-				+ "1)πόνοι, 2)πονόλαιμος, 3)διάρροια, 4)επιπεφυκίτιδα, 5)πονοκέφαλος, 6)απώλεια γεύσης ή όσφρησης"
-				+ "-Σοβαρά συμπτώματα:"
-				+ "1)δυσκολία στην αναπνοή ή δύσπνοια, 2)πόνος ή πίεση στο στήθος, 3)απώλεια ομιλίας ή κίνησης");
+		System.out.println("Covid19 infects different people in different ways:"
+				+ "Most infected people have mild to moderate symptoms and recover without treatment."
+				+ "-Often symptoms:"
+				+ "1)fever, 2)dry cough, 3)tiredness"
+				+ "-Rare symptoms:"
+				+ "1)pains, 2)sore throat, 3)diarrhea, 4)conjunctivitis, 5)headache, 6)loss of taste or smell"
+				+ "-Serious symptoms:"
+				+ "1)difficulty breathing or shortness of breath, 2)chest pains, 3)loss of speech or movement");
 	}
 	
 	public static void covidGuide() {
-		System.out.println("Για να προστατευθείτε από τον ιό covid19 πρέπει:"
+		System.out.println("To protect yourself from the covid19 virus you must:"
 				+ "1.Να κάνετε χρήση της μάσκας σε πολυσύχναστους και κλειστούς χώρους, στα ΜΜΜ"
 				+ "  και στους χώρους παροχής υπηρεσιών υγείας."
 				+ "2.Για να γίνεται σωστή χρήση της μάσκας να μην αγγίζετε το μπροστινό μέρος,να την εφαρμόζετε "
