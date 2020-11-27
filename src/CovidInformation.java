@@ -1,8 +1,8 @@
 import java.util.Scanner;
 public class CovidInformation {
 	public static void menu() { 
-	System.out.println("********Μενού Επιλογών********");
-	System.out.println("1.Εκτύπωση των συμπτωμάτων του Covid19");
+	System.out.println("********Menu********");
+	System.out.println("1.Printing the symptoms of Covid19");
 	System.out.println("2.Εκτύπωση των οδηγιών για προστασία των πολιτών απο τον Covid19");
 	System.out.println("3.Εκτύπωση σημερινών κρουσμάτων Covid19");
 	System.out.println("4.Εκτύπωση συνολικών κρουσμάτων Covid19");
@@ -10,6 +10,14 @@ public class CovidInformation {
 	System.out.println("6.Εκτύπωση συνολικών θανάτων από Covid19");
 	System.out.println("7.Εκτύπωση των κρουσμάτων Covid19 που βρίσκονται σε ΜΕΘ");
 	System.out.println("8.Εκτύπωση διαθέσιμων κλίνων ΜΕΘ σε κάθε πόλη");
+	System.out.println("9.");
+	System.out.println("10.");
+	System.out.println("11.");
+	System.out.println("12");
+	System.out.println("13.");
+	System.out.println("14.");
+	System.out.println("15.");
+	System.out.println("Choose from 1 to 15");
 	}
 	
     public static void covidSymptoms() {
