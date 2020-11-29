@@ -34,19 +34,15 @@ public class CovidInformation {
 	
 	public static void covidGuide() {
 		System.out.println("To protect yourself from the covid19 virus you must:"
-				+ "1)Να κάνετε χρήση της μάσκας σε πολυσύχναστους και κλειστούς χώρους, στα ΜΜΜ"
-				+ "  και στους χώρους παροχής υπηρεσιών υγείας."
-				+ "2)Για να γίνεται σωστή χρήση της μάσκας να μην αγγίζετε το μπροστινό μέρος,να την εφαρμόζετε "
-				+ "  καλά στο πρόσωπό σας καλύπτοντας την μύτη και το στόμα και να την αφαιρείτε μόνο από τα "
-				+ "  ειδικά κορδόνια."
-				+ "3)Να πλένετε συχνά και σχολαστικά τα χέρια σας με σαπούνι και νερό ή αλκοολούχο διάλυμα."
-				+ "4)Να τηρείτε απόσταση 1,5-2 μέτρα από όλους."
-				+ "5)Να μην αγγίζετε το πρόσωπό σας(μάτια,μύτη,στόμα)."
-				+ "6)Να αποφεύγετε επαφές με άτομα που ανήκουν σε ευπαθείς ομάδες και νοσηλευόμενους ασθενείς."
-				+ "7)Να αποφεύγετε τις άσκοπες μετακινήσεις και τους χώρους συγχρωτισμού."
-				+ "8)Όταν βήχετε ή φτερνιζόσαστε να καλύπτετε το στόμα και την μύτη σας με τον αγκώνα ή ένα χαρτομάντιλο."
-				+ "9)Αν παρουσιάζετε συμπτώματα βήχα,πυρετού ή δυσκολίας στην αναπνοή αναζητήστε άμεσα ιατρική βοήθεια "
-				+"  και ενημερώστε άμεσα το ιατρικό προσωπικό για το ιστορικό των μετακινήσεών σας.");
+				+ "1)Cover your mouth and nose with a mask when around others."
+				+ "2)Clean your hands before you put your mask on and make sure it covers both your nose, mouth and chin."
+				+ "3)Wash your hands often with soap and water for at least 20 seconds especially after you have been in a public place."
+				+ "4)Keep a distance of 1.5-2 meters from everyone."
+				+ "5)Do not touch your face (eyes, nose, mouth)."
+				+ "6)Avoid contact with people belonging to vulnerable groups and hositalized patients."
+				+ "7)Avoid unnecessary transportation."
+				+ "8)Always cover your mouth and nose with a tissue when you cough or sneeze or use the inside of your elbow."
+				+ "9)If you have symptoms of cough, fever or it is difficult to breath, you must contact with your doctor.");
 	}
 	
 	public static void todayInfected(int day, int month , int year) {
@@ -70,6 +66,30 @@ public class CovidInformation {
 				}
 			}
 			System.out.println("Today's people infected by Covid19 in" + region + "are:" + countTodayInfected);
+		}
+	}
+	
+	public static void totalInfected(int day, int month, int year) {
+		System.out.println("You want to know total infected in Greece or in certain city?Insert [Greece] or [city]");
+		Scanner sc = new Scanner(System.in);
+		String answer = sc.next();
+		int countTotalInfected = 0;
+		if (answer == "Grecce") {
+			for (int i = 0 ; i <= Person.personlist.size() ; i++) {
+				if(Person.personlist.get(0).isInfected() == true) {
+					countTotalInfected++;
+				}
+			}
+			System.out.println("Total people infected by Covid19 in Greece are:" + countTotalInfected);
+		}else {
+			System.out.println("Insert the city you want to know the total number of people that are infected by Covid19");
+			String region = sc.next();
+			for (int i = 0 ; i <= Person.personlist.size(); i++) {
+				if (Person.personlist.get(0).isInfected() == true && Person.personlist.get(0).getRegion() == region);{
+					countTotalInfected++;
+				}
+			}
+			System.out.println("Total people infected by Covid19 in" + region + "are:" + countTotalInfected);
 		}
 	}
 }
