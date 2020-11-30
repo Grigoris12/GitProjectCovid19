@@ -34,6 +34,7 @@ public class CovidInformation {
 	
 	public static void covidGuide() {
 		System.out.println("To protect yourself from the covid19 virus you must:"
+
 				+ "1)Cover your mouth and nose with a mask when around others."
 				+ "2)Clean your hands before you put your mask on and make sure it covers both your nose, mouth and chin."
 				+ "3)Wash your hands often with soap and water for at least 20 seconds especially after you have been in a public place."
@@ -43,6 +44,7 @@ public class CovidInformation {
 				+ "7)Avoid unnecessary transportation."
 				+ "8)Always cover your mouth and nose with a tissue when you cough or sneeze or use the inside of your elbow."
 				+ "9)If you have symptoms of cough, fever or it is difficult to breath, you must contact with your doctor.");
+
 	}
 	
 	public static void todayInfected(int day, int month , int year) {
