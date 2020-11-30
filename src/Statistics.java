@@ -37,7 +37,6 @@ public class Statistics {
 			countelders++;
 		}
 	}
-	
 	public static void AgePercentages() {
 		double pkids = countkids / countinfected * 100;
 		double padults = countadults / countinfected * 100;
