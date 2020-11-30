@@ -11,7 +11,7 @@ public class Statistics {
 	protected static int maxmonth;
 	protected static String maxseason;
 	protected static double[] seasoninfrate = new double [4];
-	public static void gendercount(boolean infected,String gender){
+	public static void gendercount(boolean infected,String gender){ /* Υπολογισμός ποσοστών ανα φύλο*/
 		if(infected) {
 			countinfected++;
 			if (gender == "male") {
@@ -20,14 +20,14 @@ public class Statistics {
 				countfemale++;
 			}
 		}
-	}
-	public static void GenderPercentages(){
+	} 
+	public static void GenderPercentages(){ 
 		double pmale = countmale / countinfected * 100;
 		double pfemale = countfemale / countinfected * 100;
 		System.out.println(pmale + " % of the confirmed cases are male" );
 		System.out.println(pfemale + " % of the confirmed cases are female") ;
 	}
-	public static void AgeofPatients(int age) {
+	public static void AgeofPatients(int age) { /*Υπολογισμός ποσοστών ανα ηλικία*/
 
 		if (age <= 17) {
 			countkids++;
@@ -37,6 +37,7 @@ public class Statistics {
 			countelders++;
 		}
 	}
+	
 	public static void AgePercentages() {
 		double pkids = countkids / countinfected * 100;
 		double padults = countadults / countinfected * 100;
@@ -79,34 +80,23 @@ public class Statistics {
 		}
 		return maxmonth;
 	}
-	public static double[] infrateperseason(double[] monthinfrate) {
-		int countseason = 0;
-		for (int i = 0; i < 12; i++) {
-			if ( i == 0) {
-				seasoninfrate[countseason] = monthinfrate[i];
-			} else if (i == 1) {
-				seasoninfrate[countseason] = monthinfrate[i - 1] + monthinfrate[i];
-			} else if (i == 2) {
-				countseason++;
-				seasoninfrate[countseason] = monthinfrate[i];
-			} else if (i <= 4) {
-				seasoninfrate[countseason] = monthinfrate[i - 1] + monthinfrate[i];
-			} else if (i == 5) {
-				countseason++;
-				seasoninfrate[countseason] = monthinfrate[i];
-			} else if (i <= 7) {
-				seasoninfrate[countseason] = monthinfrate[i - 1] + monthinfrate[i];
-			} else if (i == 8) {
-				countseason++;
-				seasoninfrate[countseason] = monthinfrate[i];
-			} else if (i <= 10) {
-				seasoninfrate[countseason] = monthinfrate[i - 1] + monthinfrate[i];
-			} else {
-				countseason = 0;
-				seasoninfrate[countseason] = seasoninfrate[countseason] + monthinfrate[i];
-			}
-		}
+
+	public static double[] infrateperseason(double[] monthinfrate) { /* Υπολογισμός ποσοστών ανα εποχή*/
+		seasoninfrate[0] = monthinfrate[0] + monthinfrate[1] + monthinfrate[11];
+		seasoninfrate[1] = monthinfrate[2] + monthinfrate[3] + monthinfrate[4];
+		seasoninfrate[2] = monthinfrate[5] + monthinfrate[6] + monthinfrate[7];
+		seasoninfrate[3] = monthinfrate[8] + monthinfrate[9] + monthinfrate[10];
 		return seasoninfrate;
+	}
+	public static void SeasonPercentages(){
+		double pwinter = seasoninfrate[0] / countinfected * 100; 
+		double pspring = seasoninfrate[1] / countinfected * 100;
+		double psummer = seasoninfrate[2] / countinfected * 100;
+		double pautumn = seasoninfrate[3] / countinfected * 100;
+		System.out.println(pwinter + "% of the confirmed cases appeared in winter");
+		System.out.println(pspring + "% of the confirmed cases appeared in spring");
+		System.out.println(psummer + "% of the confirmed cases appeared in summer");
+		System.out.println(pautumn + "% of the confirmed cases appeared in autumn");
 	}
 	public static String mostinfseason(double[] seasoninfrate) {
 		String[] season = {"Winter", "Spring", "Summer", "Autumn"};
@@ -127,13 +117,7 @@ public class Statistics {
 	
 }
 	
-	
-					
-			
-				
-				
-	
-				
+		
 						
 			
 	
