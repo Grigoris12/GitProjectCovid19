@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class MenuLauncher {
 
 	public static void main(String[] args) {
+
 		Scanner sc= new Scanner(System.in);
 		//System.out.println(Person.personlist);
 		//System.out.println(Person.personlist.get(0).getGender());
@@ -36,6 +37,7 @@ public class MenuLauncher {
 
 		}while(bol==false);
 		sc.close();
+
 	}
 
 
