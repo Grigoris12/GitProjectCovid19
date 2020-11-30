@@ -1,28 +1,31 @@
 
 public class Statistics {
 	private static double countmale = 0;
-
 	private static double countfemale = 0;
-	private static int countkids = 0; 
-	private static int countadults = 0;
-	private static int countelders = 0;
+	private static double countinfected = 0;
+	private static double countkids = 0; 
+	private static double countadults = 0;
+	private static double countelders = 0;
 	private static double[] infpermonth = new double [12];
 	protected static double[] monthinfrate = new double [12];
 	protected static int maxmonth;
 	protected static String maxseason;
 	protected static double[] seasoninfrate = new double [4];
 	public static void gendercount(boolean infected,String gender){
-		if (infected && gender == "male") {
-			countmale++; 
+		if(infected) {
+			countinfected++;
+			if (gender == "male") {
+				countmale++;
 			}else {
-			countfemale++;
+				countfemale++;
+			}
 		}
 	}
-
-	}
 	public static void GenderPercentages(){
-		System.out.println(countmale/totalcount *100 + " % of the confirmed cases are male" );
-		System.out.println(countfemale/totalcount *100 + " % of the confirmed cases are female") ;
+		double pmale = countmale / countinfected * 100;
+		double pfemale = countfemale / countinfected * 100;
+		System.out.println(pmale + " % of the confirmed cases are male" );
+		System.out.println(pfemale + " % of the confirmed cases are female") ;
 	}
 	public static void AgeofPatients(int age) {
 
@@ -34,6 +37,16 @@ public class Statistics {
 			countelders++;
 		}
 	}
+	
+	public static void AgePercentages() {
+		double pkids = countkids / countinfected * 100;
+		double padults = countadults / countinfected * 100;
+		double pelders = countelders / countinfected * 100;
+		System.out.println(pkids + "% of the confirmed cases are kids");
+		System.out.println(padults + "% of the confirmed cases are adults");
+		System.out.println(pelders + "% of the confirmed cases are elders"); 
+	}
+	
 	public static void initialisation() {
 		for (int i = 0; i < 12; i++) {
 			infpermonth[i] = 0;
@@ -112,11 +125,7 @@ public class Statistics {
 		}
 		return maxseason;
 	}
-	public static void AgePercentages() {
-		System.out.println(countkids/totalcount *100 + "% of the confirmed cases are kids");
-		System.out.println(countadults/totalcount *100 + "% of the confirmed cases are adults");
-		System.out.println(countelders/totalcount *100 + "% of the confirmed cases are elders"); 
-	}
+	
 }
 	
 	
