@@ -1,6 +1,7 @@
 
 public class Statistics {
 	private static double countmale = 0;
+
 	private static double countfemale = 0;
 	private static int countkids = 0; 
 	private static int countadults = 0;
@@ -13,12 +14,18 @@ public class Statistics {
 	public static void gendercount(boolean infected,String gender){
 		if (infected && gender == "male") {
 			countmale++; 
-		}else if (infected && gender == "female") {
+			}else {
 			countfemale++;
 		}
 	}
-		
-	public static void ageofPatients(int age) {
+
+	}
+	public static void GenderPercentages(){
+		System.out.println(countmale/totalcount *100 + " % of the confirmed cases are male" );
+		System.out.println(countfemale/totalcount *100 + " % of the confirmed cases are female") ;
+	}
+	public static void AgeofPatients(int age) {
+
 		if (age <= 17) {
 			countkids++;
 		} else if (age <= 64) {
@@ -104,6 +111,11 @@ public class Statistics {
 			}
 		}
 		return maxseason;
+	}
+	public static void AgePercentages() {
+		System.out.println(countkids/totalcount *100 + "% of the confirmed cases are kids");
+		System.out.println(countadults/totalcount *100 + "% of the confirmed cases are adults");
+		System.out.println(countelders/totalcount *100 + "% of the confirmed cases are elders"); 
 	}
 }
 	
