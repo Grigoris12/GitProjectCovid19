@@ -8,7 +8,7 @@ public class MenuLauncher {
 		//System.out.println(Person.personlist.get(0).getGender());
 		boolean bol = false;
 		int x;
-
+     //main menu//
 		do {
 			System.out.println("1. Sign-Up");
 			System.out.println("2. Covid Information");
