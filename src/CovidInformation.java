@@ -2,67 +2,49 @@ import java.util.Scanner;
 public class CovidInformation {
 	public static void menu() { 
 		Scanner sc = new Scanner(System.in);
-		int flag = 1;
-		while (flag != 0) {
-			System.out.println("********Menu********");
-			System.out.println("1)Printing the symptoms of Covid19");
-			System.out.println("2)Printing the instructions on protecting from Covid19");
-			System.out.println("3)Printing today's people infected by Covid19");
-			System.out.println("4)Printing total people infected by Covid19");
-			System.out.println("5)Printing today's deaths from Covid19");
-			System.out.println("6)Printing total deaths from Covid19");
-			System.out.println("7)Printing the percentage of mortality");
-			System.out.println("8)Printing the number of people infected by Covid19 that are into Meths");
-			System.out.println("9)Printing the percentage of people infected by Covid19 that have exit Meths");
-			System.out.println("10)Printing the available Meths in every city");
-			System.out.println("11)Printing the percentage of felame and male infected by Covid19");
-			System.out.println("12)Printing the percentage of infections in every city right now");/*++να εμφανίζει την πόλη με τα περισσότερα κρούσματα */
-			System.out.println("13)Printing the percentage of infections per month");
-			System.out.println("14)Printing the percentage of infections per season");/*++να εμφανίζει την εποχή με τα περισσότερα κρούσματα*/
-			System.out.println("15)Printing the percentage of infections in age category");
-			System.out.println("16)Printing the Covid-map");/* πόλεις σε πράσινο,κίτρινο,πορτοκαλί και κόκκινο */
-			System.out.println("Choose from 1 to 16");
-			flag = sc.nextInt();
-			if (flag == 1) {
-				covidSymptoms();
-			}else if (flag == 2) {
-				covidGuide();
-			}else if (flag == 3) {
-				Scanner s = new Scanner(System.in);
-				System.out.println("Insert the day,month and year that you want to know the number of infections");
-				int d = s.nextInt();
-				int m = s.nextInt();
-				int y = s.nextInt();
-				todayInfected(d, m, y);
-			}else if (flag == 4) {
-				totalInfected();
-			}else if (flag == 5) {
-				
-			}else if (flag == 6) {
-				
-			}else if (flag == 7 ) {
-				
-			}else if (flag == 8) {
-			
-			}else if (flag == 9) {
-				
-			}else if (flag == 10) {
-				
-			}else if (flag == 11) {
-				
-			}else if (flag == 12) {
-				
-			}else if (flag == 13) {
-				
-			}else if (flag == 14) {
-				
-			}else if (flag == 15) {
-				
-			}else if (flag == 16) {
-				
-			}else {
-				System.out.println("Wrong input, try again!");
-			}
+		System.out.println("********Menu********");
+		System.out.println("1)Printing the symptoms of Covid19");
+		System.out.println("2)Printing the instructions on protecting from Covid19");
+		System.out.println("3)Printing today's people infected by Covid19");
+		System.out.println("4)Printing total people infected by Covid19");
+		System.out.println("5)Printing today's deaths from Covid19");
+		System.out.println("6)Printing total deaths from Covid19");
+		System.out.println("7)Printing the percentage of mortality");
+		System.out.println("8)Printing the number of people infected by Covid19 that are into Meths");
+		System.out.println("9)Printing the percentage of people infected by Covid19 that have exit Meths");
+		System.out.println("10)Printing the available Meths in every city");
+		System.out.println("11)Printing the percentage of felame and male infected by Covid19");
+		System.out.println("12)Printing the percentage of infections in every city right now");/*++να εμφανίζει την πόλη με τα περισσότερα κρούσματα */
+		System.out.println("13)Printing the percentage of infections per month");
+		System.out.println("14)Printing the percentage of infections per season");/*++να εμφανίζει την εποχή με τα περισσότερα κρούσματα*/
+		System.out.println("15)Printing the percentage of infections in age category");
+		System.out.println("16)Printing the Covid-map");/* πόλεις σε πράσινο,κίτρινο,πορτοκαλί και κόκκινο */
+		System.out.println("Choose from 1 to 16");
+		int choice = sc.nextInt();
+		switch (choice) {
+		case 1: covidSymptoms();
+		case 2: covidGuide();
+		case 3: 
+			Scanner s = new Scanner(System.in);
+			System.out.println("Insert the day,month and year that you want to know the number of infections");
+			int d = s.nextInt();
+			int m = s.nextInt();
+			int y = s.nextInt();
+			todayInfected(d, m, y);
+		case 4: totalInfected();
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:				
+		case 10:
+		case 11:				
+		case 12:			
+		case 13:
+		case 14:
+		case 15:			
+		case 16:
+		default: System.out.println("Wrong input, try again!");
 		}
 	}
 	/* Printing the symptoms of Covid19*/
@@ -79,7 +61,6 @@ public class CovidInformation {
 	/*Printing the instructions for protection from Covid19*/
 	public static void covidGuide() {
 		System.out.println("To protect yourself from the covid19 virus you must:"
-
 				+ "1)Cover your mouth and nose with a mask when around others."
 				+ "2)Clean your hands before you put your mask on and make sure it covers both your nose, mouth and chin."
 				+ "3)Wash your hands often with soap and water for at least 20 seconds especially after you have been in a public place."
