@@ -4,7 +4,7 @@ public class CovidInformation {
 		Scanner sc = new Scanner(System.in);
 		int flag = 1;
 		while (flag != 0) {
-			System.out.println("********Menu********");
+			System.out.println("********Menu********");   
 			System.out.println("1)Printing the symptoms of Covid19");
 			System.out.println("2)Printing the instructions on protecting from Covid19");
 			System.out.println("3)Printing today's people infected by Covid19");
