@@ -5,22 +5,23 @@ public class CovidInformation {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("********Menu********");   
 		System.out.println("1)Printing the symptoms of Covid19");
-		System.out.println("2)Printing the instructions on protecting from Covid19");
-		System.out.println("3)Printing today's people infected by Covid19");
-		System.out.println("4)Printing total people infected by Covid19");
-		System.out.println("5)Printing today's deaths from Covid19");
-		System.out.println("6)Printing total deaths from Covid19");
-		System.out.println("7)Printing the percentage of mortality");
-		System.out.println("8)Printing the number of people infected by Covid19 that are into icus");
-		System.out.println("9)Printing the percentage of people infected by Covid19 that have exit icus");
-		System.out.println("10)Printing the available icus in every city");
-		System.out.println("11)Printing the percentage of felame and male infected by Covid19");
-		System.out.println("12)Printing the percentage of infections in every city right now");/*++να εμφανίζει την πόλη με τα περισσότερα κρούσματα */
-		System.out.println("13)Printing the percentage of infections per month");
-		System.out.println("14)Printing the percentage of infections per season");/*++να εμφανίζει την εποχή με τα περισσότερα κρούσματα*/
-		System.out.println("15)Printing the percentage of infections in age category");
-		System.out.println("16)Printing the Covid-map");/* πόλεις σε πράσινο,κίτρινο,πορτοκαλί και κόκκινο */
-		System.out.println("Choose from 1 to 16");
+		System.out.println("2)Printing the instructions for protecting from Covid19");
+		System.out.println("3)Printing the instructions if you have symptoms of Covid19");
+		System.out.println("4)Printing today's people infected by Covid19");
+		System.out.println("5)Printing total people infected by Covid19");
+		System.out.println("6)Printing today's deaths from Covid19");
+		System.out.println("7)Printing total deaths from Covid19");
+		System.out.println("8)Printing the percentage of mortality");
+		System.out.println("9)Printing the number of people infected by Covid19 that are into icus");
+		System.out.println("10)Printing the percentage of people infected by Covid19 that have exit icus");
+		System.out.println("11)Printing the available icus in every city");
+		System.out.println("12)Printing the percentage of felame and male infected by Covid19");
+		System.out.println("13)Printing the percentage of infections in every city right now");/*++να εμφανίζει την πόλη με τα περισσότερα κρούσματα */
+		System.out.println("14)Printing the percentage of infections per month");
+		System.out.println("15)Printing the percentage of infections per season");/*++να εμφανίζει την εποχή με τα περισσότερα κρούσματα*/
+		System.out.println("16)Printing the percentage of infections in age category");
+		System.out.println("17)Printing the Covid-map");/* πόλεις σε πράσινο,κίτρινο,πορτοκαλί και κόκκινο */
+		System.out.println("Choose from 1 to 17");
 		int choice = sc.nextInt();
 		switch (choice) {
 		case 1: covidSymptoms();
@@ -40,11 +41,11 @@ public class CovidInformation {
 		case 9:				
 		case 10:
 		case 11:				
-		case 12:			
+		case 12: Statistics.GenderPercentages();		
 		case 13:
 		case 14:
-		case 15: Statistics.AgePercentages();		
-		case 16:
+		case 15: Statistics.SeasonPercentages();		
+		case 16: Statistics.AgePercentages();
 		default: System.out.println("Wrong input, try again!");
 		}	
 	}
@@ -71,9 +72,14 @@ public class CovidInformation {
 				+ "5)Do not touch your face (eyes, nose, mouth)."
 				+ "6)Avoid contact with people belonging to vulnerable groups and hositalized patients."
 				+ "7)Avoid unnecessary transportation."
-				+ "8)Always cover your mouth and nose with a tissue when you cough or sneeze or use the inside of your elbow."
+				+ "8)Always cover your mouth and nose with a tissue when you cough or sneeze use the inside of your elbow."
 				+ "9)If you have symptoms of cough, fever or it is difficult to breath, you must contact with your doctor.");
 
+	}
+	
+	/*Printing instructions for people infected by Covid19*/
+	public static void instructionsForInfected() {
+		
 	}
 	
 	/*Printing the number of today's infections*/
