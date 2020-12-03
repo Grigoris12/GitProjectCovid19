@@ -1,5 +1,6 @@
 import java.util.Scanner;
 public class CovidInformation {
+	/*Printing a list of options for users*/
 	public static void menu() { 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("********Menu********");   
@@ -10,9 +11,9 @@ public class CovidInformation {
 		System.out.println("5)Printing today's deaths from Covid19");
 		System.out.println("6)Printing total deaths from Covid19");
 		System.out.println("7)Printing the percentage of mortality");
-		System.out.println("8)Printing the number of people infected by Covid19 that are into Meths");
-		System.out.println("9)Printing the percentage of people infected by Covid19 that have exit Meths");
-		System.out.println("10)Printing the available Meths in every city");
+		System.out.println("8)Printing the number of people infected by Covid19 that are into icus");
+		System.out.println("9)Printing the percentage of people infected by Covid19 that have exit icus");
+		System.out.println("10)Printing the available icus in every city");
 		System.out.println("11)Printing the percentage of felame and male infected by Covid19");
 		System.out.println("12)Printing the percentage of infections in every city right now");/*++να εμφανίζει την πόλη με τα περισσότερα κρούσματα */
 		System.out.println("13)Printing the percentage of infections per month");
@@ -42,11 +43,12 @@ public class CovidInformation {
 		case 12:			
 		case 13:
 		case 14:
-		case 15:Statistics.AgePercentages();		
+		case 15: Statistics.AgePercentages();		
 		case 16:
 		default: System.out.println("Wrong input, try again!");
 		}	
 	}
+	
 	/* Printing the symptoms of Covid19*/
     public static void covidSymptoms() {
 		System.out.println("Covid19 infects different people in different ways:"
@@ -58,10 +60,10 @@ public class CovidInformation {
 				+ "-Serious symptoms:"
 				+ "1)difficulty breathing or shortness of breath, 2)chest pains, 3)loss of speech or movement");
 	}
+    
 	/*Printing the instructions for protection from Covid19*/
 	public static void covidGuide() {
 		System.out.println("To protect yourself from the covid19 virus you must:"
-
 				+ "1)Cover your mouth and nose with a mask when around others."
 				+ "2)Clean your hands before you put your mask on and make sure it covers both your nose, mouth and chin."
 				+ "3)Wash your hands often with soap and water for at least 20 seconds especially after you have been in a public place."
@@ -73,6 +75,7 @@ public class CovidInformation {
 				+ "9)If you have symptoms of cough, fever or it is difficult to breath, you must contact with your doctor.");
 
 	}
+	
 	/*Printing the number of today's infections*/
 	public static void todayInfected(int day, int month , int year) {
 		System.out.println("You want to know todays infected in Greece or in certain city?Insert [Greece] or [city].");
@@ -97,6 +100,7 @@ public class CovidInformation {
 			System.out.println("Today's people infected by Covid19 in" + region + "are:" + countTodayInfected);
 		}
 	}
+	
 	/*Printing the number of total infections*/
 	public static void totalInfected() {
 		System.out.println("You want to know total infected in Greece or in certain city?Insert [Greece] or [city]");
