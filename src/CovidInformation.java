@@ -42,7 +42,7 @@ public class CovidInformation {
 		case 12:			
 		case 13:
 		case 14:
-		case 15:			
+		case 15:Statistics.AgePercentages();		
 		case 16:
 		default: System.out.println("Wrong input, try again!");
 		}
