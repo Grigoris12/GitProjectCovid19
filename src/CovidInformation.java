@@ -26,16 +26,16 @@ public class CovidInformation {
 		int choice = sc.nextInt();
 		switch (choice) {
 		case 1: covidSymptoms();
-		case 2: covidGuide();
-		case 3: 
+		case 2: instructionsForInfected();
+		case 3: covidGuide();
+		case 4:
 			Scanner s = new Scanner(System.in);
 			System.out.println("Insert the day,month and year that you want to know the number of infections");
 			int d = s.nextInt();
 			int m = s.nextInt();
 			int y = s.nextInt();
 			todayInfected(d, m, y);
-		case 4: totalInfected();
-		case 5:
+		case 5: totalInfected();
 		case 6:
 		case 7:
 		case 8:
@@ -47,6 +47,7 @@ public class CovidInformation {
 		case 14:
 		case 15: Statistics.SeasonPercentages();		
 		case 16: Statistics.AgePercentages();
+		case 17:
 		default: System.out.println("Wrong input, try again!");
 		}	
 	}
@@ -80,7 +81,13 @@ public class CovidInformation {
 	
 	/*Printing instructions for people infected by Covid19*/
 	public static void instructionsForInfected() {
-		
+		System.out.println("Stay home and self-isolate even if you have minor symptoms such as cough, headache, mild fever, until you recover."
+				+ "Call your health care provider or hotline for advice. Have someone bring you supplies."
+				+ "If you need to leave your house or have someone near you, wear a medical mask to avoid infecting others"
+				+ "If you have a fever, cough and difficulty breathing, seek medical attention immediately. Call by telephone first,"
+				+ "if you can and follow the directions of your local health authority"
+				+ "Keep up to date on the latest information from trusted sources. Local and national authorities and public health units"
+				+ "are the best placed to advise on what people in your area should be doing to protect themselves.");
 	}
 	
 	/*Printing the number of today's infections*/
