@@ -5,16 +5,16 @@ public class Person {
 	public static ArrayList<Person> personlist = new ArrayList<Person>();
 	private String name;
 	private String surname;
-	private String age;
 	private String gender;
 	private String region;
+	private int age;
 	private int testday;
 	private int testmonth;
 	private int testyear;
 	private int AMKA;
 	boolean infected;
  //Constructor for person//
-	public Person(String name, String surname, String age, String gender, String region, int testday,
+	public Person(String name, String surname, int age, String gender, String region, int testday,
 			int testmonth, int testyear, int aMKA, boolean infected) {
 		this.name = name;
 		this.surname = surname;
@@ -35,7 +35,7 @@ public class Person {
 		System.out.print("Give surname = ");
 		String s = sca.next();
 		System.out.print("Give age = ");
-		String b = sca.next();
+		int b = sca.nextInt();
 		System.out.print("Give gender  = "); 
 		String g = sca.next();
 		System.out.print("Give region = ");
@@ -75,10 +75,10 @@ public class Person {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public String getGender() {
