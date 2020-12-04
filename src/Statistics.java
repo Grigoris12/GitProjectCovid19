@@ -59,9 +59,9 @@ public class Statistics {
 			}
 		}
 	}
-	public static double[] infratepermonth(double[] infpermonth, double countmale, double countfemale) {
+	public static double[] infratepermonth(double[] infpermonth) {
 		for (int i = 0; i < 12; i++) {
-			monthinfrate[i] = infpermonth[i]/(countmale + countfemale) * 100;
+			monthinfrate[i] = infpermonth[i]/countinfected * 100;
 		}
 		return monthinfrate;
 	}
