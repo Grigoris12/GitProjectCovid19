@@ -65,28 +65,52 @@ public class CovidInformation {
     
 	/*Printing the instructions for protection from Covid19*/
 	public static void covidGuide() {
-		System.out.println("To protect yourself from the covid19 virus you must:"
-				+ "1)Cover your mouth and nose with a mask when around others."
-				+ "2)Clean your hands before you put your mask on and make sure it covers both your nose, mouth and chin."
-				+ "3)Wash your hands often with soap and water for at least 20 seconds especially after you have been in a public place."
-				+ "4)Keep a distance of 1.5-2 meters from everyone."
-				+ "5)Do not touch your face (eyes, nose, mouth)."
-				+ "6)Avoid contact with people belonging to vulnerable groups and hositalized patients."
-				+ "7)Avoid unnecessary transportation."
-				+ "8)Always cover your mouth and nose with a tissue when you cough or sneeze use the inside of your elbow."
-				+ "9)If you have symptoms of cough, fever or it is difficult to breath, you must contact with your doctor.");
+		System.out.println("To protect yourself from the covid19 virus you must:");
+		System.out.printf("1)Cover your mouth and nose with a mask when around others.");
+		System.out.println("");
+		System.out.printf("2)Clean your hands before you put your mask on and make sure it covers "
+				+ "both your nose, mouth and chin.");
+		System.out.println("");
+		System.out.printf("3)Wash your hands often with soap and water for at least 20 seconds "
+				+ "especially after you have been in a public place.");
+		System.out.println("");
+		System.out.printf("4)Keep a distance of 1.5-2 meters from everyone.");
+		System.out.println("");
+		System.out.printf("5)Do not touch your face (eyes, nose, mouth).");
+		System.out.println("");
+		System.out.printf("6)Avoid contact with people belonging to vulnerable groups "
+				+ "and hospitalized patients.");
+		System.out.println("");
+		System.out.printf("7)Avoid unnecessary transportation.");
+		System.out.println("");
+		System.out.printf("8)Always cover your mouth and nose with a tissue when you cough or sneeze"
+				+ " use the inside of your elbow.");
+		System.out.println("");
+		System.out.printf("9)If you have symptoms of cough, fever or it is difficult to breath, you"
+				+ " must contact with your doctor.");
+		System.out.println("");
 
 	}
 	
 	/*Printing instructions for people infected by Covid19*/
 	public static void instructionsForInfected() {
-		System.out.println("Stay home and self-isolate even if you have minor symptoms such as cough, headache, mild fever, until you recover."
-				+ "Call your health care provider or hotline for advice. Have someone bring you supplies."
-				+ "If you need to leave your house or have someone near you, wear a medical mask to avoid infecting others"
-				+ "If you have a fever, cough and difficulty breathing, seek medical attention immediately. Call by telephone first,"
-				+ "if you can and follow the directions of your local health authority"
-				+ "Keep up to date on the latest information from trusted sources. Local and national authorities and public health units"
-				+ "are the best placed to advise on what people in your area should be doing to protect themselves.");
+		System.out.println("1)Stay home and self-isolate even if you have minor symptoms such as cough, "
+				+ "headache, mild fever, until you recover.");
+		System.out.printf("2)Call your health care provider or hotline for advice.");
+		System.out.println("");
+		System.out.printf("Have someone bring you supplies.");
+		System.out.println("");
+		System.out.printf("4)If you need to leave your house or have someone near you, "
+				+ "wear a medical mask to avoid infecting others");
+		System.out.println("");
+		System.out.printf("5)If you have a fever, cough and difficulty breathing, seek medical attention immediately."
+				+ " Call by telephone first if you can and follow the directions of your local health authority");
+		System.out.println("");
+		System.out.printf("6)Keep up to date on the latest information from trusted sources. Local and national "
+				+ "authorities and public health unit are the best placed to advise on what people in "
+				+ "your area should be doing to protect themselves.");
+		System.out.println("");
+
 	}
 	
 	/*Printing the number of today's infections*/
