@@ -59,13 +59,13 @@ public class Statistics {
 			}
 		}
 	}
-	public static double[] infratepermonth(double[] infpermonth, double countmale, double countfemale) {
+	public static double[] infratepermonth() {
 		for (int i = 0; i < 12; i++) {
-			monthinfrate[i] = infpermonth[i]/(countmale + countfemale) * 100;
+			monthinfrate[i] = infpermonth[i]/countinfected * 100;
 		}
 		return monthinfrate;
 	}
-	public static int mostinfmonth(double[] infpermonth) {
+	public static int mostinfmonth() {
 		double maxinf = 0;
 		for (int i = 0; i < 12; i++) {
 			if ( i == 0) {
@@ -81,7 +81,7 @@ public class Statistics {
 		return maxmonth;
 	}
 
-	public static double[] infrateperseason(double[] monthinfrate) { /* Υπολογισμός ποσοστών ανα εποχή*/
+	public static double[] infrateperseason() { /* Υπολογισμός ποσοστών ανα εποχή*/
 		seasoninfrate[0] = monthinfrate[0] + monthinfrate[1] + monthinfrate[11];
 		seasoninfrate[1] = monthinfrate[2] + monthinfrate[3] + monthinfrate[4];
 		seasoninfrate[2] = monthinfrate[5] + monthinfrate[6] + monthinfrate[7];
@@ -98,7 +98,7 @@ public class Statistics {
 		System.out.println(psummer + "% of the confirmed cases appeared in summer");
 		System.out.println(pautumn + "% of the confirmed cases appeared in autumn");
 	}
-	public static String mostinfseason(double[] seasoninfrate) {
+	public static String mostinfseason() {
 		String[] season = {"Winter", "Spring", "Summer", "Autumn"};
 		double maxinfrate = 0;
 		for (int i = 0; i < 4; i++) {
