@@ -43,8 +43,10 @@ public class CovidInformation {
 		case 11:				
 		case 12: Statistics.GenderPercentages();		
 		case 13:
-		case 14:
-		case 15: Statistics.SeasonPercentages();		
+		case 14: 
+				 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
+		case 15: Statistics.SeasonPercentages();
+				 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
 		case 16: Statistics.AgePercentages();
 		case 17:
 		default: System.out.println("Wrong input, try again!");
