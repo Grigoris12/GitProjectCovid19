@@ -24,3 +24,15 @@ class covidinfo
 6.krousmata se meth
 7.diathesimes klines,
 
+cities.
+1.Athens
+2.Thesaloniki
+3.Larissa
+4.Xania
+5.Patra
+6.Komotini
+7.Alexandroupoli
+8.Kalamata
+9.Gianena
+
+
