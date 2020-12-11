@@ -19,12 +19,14 @@ public class Hospital {
 	// The number of available icus out of all hospitals
 	private static int freeIcu = 0;
 
-		private static Hospital[] hospitals = new Hospital[6];
+	private static Hospital[] hospitals = new Hospital[6];
 	private static int count = 0;
 	
 	// Number of people that come out of the Icus alive and dead
 	private static int numberAlive = 0, numberDead = 0;
 
+	private static int totalIcuCases = 0;
+	
 	// constructor for hospitals and their attributes
 	public Hospital(String hospitalName, int icu, String location) {
 		hospitals[count] = this;
@@ -57,15 +59,19 @@ public class Hospital {
 		return mostEmptyHospital;
 	}
 	
-	// The 
+	// The entrance of a new person who need icu
 	public void icuUpdate(Person person) {
-		if(person.infected ) {
-			entrancedPerson.add(person);
-			hospitals[mostFreeIcus()].icu--;
-		}		
+		for(int i = 0 ; i < hospitals.length ; i++) {
+			if(person.infected && person.getRegion() == hospitals[i].location ) {
+				entrancedPerson.add(person);
+				hospitals[mostFreeIcus()].icu--;
+				totalIcuCases++;
+			}
+		}
 	}
-	// 
-	public void icuExtraction() {
+	
+	// When a person is exiting the Icu 
+	public void icuExtraction(Person person) {
 		System.out.println("What is the current situation of the case: alive or dead;");
 		boolean alive = scanner.hasNext();
 		if(alive) {
@@ -73,9 +79,9 @@ public class Hospital {
 		}else {
 			numberDead++;
 		}
-		
-	}
 
+		}
+		
 	public String getHospitalName() {
 		return hospitalName;
 	}
@@ -99,6 +105,31 @@ public class Hospital {
 	public void setIcu(int icu) {
 		this.icu = icu;
 	}
-}
 
+	public static int getNumberAlive() {
+		return numberAlive;
+	}
+
+	public static void setNumberAlive(int numberAlive) {
+		Hospital.numberAlive = numberAlive;
+	}
+
+	public static int getNumberDead() {
+		return numberDead;
+	}
+
+	public static void setNumberDead(int numberDead) {
+		Hospital.numberDead = numberDead;
+	}
+
+	public static int getTotalIcuCases() {
+		return totalIcuCases;
+	}
+
+	public static void setTotalIcuCases(int totalIcuCases) {
+		Hospital.totalIcuCases = totalIcuCases;
+	}
+
+
+}
 
