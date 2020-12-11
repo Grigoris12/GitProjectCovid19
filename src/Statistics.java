@@ -173,6 +173,11 @@ public class Statistics {
 		double pentrance = Hospital.getTotalIcuCases() / countinfected * 100; 
 		System.out.println(pentrance + " % of the confirmed cases needed icu");
 	}
+	
+	public static void icuexitrate() {
+		double pexit = Hospital.getNumberAlive()/Hospital.getTotalIcuCases() * 100; 
+		System.out.println(pexit + " % of people infected by Covid 19 have exit icus ");
+	}
 }
 				
 						
