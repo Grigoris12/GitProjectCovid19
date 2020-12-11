@@ -275,3 +275,4 @@ public class Person {
 		this.infected = infected;
 	}
 }
+
