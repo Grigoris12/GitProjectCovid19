@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Person {
 	//declarations//
@@ -13,7 +14,7 @@ public class Person {
 	private int testyear;
 	private int AMKA;
 	boolean infected;
- //Constructor for person//
+	//Constructor for person//
 	public Person(String name, String surname, int age, String gender, String region, int testday,
 			int testmonth, int testyear, int aMKA, boolean infected) {
 		this.name = name;
@@ -30,32 +31,181 @@ public class Person {
 	//method for adding person//
 	public static void addPerson() {
 		Scanner sca = new Scanner(System.in);
-		System.out.print("Give name = ");
-		String n = sca.next();
-		System.out.print("Give surname = ");
-		String s = sca.next();
-		System.out.print("Give age = ");
-		int b = sca.nextInt();
-		System.out.print("Give gender  = "); 
-		String g = sca.next();
-		System.out.print("Give region = ");
-		String r = sca.next();
-		System.out.print("Give test day = ");
-		int d = sca.nextInt();
-		System.out.print("Give test month = ");
-		int m = sca.nextInt();
-		System.out.print("Give test year = ");
-		int y = sca.nextInt();
-		System.out.print("Give AMKA = ");
-		int a = sca.nextInt();
-		System.out.print("You tested Posice  or Negatice for covid-19(true/false) = ");
-		boolean i = sca.nextBoolean();
+		String n=null;
+		String s=null;
+		boolean per = true;
+		//name input//
+		do {
+			per=true;
+			try{
+				System.out.print("Give name = ");
+				n = sca.next();
+				if(!n.matches("^[a-zA-Z]+$")){
+					throw new Exception();
+				}
+
+			}catch(Exception e){
+				System.out.println("Wrong input");
+				per=false;
+			}
+		}while(per == false);
+
+
+
+		//surname input//
+		do {
+			per=true;
+			try{
+				System.out.print("Give surname = ");
+				s = sca.next();
+				if(!s.matches("^[a-zA-Z]+$")){
+					throw new Exception();
+				}
+
+			}catch(Exception e){
+				System.out.println("Wrong input");
+				per=false;
+			}
+		}while(per == false);
+
+
+
+		//age input//
+		int b=0;
+		do {
+			per=true;
+			try {
+				System.out.print("Give age = ");
+				b = sca.nextInt();
+			}catch (InputMismatchException exception) 
+			{ 
+				System.out.println("Integers only, please."); 
+				per=false;
+				sca.nextLine();
+			} 
+		}while(per == false);
+
+		//gender input//
+		String g=null;
+		do {
+			per=true;
+			try {
+				System.out.print("Give gender male/female= "); 
+				g = sca.next();
+				if(!g.matches("male|female")) {
+
+					throw new Exception();
+				}
+			} catch(Exception e) {
+				System.out.println("Wrong input,put male/female");
+				per=false;
+				sca.nextLine();
+			}
+		}while(per == false);
+
+		String r = null;
+		do {
+			per=true;
+			try {
+				System.out.print("Give region = ");
+				r = sca.next();
+				if((!r.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
+					throw new Exception();
+				}
+			} catch(Exception e) {
+				System.out.println("Wrong input,not valid region");
+				per=false;
+				sca.nextLine();
+			}
+		}while(per == false);
+
+
+
+
+
+
+
+		//test day input//
+		int d=0;
+		do {
+			per=true;
+			try {
+				System.out.print("Give test day = ");
+				d = sca.nextInt();
+			}catch (InputMismatchException exception) 
+			{ 
+				System.out.println("Integers only, please."); 
+				per=false;
+				sca.nextLine();
+			} 
+		}while(per == false);
+
+		//test month input//
+		int m=0;
+		do {
+			per=true;
+			try {
+				System.out.print("Give test month = ");
+				m = sca.nextInt();
+			}catch (InputMismatchException exception) 
+			{ 
+				System.out.println("Integers only, please."); 
+				per=false;
+				sca.nextLine();
+			} 
+		}while(per == false);
+
+		//test year input//
+		int y=0;
+		do {
+			per=true;
+			try {
+				System.out.print("Give test year = ");
+				y = sca.nextInt();
+			}catch (InputMismatchException exception) 
+			{ 
+				System.out.println("Integers only, please."); 
+				per=false;
+				sca.nextLine();
+			} 
+		}while(per == false);
+
+
+		//AMKA input//
+		int a=0;
+		do {
+			per=true;
+			try {
+				System.out.print("Give AMKA = ");
+				a = sca.nextInt();
+			}catch (InputMismatchException exception) 
+			{ 
+				System.out.println("Integers only, please."); 
+				per=false;
+				sca.nextLine();
+			} 
+		}while(per == false);
+
+        //covid test input//
+		boolean i=true;
+		do {
+			per=true;
+			try {
+				System.out.print("You tested Posice  or Negatice for covid-19(true/false) = ");
+				i = sca.nextBoolean();
+			}catch(Exception e) {
+				System.out.println("only put true/false");  
+				per=false;
+				sca.nextLine();
+			}
+		}while(per == false);
+
 
 		personlist.add(new Person(n , s, b, g, r, d, m, y, a, i));
-		Statistics.ageofPatients(b);
-		Statistics.gendercount(i, g);
+
+
 	}
- 
+
 	@Override
 	public String toString() {
 		return "name=" + name + ", surname=" + surname + ", age=" + age + ", gender=" + gender
@@ -68,7 +218,7 @@ public class Person {
 	}
 	public void setName(String name) {
 		this.name = name;
-		
+
 	}
 	public String getSurname() {
 		return surname;
@@ -125,3 +275,4 @@ public class Person {
 		this.infected = infected;
 	}
 }
+
