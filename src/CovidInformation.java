@@ -15,7 +15,7 @@ public class CovidInformation {
 		System.out.println("9)Printing the number of people infected by Covid19 that are into icus");
 		System.out.println("10)Printing the percentage of people infected by Covid19 that have exit icus");
 		System.out.println("11)Printing the available icus in every city");
-		System.out.println("12)Printing the percentage of felame and male infected by Covid19");
+		System.out.println("12)Printing the percentage of female and male infected by Covid19");
 		System.out.println("13)Printing the percentage of infections in every city right now");/*++να εμφανίζει την πόλη με τα περισσότερα κρούσματα */
 		System.out.println("14)Printing the percentage of infections per month");
 		System.out.println("15)Printing the percentage of infections per season");/*++να εμφανίζει την εποχή με τα περισσότερα κρούσματα*/
@@ -41,13 +41,13 @@ public class CovidInformation {
 		case 9:				
 		case 10:
 		case 11:				
-		case 12: Statistics.GenderPercentages();		
+		case 12: Statistics.genderPercentages();		
 		case 13:
 		case 14: 
 				 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
-		case 15: Statistics.SeasonPercentages();
+		case 15: Statistics.seasonPercentages();
 				 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
-		case 16: Statistics.AgePercentages();
+		case 16: Statistics.agePercentages();
 		case 17:
 		default: System.out.println("Wrong input, try again!");
 		}	

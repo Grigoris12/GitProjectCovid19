@@ -7,6 +7,7 @@ public class Statistics {
 	private static double countkids = 0; 
 	private static double countadults = 0;
 	private static double countelders = 0;
+	private static double pdeath; 
 	private static double[] infpermonth = new double [12];
 	protected static double[] monthinfrate = new double [12];
 	protected static int maxmonth;
@@ -22,13 +23,13 @@ public class Statistics {
 			}
 		}
 	} 
-	public static void GenderPercentages(){ 
+	public static void genderPercentages(){ 
 		double pmale = countmale / countinfected * 100;
 		double pfemale = countfemale / countinfected * 100;
 		System.out.println(pmale + " % of the confirmed cases are male" );
 		System.out.println(pfemale + " % of the confirmed cases are female") ;
 	}
-	public static void AgeofPatients(int age) { /*Υπολογισμός ποσοστών ανα ηλικία*/
+	public static void ageofPatients(int age) { /*Υπολογισμός ποσοστών ανα ηλικία*/
 
 		if (age <= 17) {
 			countkids++;
@@ -39,7 +40,7 @@ public class Statistics {
 		}
 	}
 	
-	public static void AgePercentages() {
+	public static void agePercentages() {
 		double pkids = countkids / countinfected * 100;
 		double padults = countadults / countinfected * 100;
 		double pelders = countelders / countinfected * 100;
@@ -91,7 +92,7 @@ public class Statistics {
 		seasoninfrate[3] = monthinfrate[8] + monthinfrate[9] + monthinfrate[10];
 		return seasoninfrate;
 	}
-	public static void SeasonPercentages(){
+	public static void seasonPercentages(){
 		double pwinter = seasoninfrate[0] / countinfected * 100; 
 		double pspring = seasoninfrate[1] / countinfected * 100;
 		double psummer = seasoninfrate[2] / countinfected * 100;
@@ -164,12 +165,16 @@ public class Statistics {
 			System.out.println("Total people infected by Covid19 in" + region + "are:" + countTotalInfected);
 		}
 	}
+	public static void mortalityrate(int numberdead) { // ποσοστό θνησιμότητας 
+		pdeath = numberdead/countinfected * 100;
+		System.out.println("The mortality rate of Covid19 is" + pdeath);
+	}
 }
 				
 						
 	
 	
-	
+
     
 	
 	
