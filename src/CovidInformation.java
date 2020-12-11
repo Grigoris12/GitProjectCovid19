@@ -13,8 +13,8 @@ public class CovidInformation {
 		System.out.println("7)Printing total deaths from Covid19");
 		System.out.println("8)Printing the percentage of mortality");
 		System.out.println("9)Printing the number of people infected by Covid19 that are into icus");
-		System.out.println("10)Printing the percentage of people infected by Covid19 that have exit icus");
-		System.out.println("11)Printing the available icus in every city");
+		System.out.println("10)Printing the percentage of people infected by Covid19 that have enter icus"); /*++ ποσοστό που έχουν βγει από τις ΜΕΘ*/
+		System.out.println("11)Printing the available icus of every hospital");
 		System.out.println("12)Printing the percentage of female and male infected by Covid19");
 		System.out.println("13)Printing the percentage of infections in every city right now");/*++να εμφανίζει την πόλη με τα περισσότερα κρούσματα */
 		System.out.println("14)Printing the percentage of infections per month");
@@ -37,10 +37,10 @@ public class CovidInformation {
 		case 5: Statistics.totalInfected();
 		case 6:
 		case 7:
-		case 8:
+		case 8: Statistics.mortalityrate();
 		case 9:				
-		case 10:
-		case 11:				
+		case 10: Statistics.icurate();
+		case 11: 
 		case 12: Statistics.genderPercentages();		
 		case 13:
 		case 14: 
