@@ -6,8 +6,7 @@ public class Statistics {
 	private static double countinfected = 0;
 	private static double countkids = 0; 
 	private static double countadults = 0;
-	private static double countelders = 0;
-	private static double pdeath; 
+	private static double countelders = 0; 
 	private static double[] infpermonth = new double [12];
 	protected static double[] monthinfrate = new double [12];
 	protected static int maxmonth;
@@ -165,9 +164,14 @@ public class Statistics {
 			System.out.println("Total people infected by Covid19 in" + region + "are:" + countTotalInfected);
 		}
 	}
-	public static void mortalityrate(int numberdead) { // ποσοστό θνησιμότητας 
-		pdeath = numberdead/countinfected * 100;
+	public static void mortalityrate() { // ποσοστό θνησιμότητας 
+		double pdeath = Hospital.getNumberDead()/ countinfected * 100; 
 		System.out.println("The mortality rate of Covid19 is" + pdeath);
+	}
+	
+	public static void icurate() { // ποσοστό ατόμων που μπήκαν σε ΜΕΘ 
+		double pentrance = Hospital.getTotalIcuCases() / countinfected * 100; 
+		System.out.println(pentrance + " % of the confirmed cases needed icu");
 	}
 }
 				
