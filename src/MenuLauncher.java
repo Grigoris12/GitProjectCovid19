@@ -21,10 +21,8 @@ public class MenuLauncher {
 					break;
 
 				case 2:
-					for(int i=0;i<Person.personlist.size();i++)
-						System.out.print(Person.personlist.get(i));
+					CovidInformation.menu();
 					break;
-
 				case 3:
 					System.out.println("Give Password = ");
 					int p = sc.nextInt();
@@ -32,6 +30,11 @@ public class MenuLauncher {
 						System.out.println("Correct Pasword");
 						break;
 					}
+				case 4:
+					for(int i=0;i<Person.personlist.size();i++)
+						System.out.print(Person.personlist.get(i));
+					break;
+					
 				}
 
 			}catch(Exception e) {
