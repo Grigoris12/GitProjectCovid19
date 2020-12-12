@@ -193,6 +193,8 @@ public class Person {
 
 
 		personlist.add(new Person(n , s, b, g, r, d, m, y, a, i));
+		Statistics.gendercount(i, g);
+		Statistics.ageofPatients(b);
 
 
 	}
