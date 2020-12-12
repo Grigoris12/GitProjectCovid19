@@ -5,8 +5,6 @@ public class MenuLauncher {
 	public static void main(String[] args) {
 
 		Scanner sc= new Scanner(System.in);
-		//System.out.println(Person.personlist);
-		//System.out.println(Person.personlist.get(0).getGender());
 		boolean bol = false;
 		int x;
 		//main menu //
@@ -23,15 +21,16 @@ public class MenuLauncher {
 						Person.addPerson();
 
 					} else if(x==2) {
-
-
+						for(int i=0;i<Person.personlist.size();i++)
+						System.out.print(Person.personlist.get(i));
 					}
-					else if(x==3) {
-						System.out.println("Give Password = ");
-						int p = sc.nextInt();
-						if(p==1044932) {
-							System.out.println("Correct Pasword");
-						}
+
+				}
+				else if(x==3) {
+					System.out.println("Give Password = ");
+					int p = sc.nextInt();
+					if(p==1044932) {
+						System.out.println("Correct Pasword");
 					}
 				} else if((x<1)||(x>3)) {
 					System.out.println("Try again");
@@ -44,11 +43,12 @@ public class MenuLauncher {
 
 		}while(bol==false);
 		sc.close();
-		
-		
-            
+
+
+
 	}
 
 
 }
+
 
