@@ -191,7 +191,7 @@ public class Statistics {
 		for (int i = 0; i < 9; i++) {
 			switch(i) {
 			  case 0:
-				  regions[i] = "Athens";
+				  regions[i] ="Athens";
 			  case 1:
 				  regions[i] = "Thessaloniki";
 			  case 2:
