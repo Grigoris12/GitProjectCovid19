@@ -13,12 +13,14 @@ public class Statistics {
 	protected static int maxmonth;
 	protected static String maxseason;
 	protected static double[] seasoninfrate = new double [4];
+
 	private static DecimalFormat df2 = new DecimalFormat("#.##");
 	
-	public static void gendercount(boolean infected,String gender){ /* Υπολογισμός ποσοστών ανα φύλο*/
+	public static void gendercount(boolean infected,String gender){ 
+
 		if(infected) {
 			countinfected++;
-			if (gender == "male") {
+			if (gender.equals("male")) {
 				countmale++;
 			}else {
 				countfemale++;
@@ -31,7 +33,7 @@ public class Statistics {
 		System.out.println(df2.format(pmale) + " % of the confirmed cases are male" );
 		System.out.println(df2.format(pfemale) + " % of the confirmed cases are female") ;
 	}
-	public static void ageofPatients(int age) { /*Υπολογισμός ποσοστών ανα ηλικία*/
+	public static void ageofPatients(int age) { 
 
 		if (age <= 17) {
 			countkids++;
@@ -87,7 +89,7 @@ public class Statistics {
 		return maxmonth;
 	}
 
-	public static double[] infrateperseason() { /* Υπολογισμός ποσοστών ανα εποχή*/
+	public static double[] infrateperseason() { 
 		seasoninfrate[0] = monthinfrate[0] + monthinfrate[1] + monthinfrate[11];
 		seasoninfrate[1] = monthinfrate[2] + monthinfrate[3] + monthinfrate[4];
 		seasoninfrate[2] = monthinfrate[5] + monthinfrate[6] + monthinfrate[7];
@@ -167,12 +169,12 @@ public class Statistics {
 			System.out.println("Total people infected by Covid19 in" + region + "are:" + countTotalInfected);
 		}
 	}
-	public static void mortalityrate() { // ποσοστό θνησιμότητας 
+	public static void mortalityrate() {  
 		double pdeath = Hospital.getNumberDead()/ countinfected * 100; 
 		System.out.println("The mortality rate of Covid19 is" + df2.format(pdeath));
 	}
 	
-	public static void icurate() { // ποσοστό ατόμων που μπήκαν σε ΜΕΘ 
+	public static void icurate() {  
 		double pentrance = Hospital.getTotalIcuCases() / countinfected * 100; 
 		System.out.println(df2.format(pentrance) + " % of the confirmed cases needed icu");
 	}
@@ -182,6 +184,8 @@ public class Statistics {
 		System.out.println(df2.format(pexit) + " % of people infected by Covid 19 have exit icus ");
 	}
 }
+
+		
 				
 						
 	
