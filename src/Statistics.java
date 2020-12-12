@@ -193,7 +193,7 @@ public class Statistics {
 			  case 0:
 				  regions[i] ="Athens";
 			  case 1:
-				  regions[i] = "Thessaloniki";
+				  regions[i] ="Thessaloniki";
 			  case 2:
 				  regions[i] = "Larissa";
 			  case 3:
