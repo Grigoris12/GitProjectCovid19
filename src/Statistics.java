@@ -12,10 +12,10 @@ public class Statistics {
 	protected static int maxmonth;
 	protected static String maxseason;
 	protected static double[] seasoninfrate = new double [4];
-	public static void gendercount(boolean infected,String gender){ /* Υπολογισμός ποσοστών ανα φύλο*/
+	public static void gendercount(boolean infected,String gender){ 
 		if(infected) {
 			countinfected++;
-			if (gender == "male") {
+			if (gender.equals("male")) {
 				countmale++;
 			}else {
 				countfemale++;
