@@ -15,7 +15,7 @@ public class Statistics {
 	protected static double[] seasoninfrate = new double [4];
 	private static DecimalFormat df2 = new DecimalFormat("#.##");
 	
-	public static void gendercount(boolean infected,String gender){ /* Υπολογισμός ποσοστών ανα φύλο*/
+	public static void gendercount(boolean infected,String gender){ // calculates the percentage of male and female infected by covid 
 		if(infected) {
 			countinfected++;
 			if (gender == "male") {
@@ -31,8 +31,7 @@ public class Statistics {
 		System.out.println(df2.format(pmale) + " % of the confirmed cases are male" );
 		System.out.println(df2.format(pfemale) + " % of the confirmed cases are female") ;
 	}
-	public static void ageofPatients(int age) { /*Υπολογισμός ποσοστών ανα ηλικία*/
-
+	public static void ageofPatients(int age) { // calculates the percentage of cases in age category 
 		if (age <= 17) {
 			countkids++;
 		} else if (age <= 64) {
@@ -42,7 +41,7 @@ public class Statistics {
 		}
 	}
 	
-	public static void agePercentages() {
+	public static void agePercentages() { 
 		double pkids = countkids / countinfected * 100;
 		double padults = countadults / countinfected * 100;
 		double pelders = countelders / countinfected * 100;
@@ -120,7 +119,7 @@ public class Statistics {
 		}
 		return maxseason;
 	}
-	public static void todayInfected(int day, int month , int year) {
+	public static void todayInfected(int day, int month , int year) { // calculates the number of cases on a given day 
 		System.out.println("You want to know todays infected in Greece or in certain city?Insert [Greece] or [city].");
 		Scanner sc = new Scanner(System.in);
 		String answer = sc.next();
@@ -144,7 +143,7 @@ public class Statistics {
 		}
 	}
 	
-	public static void totalInfected() {
+	public static void totalInfected() { // calculates the total number of cases 
 		System.out.println("You want to know total infected in Greece or in certain city?Insert [Greece] or [city]");
 		Scanner sc = new Scanner(System.in);
 		String answer = sc.next();
@@ -167,17 +166,17 @@ public class Statistics {
 			System.out.println("Total people infected by Covid19 in" + region + "are:" + countTotalInfected);
 		}
 	}
-	public static void mortalityrate() { // ποσοστό θνησιμότητας 
+	public static void mortalityrate() { 
 		double pdeath = Hospital.getNumberDead()/ countinfected * 100; 
 		System.out.println("The mortality rate of Covid19 is" + df2.format(pdeath));
 	}
 	
-	public static void icurate() { // ποσοστό ατόμων που μπήκαν σε ΜΕΘ 
+	public static void icurate() { // percentage of people that entered icu 
 		double pentrance = Hospital.getTotalIcuCases() / countinfected * 100; 
 		System.out.println(df2.format(pentrance) + " % of the confirmed cases needed icu");
 	}
 	
-	public static void icuexitrate() {
+	public static void icuexitrate() { // percentage of people that exit icu 
 		double pexit = Hospital.getNumberAlive()/Hospital.getTotalIcuCases() * 100; 
 		System.out.println(df2.format(pexit) + " % of people infected by Covid 19 have exit icus ");
 	}
