@@ -30,6 +30,7 @@ public class MenuLauncher {
 					int p = sc.nextInt();
 					if(p==104) {
 						System.out.println("Correct Pasword");
+						break;
 					}
 				}
 
