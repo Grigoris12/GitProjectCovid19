@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class Statistics {
 	private static double countmale = 0;
@@ -12,6 +13,8 @@ public class Statistics {
 	protected static int maxmonth;
 	protected static String maxseason;
 	protected static double[] seasoninfrate = new double [4];
+	private static DecimalFormat df2 = new DecimalFormat("#.##");
+	
 	public static void gendercount(boolean infected,String gender){ /* Υπολογισμός ποσοστών ανα φύλο*/
 		if(infected) {
 			countinfected++;
@@ -25,8 +28,8 @@ public class Statistics {
 	public static void genderPercentages(){ 
 		double pmale = countmale / countinfected * 100;
 		double pfemale = countfemale / countinfected * 100;
-		System.out.println(pmale + " % of the confirmed cases are male" );
-		System.out.println(pfemale + " % of the confirmed cases are female") ;
+		System.out.println(df2.format(pmale) + " % of the confirmed cases are male" );
+		System.out.println(df2.format(pfemale) + " % of the confirmed cases are female") ;
 	}
 	public static void ageofPatients(int age) { /*Υπολογισμός ποσοστών ανα ηλικία*/
 
@@ -43,9 +46,9 @@ public class Statistics {
 		double pkids = countkids / countinfected * 100;
 		double padults = countadults / countinfected * 100;
 		double pelders = countelders / countinfected * 100;
-		System.out.println(pkids + "% of the confirmed cases are kids");
-		System.out.println(padults + "% of the confirmed cases are adults");
-		System.out.println(pelders + "% of the confirmed cases are elders"); 
+		System.out.println(df2.format(pkids) + "% of the confirmed cases are kids");
+		System.out.println(df2.format(padults) + "% of the confirmed cases are adults");
+		System.out.println(df2.format(pelders) + "% of the confirmed cases are elders"); 
 	}
 	
 	public static void initialisation() {
@@ -96,10 +99,10 @@ public class Statistics {
 		double pspring = seasoninfrate[1] / countinfected * 100;
 		double psummer = seasoninfrate[2] / countinfected * 100;
 		double pautumn = seasoninfrate[3] / countinfected * 100;
-		System.out.println(pwinter + "% of the confirmed cases appeared in winter");
-		System.out.println(pspring + "% of the confirmed cases appeared in spring");
-		System.out.println(psummer + "% of the confirmed cases appeared in summer");
-		System.out.println(pautumn + "% of the confirmed cases appeared in autumn");
+		System.out.println(df2.format(pwinter) + "% of the confirmed cases appeared in winter");
+		System.out.println(df2.format(pspring) + "% of the confirmed cases appeared in spring");
+		System.out.println(df2.format(psummer) + "% of the confirmed cases appeared in summer");
+		System.out.println(df2.format(pautumn) + "% of the confirmed cases appeared in autumn");
 	}
 	public static String mostinfseason() {
 		String[] season = {"Winter", "Spring", "Summer", "Autumn"};
@@ -166,17 +169,17 @@ public class Statistics {
 	}
 	public static void mortalityrate() { // ποσοστό θνησιμότητας 
 		double pdeath = Hospital.getNumberDead()/ countinfected * 100; 
-		System.out.println("The mortality rate of Covid19 is" + pdeath);
+		System.out.println("The mortality rate of Covid19 is" + df2.format(pdeath));
 	}
 	
 	public static void icurate() { // ποσοστό ατόμων που μπήκαν σε ΜΕΘ 
 		double pentrance = Hospital.getTotalIcuCases() / countinfected * 100; 
-		System.out.println(pentrance + " % of the confirmed cases needed icu");
+		System.out.println(df2.format(pentrance) + " % of the confirmed cases needed icu");
 	}
 	
 	public static void icuexitrate() {
 		double pexit = Hospital.getNumberAlive()/Hospital.getTotalIcuCases() * 100; 
-		System.out.println(pexit + " % of people infected by Covid 19 have exit icus ");
+		System.out.println(df2.format(pexit) + " % of people infected by Covid 19 have exit icus ");
 	}
 }
 				
