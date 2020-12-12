@@ -13,20 +13,20 @@ public class CovidInformation {
 		System.out.println("7)Printing total deaths from Covid19");
 		System.out.println("8)Printing the percentage of mortality");
 		System.out.println("9)Printing the number of people infected by Covid19 that are into icus");
-		System.out.println("10)Printing the percentage of people infected by Covid19 that have enter icus"); /*++ ποσοστό που έχουν βγει από τις ΜΕΘ*/
+		System.out.println("10)Printing the percentage of people infected by Covid19 that have enter icus"); 
 		System.out.println("11)Printing the available icus of every hospital");
 		System.out.println("12)Printing the percentage of female and male infected by Covid19");
-		System.out.println("13)Printing the percentage of infections in every city right now");/*++να εμφανίζει την πόλη με τα περισσότερα κρούσματα */
+		System.out.println("13)Printing the percentage of infections in every city right now");
 		System.out.println("14)Printing the percentage of infections per month");
-		System.out.println("15)Printing the percentage of infections per season");/*++να εμφανίζει την εποχή με τα περισσότερα κρούσματα*/
+		System.out.println("15)Printing the percentage of infections per season");
 		System.out.println("16)Printing the percentage of infections in age category");
-		System.out.println("17)Printing the Covid-map");/* πόλεις σε πράσινο,κίτρινο,πορτοκαλί και κόκκινο */
+		System.out.println("17)Printing the Covid-map");
 		System.out.println("Choose from 1 to 17");
 		int choice = sc.nextInt();
 		switch (choice) {
-		case 1: covidSymptoms();
+		case 1: covidSymptoms(); 
 		case 2: instructionsForInfected();
-		case 3: covidGuide();
+		case 3: covidGuide(); 
 		case 4:
 			Scanner s = new Scanner(System.in);
 			System.out.println("Insert the day,month and year that you want to know the number of infections");
@@ -47,7 +47,7 @@ public class CovidInformation {
 				 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
 		case 15: Statistics.seasonPercentages();
 				 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
-		case 16: Statistics.agePercentages();
+		case 16: Statistics.agePercentages();  break;
 		case 17:
 		default: System.out.println("Wrong input, try again!");
 		}	
