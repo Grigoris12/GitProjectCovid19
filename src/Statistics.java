@@ -245,8 +245,8 @@ public class Statistics {
 		}
 		return regioninfrate;
 	}
-}
-
+}  
+    
 
 		
 				
