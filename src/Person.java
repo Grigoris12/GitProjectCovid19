@@ -50,8 +50,6 @@ public class Person {
 			}
 		}while(per == false);
 
-
-
 		//surname input//
 		do {
 			per=true;
@@ -67,8 +65,6 @@ public class Person {
 				per=false;
 			}
 		}while(per == false);
-
-
 
 		//age input//
 		int b=0;
@@ -103,6 +99,7 @@ public class Person {
 			}
 		}while(per == false);
 
+		//region input//
 		String r = null;
 		do {
 			per=true;
@@ -118,12 +115,6 @@ public class Person {
 				sca.nextLine();
 			}
 		}while(per == false);
-
-
-
-
-
-
 
 		//test day input//
 		int d=0;
@@ -191,7 +182,7 @@ public class Person {
 		do {
 			per=true;
 			try {
-				System.out.print("You tested Posice  or Negatice for covid-19(true/false) = ");
+				System.out.print("You tested Positive  or Negatice for covid-19(true/false) = ");
 				i = sca.nextBoolean();
 			}catch(Exception e) {
 				System.out.println("only put true/false");  

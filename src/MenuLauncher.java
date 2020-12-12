@@ -15,26 +15,24 @@ public class MenuLauncher {
 			System.out.print("Give [1-3] ");
 			try {
 				x = sc.nextInt();
-				if((x>=1)&&(x<=3)) {
-					if(x==1) {
+				switch(x) {
+				case 1:
+					Person.addPerson();
+					break;
 
-						Person.addPerson();
-
-					} else if(x==2) {
-						for(int i=0;i<Person.personlist.size();i++)
+				case 2:
+					for(int i=0;i<Person.personlist.size();i++)
 						System.out.print(Person.personlist.get(i));
-					}
+					break;
 
-				}
-				else if(x==3) {
+				case 3:
 					System.out.println("Give Password = ");
 					int p = sc.nextInt();
-					if(p==1044932) {
+					if(p==104) {
 						System.out.println("Correct Pasword");
 					}
-				} else if((x<1)||(x>3)) {
-					System.out.println("Try again");
 				}
+
 			}catch(Exception e) {
 				sc.nextLine();
 				System.out.println("Error,Try Again"); 
@@ -50,5 +48,6 @@ public class MenuLauncher {
 
 
 }
+
 
 
