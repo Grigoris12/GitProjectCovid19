@@ -13,6 +13,10 @@ public class Statistics {
 	protected static int maxmonth;
 	protected static String maxseason;
 	protected static double[] seasoninfrate = new double [4];
+	private static String[] regions = new String[9];
+	private static double[] infperregion = new double[9];
+	private static String maxregion;
+	private static double[] regioninfrate = new double[9];
 
 	private static DecimalFormat df2 = new DecimalFormat("#.##");
 	
@@ -183,7 +187,66 @@ public class Statistics {
 		double pexit = Hospital.getNumberAlive()/Hospital.getTotalIcuCases() * 100; 
 		System.out.println(df2.format(pexit) + " % of people infected by Covid 19 have exit icus ");
 	}
-}
+	public static void regionnames() {
+		for (int i = 0; i < 9; i++) {
+			switch(i) {
+			  case 0:
+				  regions[i] ="Athens";
+			  case 1:
+				  regions[i] ="Thessaloniki";
+			  case 2:
+				  regions[i] = "Larissa";
+			  case 3:
+				  regions[i] = "Xania";
+			  case 4:
+				  regions[i] = "Patra";
+			  case 5:
+				  regions[i] = "Komotini";
+			  case 6:
+				  regions[i] = "Alexandroupoli";
+			  case 7:
+				  regions[i] = "Kalamata";
+			  case 8:
+				  regions[i] = "Gianena";
+				  break;
+			}
+		}
+	}
+	
+	public static void countinfperregion(String region, boolean infected) {
+		if (infected) {
+			for (int i = 0; i < 9; i++) {
+				if (region == regions[i]) {
+					infperregion[i]++;
+				}
+			}
+		}
+	}
+	
+	public static String mostinfregion() {
+		double maxinf = 0;
+		for (int i = 0; i < 9; i++) {
+			if (i == 0) {
+				maxinf = infperregion[i];
+				maxregion = regions[i];
+			} else {
+				if (infperregion[i] > maxinf) {
+					maxinf = infperregion[i];
+					maxregion = regions[i];
+				}
+			}
+		}
+		return maxregion;
+	}
+	
+	public static double[] infrateperregion() {
+		for (int i = 0; i < 9; i++) {
+			regioninfrate[i] = infperregion[i] / countinfected * 100;
+		}
+		return regioninfrate;
+	}
+}  
+    
 
 		
 				
