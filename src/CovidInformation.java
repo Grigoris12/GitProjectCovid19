@@ -1,56 +1,83 @@
 import java.util.Scanner;
+
+import sun.applet.Main;
 public class CovidInformation {
 	/*Printing a list of options for users*/
 	public static void menu() { 
-		Scanner sc = new Scanner(System.in);
-		System.out.println("********Menu********");   
-		System.out.println("1)Printing the symptoms of Covid19");
-		System.out.println("2)Printing the instructions for protecting from Covid19");
-		System.out.println("3)Printing the instructions if you have symptoms of Covid19");
-		System.out.println("4)Printing today's people infected by Covid19");
-		System.out.println("5)Printing total people infected by Covid19");
-		System.out.println("6)Printing today's deaths from Covid19");
-		System.out.println("7)Printing total deaths from Covid19");
-		System.out.println("8)Printing the percentage of mortality");
-		System.out.println("9)Printing the number of people infected by Covid19 that are into icus");
-		System.out.println("10)Printing the percentage of people infected by Covid19 that have enter icus"); 
-		System.out.println("11)Printing the available icus of every hospital");
-		System.out.println("12)Printing the percentage of female and male infected by Covid19");
-		System.out.println("13)Printing the percentage of infections in every city right now");
-		System.out.println("14)Printing the percentage of infections per month");
-		System.out.println("15)Printing the percentage of infections per season");
-		System.out.println("16)Printing the percentage of infections in age category");
-		System.out.println("17)Printing the Covid-map");
-		System.out.println("Choose from 1 to 17");
-		int choice = sc.nextInt();
-		switch (choice) {
-		case 1: covidSymptoms(); 
-		case 2: instructionsForInfected();
-		case 3: covidGuide(); 
-		case 4:
-			Scanner s = new Scanner(System.in);
-			System.out.println("Insert the day,month and year that you want to know the number of infections");
-			int d = s.nextInt();
-			int m = s.nextInt();
-			int y = s.nextInt();
-			Statistics.todayInfected(d, m, y);
-		case 5: Statistics.totalInfected();
-		case 6:
-		case 7:
-		case 8: Statistics.mortalityrate();
-		case 9:				
-		case 10: Statistics.icurate();
-		case 11: 
-		case 12: Statistics.genderPercentages();		
-		case 13:
-		case 14: 
-				 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
-		case 15: Statistics.seasonPercentages();
-				 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
-		case 16: Statistics.agePercentages();  break;
-		case 17:
-		default: System.out.println("Wrong input, try again!");
-		}	
+		boolean b = true;
+		do {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("********Menu********");   
+			System.out.println("1)Printing the symptoms of Covid19");
+			System.out.println("2)Printing the instructions for protecting from Covid19");
+			System.out.println("3)Printing the instructions if you have symptoms of Covid19");
+			System.out.println("4)Printing today's people infected by Covid19");
+			System.out.println("5)Printing total people infected by Covid19");
+			System.out.println("6)Printing today's deaths from Covid19");
+			System.out.println("7)Printing total deaths from Covid19");
+			System.out.println("8)Printing the percentage of mortality");
+			System.out.println("9)Printing the number of people infected by Covid19 that are into icus");
+			System.out.println("10)Printing the percentage of people infected by Covid19 that have enter icus"); /*++ ποσοστό που έχουν βγει από τις ΜΕΘ*/
+			System.out.println("11)Printing the available icus of every hospital");
+			System.out.println("12)Printing the percentage of female and male infected by Covid19");
+			System.out.println("13)Printing the percentage of infections in every city right now");/*++να εμφανίζει την πόλη με τα περισσότερα κρούσματα */
+			System.out.println("14)Printing the percentage of infections per month");
+			System.out.println("15)Printing the percentage of infections per season");/*++να εμφανίζει την εποχή με τα περισσότερα κρούσματα*/
+			System.out.println("16)Printing the percentage of infections in age category");
+			System.out.println("17)Printing the Covid-map");/* πόλεις σε πράσινο,κίτρινο,πορτοκαλί και κόκκινο */
+			System.out.println("18)Go to home page");
+			System.out.println("Choose from 1 to 17");
+			int choice = sc.nextInt();
+			switch (choice) {
+			case 1: covidSymptoms();
+					break;
+			case 2: instructionsForInfected();
+					break;
+			case 3: covidGuide();
+					break;
+			case 4:
+				Scanner s = new Scanner(System.in);
+				System.out.println("Insert the day,month and year that you want to know the number of infections");
+				int d = s.nextInt();
+				int m = s.nextInt();
+				int y = s.nextInt();
+				Statistics.todayInfected(d, m, y);
+				break;
+			case 5: Statistics.totalInfected();
+					break;
+			case 6:
+					break;
+			case 7:  
+					break;
+			case 8: Statistics.mortalityrate();
+					break;
+			case 9:				
+					 break;
+			case 10: Statistics.icurate();
+					 break;
+			case 11: 
+					 break;
+			case 12: Statistics.genderPercentages();
+					 break;
+			case 13:
+					 break;
+			case 14: 
+					 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
+					 break;
+			case 15: Statistics.seasonPercentages();
+					 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
+					 break;
+			case 16: Statistics.agePercentages();
+					 break;
+			case 17:
+					break;
+			case 18:
+					break;
+			default: System.out.println("Wrong input, try again!");
+					break;
+			}
+		}while (b == true);
+
 	}
 	
 	/* Printing the symptoms of Covid19*/
