@@ -135,7 +135,7 @@ public class Statistics {
 		Scanner sc = new Scanner(System.in);
 		String answer = sc.next();
 		int countTodayInfected = 0;
-		if (answer == "Greece") {
+		if (answer.equals("Greece")) {
 			for (int j= 0 ; j<=Person.personlist.size() ; j++) {
 				if (Person.personlist.get(0).isInfected() == true && Person.personlist.get(0).getTestday() == day && Person.personlist.get(0).getTestmonth() == month &&  Person.personlist.get(0).getTestyear() == year) {
 					countTodayInfected++;
@@ -159,7 +159,7 @@ public class Statistics {
 		Scanner sc = new Scanner(System.in);
 		String answer = sc.next();
 		int countTotalInfected = 0;
-		if (answer == "Grecce") {
+		if (answer.equals("Grecce")) {
 			for (int i = 0 ; i <= Person.personlist.size() ; i++) {
 				if(Person.personlist.get(0).isInfected() == true) {
 					countTotalInfected++;

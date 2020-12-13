@@ -104,7 +104,7 @@ public class Person {
 		do {
 			per=true;
 			try {
-				System.out.print("Give region = ");
+				System.out.print("Give region(Athens,Thessaloniki,Larissa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Gianena) = ");
 				r = sca.next();
 				if((!r.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
 					throw new Exception();
