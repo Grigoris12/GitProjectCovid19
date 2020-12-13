@@ -77,6 +77,7 @@ public class CovidInformation {
 					break;
 			}
 		}while (b == true);
+
 	}
 	
 	/* Printing the symptoms of Covid19*/

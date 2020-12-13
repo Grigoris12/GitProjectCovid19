@@ -11,7 +11,7 @@ public class MenuLauncher {
 		do {
 			System.out.println("1. Sign-Up ");
 			System.out.println("2. Covid Information");
-			System.out.println("3. Log in (Hospital Manager only)");
+			System.out.println("3. Log in  (Hospital Manager only)");
 			System.out.print("Give [1-3] ");
 			try {
 				x = sc.nextInt();
@@ -21,10 +21,8 @@ public class MenuLauncher {
 					break;
 
 				case 2:
-					for(int i=0;i<Person.personlist.size();i++)
-						System.out.print(Person.personlist.get(i));
+					CovidInformation.menu();
 					break;
-
 				case 3:
 					System.out.println("Give Password = ");
 					int p = sc.nextInt();
@@ -32,6 +30,11 @@ public class MenuLauncher {
 						System.out.println("Correct Pasword");
 						break;
 					}
+				case 4:
+					for(int i=0;i<Person.personlist.size();i++)
+						System.out.print(Person.personlist.get(i));
+					break;
+					
 				}
 
 			}catch(Exception e) {
