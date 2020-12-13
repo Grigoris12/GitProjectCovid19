@@ -26,15 +26,15 @@ public class CovidInformation {
 			System.out.println("16)Printing the percentage of infections in age category");
 			System.out.println("17)Printing the Covid-map");
 			System.out.println("18)Go to home page");
-			System.out.println("Choose from 1 to 17");
+			System.out.printf("Give [1-18] ");
 			int choice = sc.nextInt();
 			switch (choice) {
 			case 1: covidSymptoms();
-					break;
+					MenuLauncher.main(null);
 			case 2: instructionsForInfected();
-					break;
+					MenuLauncher.main(null);
 			case 3: covidGuide();
-					break;
+					MenuLauncher.main(null);
 			case 4:
 				Scanner s = new Scanner(System.in);
 				System.out.println("Insert the day,month and year that you want to know the number of infections");
@@ -42,44 +42,43 @@ public class CovidInformation {
 				int m = s.nextInt();
 				int y = s.nextInt();
 				Statistics.todayInfected(d, m, y);
-				break;
+				MenuLauncher.main(null);
 			case 5: Statistics.totalInfected();
-					break;
+					MenuLauncher.main(null);
 			case 6:
-					break;
-			case 7:  
-					break;
+					MenuLauncher.main(null);
+			case 7:   
+					MenuLauncher.main(null);
 			case 8: Statistics.mortalityrate();
-					break;
+					MenuLauncher.main(null);
 			case 9:				
-					 break;
+					MenuLauncher.main(null);
 			case 10: Statistics.icurate();
-					 break;
+					 MenuLauncher.main(null);
 			case 11: 
-					 break;
+					 MenuLauncher.main(null);
 			case 12: Statistics.genderPercentages();
-					 break;
+					 MenuLauncher.main(null);
 			case 13:
-					 break;
+					 MenuLauncher.main(null);
 			case 14: 
 					 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
-					 break;
+					 MenuLauncher.main(null);
 			case 15: Statistics.seasonPercentages();
 					 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
-					 break;
+					 MenuLauncher.main(null);
 			case 16: Statistics.agePercentages();
-					 break;
+					 MenuLauncher.main(null);
 			case 17:
-					break;
+					 MenuLauncher.main(null);
 			case 18:
 				    MenuLauncher.main(null);
-					break;
 			default: System.out.println("Wrong input, try again!");
-					break;
+					 break;
 			}
 		}while (b == true);
-
 	}
+	
 	
 	/* Printing the symptoms of Covid19*/
     public static void covidSymptoms() {
