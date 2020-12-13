@@ -45,6 +45,7 @@ public class CovidInformation {
 				MenuLauncher.main(null);
 			case 5: Statistics.totalInfected();
 					MenuLauncher.main(null);
+					break;
 			case 6:
 					MenuLauncher.main(null);
 			case 7:   
