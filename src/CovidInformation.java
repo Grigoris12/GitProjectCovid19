@@ -31,10 +31,13 @@ public class CovidInformation {
 			switch (choice) {
 			case 1: covidSymptoms();
 					MenuLauncher.main(null);
+					
 			case 2: instructionsForInfected();
 					MenuLauncher.main(null);
+					
 			case 3: covidGuide();
 					MenuLauncher.main(null);
+					
 			case 4:
 				Scanner s = new Scanner(System.in);
 				System.out.println("Insert the day,month and year that you want to know the number of infections");
@@ -43,37 +46,50 @@ public class CovidInformation {
 				int y = s.nextInt();
 				Statistics.todayInfected(d, m, y);
 				MenuLauncher.main(null);
+				
 			case 5: Statistics.totalInfected();
 					MenuLauncher.main(null);
-					break;
+					
 			case 6:
 					MenuLauncher.main(null);
+					
 			case 7:   
 					MenuLauncher.main(null);
+					
 			case 8: Statistics.mortalityrate();
 					MenuLauncher.main(null);
+					
 			case 9:				
 					MenuLauncher.main(null);
 			case 10: Statistics.icurate();
 					 MenuLauncher.main(null);
+					 
 			case 11: 
 					 MenuLauncher.main(null);
+					 
 			case 12: Statistics.genderPercentages();
 					 MenuLauncher.main(null);
+					 
 			case 13:
 					 MenuLauncher.main(null);
+					 
 			case 14: 
 					 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
 					 MenuLauncher.main(null);
+					 
 			case 15: Statistics.seasonPercentages();
 					 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
 					 MenuLauncher.main(null);
+					 
 			case 16: Statistics.agePercentages();
 					 MenuLauncher.main(null);
+					 
 			case 17:
 					 MenuLauncher.main(null);
+					 
 			case 18:
 				    MenuLauncher.main(null);
+				    
 			default: System.out.println("Wrong input, try again!");
 					 break;
 			}
