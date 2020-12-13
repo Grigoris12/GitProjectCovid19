@@ -136,7 +136,7 @@ public class Statistics {
 		String answer = sc.next();
 		int countTodayInfected = 0;
 		if (answer.equals("Greece")) {
-			for (int j= 0 ; j<Person.personlist.size() ; j++) {
+			for (int j = 0 ; j < Person.personlist.size() ; j++) {
 				if (Person.personlist.get(j).isInfected() == true && Person.personlist.get(j).getTestday() == day && Person.personlist.get(j).getTestmonth() == month &&  Person.personlist.get(j).getTestyear() == year) {
 					countTodayInfected++;
 					
@@ -146,7 +146,7 @@ public class Statistics {
 		} else {
 			System.out.println("Insert the city you want to know the number of people that are infected by Covid19 today");
 			String region = sc.next();
-			for (int j= 0 ; j<Person.personlist.size() ; j++) {
+			for (int j = 0 ; j < Person.personlist.size() ; j++) {
 				if (Person.personlist.get(j).isInfected() == true && Person.personlist.get(j).getRegion().equals(region)  && Person.personlist.get(j).getTestday() == day && Person.personlist.get(j).getTestmonth() == month &&  Person.personlist.get(j).getTestyear() == year) {
 					countTodayInfected++;
 				}
