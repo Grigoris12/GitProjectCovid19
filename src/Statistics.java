@@ -181,6 +181,7 @@ public class Statistics {
 		System.out.println(df2.format(pexit) + " % of people infected by Covid 19 have exit icus ");
 	}
 }
+
 				
 						
 	
