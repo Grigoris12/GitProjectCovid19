@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-import sun.applet.Main;
+//import sun.applet.Main;
 public class CovidInformation {
 	/*Printing a list of options for users*/
 	public static void menu() { 
@@ -17,14 +17,14 @@ public class CovidInformation {
 			System.out.println("7)Printing total deaths from Covid19");
 			System.out.println("8)Printing the percentage of mortality");
 			System.out.println("9)Printing the number of people infected by Covid19 that are into icus");
-			System.out.println("10)Printing the percentage of people infected by Covid19 that have enter icus"); /*++ ποσοστό που έχουν βγει από τις ΜΕΘ*/
+			System.out.println("10)Printing the percentage of people infected by Covid19 that have enter icus"); 
 			System.out.println("11)Printing the available icus of every hospital");
 			System.out.println("12)Printing the percentage of female and male infected by Covid19");
-			System.out.println("13)Printing the percentage of infections in every city right now");/*++να εμφανίζει την πόλη με τα περισσότερα κρούσματα */
+			System.out.println("13)Printing the percentage of infections in every city right now");
 			System.out.println("14)Printing the percentage of infections per month");
-			System.out.println("15)Printing the percentage of infections per season");/*++να εμφανίζει την εποχή με τα περισσότερα κρούσματα*/
+			System.out.println("15)Printing the percentage of infections per season");
 			System.out.println("16)Printing the percentage of infections in age category");
-			System.out.println("17)Printing the Covid-map");/* πόλεις σε πράσινο,κίτρινο,πορτοκαλί και κόκκινο */
+			System.out.println("17)Printing the Covid-map");
 			System.out.println("18)Go to home page");
 			System.out.println("Choose from 1 to 17");
 			int choice = sc.nextInt();
@@ -72,6 +72,7 @@ public class CovidInformation {
 			case 17:
 					break;
 			case 18:
+				    MenuLauncher.main(null);
 					break;
 			default: System.out.println("Wrong input, try again!");
 					break;
