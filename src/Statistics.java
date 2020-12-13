@@ -131,7 +131,7 @@ public class Statistics {
 		return maxseason;
 	}
 	public static void todayInfected(int day, int month , int year) {
-		System.out.println("You want to know todays infected in Greece or in certain city?Insert [Greece] or [city].");
+		System.out.println("You want to know today's infected in Greece or in certain city?Insert [Greece] or [city].");
 		Scanner sc = new Scanner(System.in);
 		String answer = sc.next();
 		int countTodayInfected = 0;
@@ -142,7 +142,7 @@ public class Statistics {
 				}
 			}
 			System.out.println("Today's people infected by Covid19 in Greece are:" + countTodayInfected);
-		}else {
+		} else {
 			System.out.println("Insert the city you want to know the number of people that are infected by Covid19 today");
 			String region = sc.next();
 			for (int j= 0 ; j<=Person.personlist.size() ; j++) {
@@ -150,15 +150,14 @@ public class Statistics {
 					countTodayInfected++;
 				}
 			}
-			System.out.println("Today's people infected by Covid19 in" + region + "are:" + countTodayInfected);
+			System.out.println("Today's people infected by Covid19 in " + region + " are:" + countTodayInfected);
 		}
 	}
-	
 	public static void totalInfected() {
 		System.out.println("You want to know total infected in Greece or in certain city?Insert [Greece] or [city]");
 		Scanner sc = new Scanner(System.in);
 		String answer = sc.next();
-		int countTotalInfected = 0;
+	    int countTotalInfected = 0;
 		if (answer.equals("Grecce")) {
 			for (int i = 0 ; i <= Person.personlist.size() ; i++) {
 				if(Person.personlist.get(0).isInfected() == true) {
@@ -174,7 +173,7 @@ public class Statistics {
 					countTotalInfected++;
 				}
 			}
-			System.out.println("Total people infected by Covid19 in" + region + "are:" + countTotalInfected);
+			System.out.println("Total people infected by Covid19 in " + region + " are:" + countTotalInfected);
 		}
 	}
 	public static void mortalityrate() {  
