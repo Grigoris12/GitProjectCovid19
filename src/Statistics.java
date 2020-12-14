@@ -20,8 +20,7 @@ public class Statistics {
 
 	private static DecimalFormat df2 = new DecimalFormat("#.##");
 	
-	public static void gendercount(boolean infected,String gender){ 
-
+	public static void gendercount(boolean infected,String gender){ // calculates the percentage of male and female infected by covid 
 		if(infected) {
 			countinfected++;
 			if (gender.equals("male")) {
@@ -37,8 +36,7 @@ public class Statistics {
 		System.out.println(df2.format(pmale) + " % of the confirmed cases are male" );
 		System.out.println(df2.format(pfemale) + " % of the confirmed cases are female") ;
 	}
-	public static void ageofPatients(int age) { 
-
+	public static void ageofPatients(int age) { // calculates the percentage of cases in age category 
 		if (age <= 17) {
 			countkids++;
 		} else if (age <= 64) {
@@ -48,7 +46,7 @@ public class Statistics {
 		}
 	}
 	
-	public static void agePercentages() {
+	public static void agePercentages() { 
 		double pkids = countkids / countinfected * 100;
 		double padults = countadults / countinfected * 100;
 		double pelders = countelders / countinfected * 100;
@@ -130,7 +128,9 @@ public class Statistics {
 		}
 		return maxseason;
 	}
-	public static void todayInfected(int day, int month , int year) {
+	public static void todayInfected(int day, int month , int year) { // calculates the number of cases on a given day 
+		System.out.println("You want to know todays infected in Greece or in certain city?Insert [Greece] or [city].");
+
 		Scanner sc = new Scanner(System.in);
 		boolean a = true;
 		do {
@@ -173,18 +173,27 @@ public class Statistics {
 			}
 		} while (a == false);
 	}
-	public static void totalInfected() {
+
+
+	public static void totalInfected() { // calculates the total number of cases 
+		System.out.println("You want to know total infected in Greece or in certain city?Insert [Greece] or [city]");
 		Scanner sc = new Scanner(System.in);
-		boolean b = true;
-		do {
-			System.out.printf("You want to know total infected in Greece or in certain city?Insert [Greece] or [city] ");
-			String answer = sc.next();
-			int countTotalInfected = 0;
-			if (answer.equals("Greece")) {
-				for (int i = 0 ; i < Person.personlist.size() ; i++) {
-					if(Person.personlist.get(i).isInfected() == true) {
-						countTotalInfected++;
-					}
+		String answer = sc.next();
+	    int countTotalInfected = 0;
+		if (answer.equals("Grecce")) {
+			for (int i = 0 ; i < Person.personlist.size() ; i++) {
+				if(Person.personlist.get(i).isInfected() == true) {
+					countTotalInfected++;
+				}
+			}
+			System.out.println("Total people infected by Covid19 in Greece are : " + countTotalInfected);
+		}else {
+			System.out.println("Insert the city you want to know the total number of people that are infected by Covid19");
+			String region = sc.next();
+			for (int i = 0 ; i < Person.personlist.size(); i++) {
+				if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getRegion().equals(region) );{
+					countTotalInfected++;
+
 				}
 				System.out.println("Total people infected by Covid19 in Greece are " + countTotalInfected);
 				b = true;
@@ -218,15 +227,15 @@ public class Statistics {
 	}
 	public static void mortalityrate() {  
 		double pdeath = Hospital.getNumberDead()/ countinfected * 100; 
-		System.out.println("The mortality rate of Covid19 is" + df2.format(pdeath));
+		System.out.println("The mortality rate of Covid19 is " + df2.format(pdeath) + "%");
 	}
 	
-	public static void icurate() {  
+	public static void icurate() { // percentage of people that entered icu 
 		double pentrance = Hospital.getTotalIcuCases() / countinfected * 100; 
 		System.out.println(df2.format(pentrance) + " % of the confirmed cases needed icu");
 	}
 	
-	public static void icuexitrate() {
+	public static void icuexitrate() { // percentage of people that exit icu 
 		double pexit = Hospital.getNumberAlive()/Hospital.getTotalIcuCases() * 100; 
 		System.out.println(df2.format(pexit) + " % of people infected by Covid 19 have exit icus ");
 	}
@@ -290,7 +299,7 @@ public class Statistics {
 		return regioninfrate;
 	}
 }  
-    
+ 
 
 		
 				
