@@ -243,12 +243,13 @@ public class Statistics {
 		}
 		return maxregion;
 	}
-	//filling table with infection rates per region//
-	public static double[] infrateperregion() {
+	//filling and printing table with infection rates per region//
+	public static void infrateperregion() {
 		for (int i = 0; i < 9; i++) {
 			regioninfrate[i] = infperregion[i] / countinfected * 100;
+		    System.out.println(df2.format(regioninfrate[i] + "% of people infected by Covid19 live in" + regions[i] ));
 		}
-		return regioninfrate;
+		
 	}
 }  
     
