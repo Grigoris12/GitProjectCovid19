@@ -43,20 +43,24 @@ public class CovidInformation {
 							break;
 							
 					case 4:
-						try {
-						Scanner s = new Scanner(System.in);
-							System.out.print("Insert the day that you want to know the number of infections: ");
-							int d = s.nextInt();
-							System.out.print("Insert the month that you want to know the number of infections: ");
-							int m = s.nextInt();
-							System.out.print("Insert the year that you want to know the number of infections: ");
-							int y = s.nextInt();
-							Statistics.todayInfected(d, m, y);
-							MenuLauncher.main(null);
-						} catch (Exception e) {
-							sc.nextLine();
-							System.out.println("Error,integers only!"); 
-						}
+						boolean a = true;
+						do {
+							try {
+							Scanner s = new Scanner(System.in);
+								System.out.print("Insert the day that you want to know the number of infections: ");
+								int d = s.nextInt();
+								System.out.print("Insert the month that you want to know the number of infections: ");
+								int m = s.nextInt();
+								System.out.print("Insert the year that you want to know the number of infections: ");
+								int y = s.nextInt();
+								Statistics.todayInfected(d, m, y);
+								MenuLauncher.main(null);
+							} catch (Exception e) {
+								sc.nextLine();
+								System.out.println("Error,integers only!");
+								b = false;
+							}
+						} while (b == false);
 						break;
 						
 					case 5: Statistics.totalInfected();
