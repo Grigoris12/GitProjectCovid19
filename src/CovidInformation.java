@@ -44,9 +44,11 @@ public class CovidInformation {
 							
 					case 4:
 						Scanner s = new Scanner(System.in);
-						System.out.println("Insert the day,month and year that you want to know the number of infections");
+						System.out.printf("Insert the day that you want to know the number of infections: ");
 						int d = s.nextInt();
+						System.out.printf("Insert the month that you want to know the number of infections: ");
 						int m = s.nextInt();
+						System.out.printf("Insert the year that you want to know the number of infections: ");
 						int y = s.nextInt();
 						Statistics.todayInfected(d, m, y);
 						MenuLauncher.main(null);
