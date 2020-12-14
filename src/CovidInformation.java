@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-//import sun.applet.Main;
 public class CovidInformation {
 	/*Printing a list of options for users*/
 	public static void menu() { 
@@ -26,8 +25,8 @@ public class CovidInformation {
 				System.out.println("15)Printing the percentage of infections per season");
 				System.out.println("16)Printing the percentage of infections in age category");
 				System.out.println("17)Printing the Covid-map");
-				System.out.println("18)Go to home page");
-				System.out.printf("Give [1-18] ");
+				System.out.println("18)Go to main menu");
+				System.out.print("Give [1-18] ");
 				int choice = sc.nextInt();
 					switch (choice) {
 					case 1: covidSymptoms();
