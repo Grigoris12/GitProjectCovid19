@@ -131,51 +131,90 @@ public class Statistics {
 		return maxseason;
 	}
 	public static void todayInfected(int day, int month , int year) {
-		System.out.println("You want to know today's infected in Greece or in certain city?Insert [Greece] or [city].");
 		Scanner sc = new Scanner(System.in);
-		String answer = sc.next();
-		int countTodayInfected = 0;
-		if (answer.equals("Greece")) {
-			for (int j = 0 ; j < Person.personlist.size() ; j++) {
-				if (Person.personlist.get(j).isInfected() == true && Person.personlist.get(j).getTestday() == day && Person.personlist.get(j).getTestmonth() == month &&  Person.personlist.get(j).getTestyear() == year) {
-					countTodayInfected++;
-					
+		boolean a = true;
+		do {
+			System.out.printf("You want to know today's infected in Greece or in certain city?Insert [Greece] or [city] ");
+			String answer = sc.next();
+			int countTodayInfected = 0;
+			if (answer.equals("Greece")) {
+				for (int j = 0 ; j < Person.personlist.size() ; j++) {
+					if (Person.personlist.get(j).isInfected() == true && Person.personlist.get(j).getTestday() == day && Person.personlist.get(j).getTestmonth() == month &&  Person.personlist.get(j).getTestyear() == year) {
+						countTodayInfected++;
+					}
 				}
+				System.out.println("Today's people infected by Covid19 in Greece are " + countTodayInfected);
+				a = true;
+				} else if (answer.equals("city")) {
+				do {
+					try {
+						System.out.printf("Insert the city you want to know the total number of people that are infected by Covid19 "
+								+ "(Athens,Thessaloniki,Larissa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Gianena)");
+						String region = sc.next();
+						if((!region.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
+							throw new Exception();
+						}
+						for (int j = 0 ; j < Person.personlist.size() ; j++) {
+							if (Person.personlist.get(j).isInfected() == true && Person.personlist.get(j).getRegion().equals(region)  && Person.personlist.get(j).getTestday() == day && Person.personlist.get(j).getTestmonth() == month &&  Person.personlist.get(j).getTestyear() == year) {
+								countTodayInfected++;
+							}
+						}
+						System.out.println("Today's people infected by Covid19 in " + region + " are " + countTodayInfected);
+						a = true;
+					} catch (Exception e) {
+						System.out.println("Wrong input,not valid region");
+						a = false;
+						sc.nextLine();
+					}
+				} while (a == false);
+			} else {
+				System.out.println("Wrong input, insert [Greece] or [city]");
+				a = false;
 			}
-			System.out.println("Today's people infected by Covid19 in Greece are:" + countTodayInfected);
-		} else {
-			System.out.println("Insert the city you want to know the number of people that are infected by Covid19 today");
-			String region = sc.next();
-			for (int j = 0 ; j < Person.personlist.size() ; j++) {
-				if (Person.personlist.get(j).isInfected() == true && Person.personlist.get(j).getRegion().equals(region)  && Person.personlist.get(j).getTestday() == day && Person.personlist.get(j).getTestmonth() == month &&  Person.personlist.get(j).getTestyear() == year) {
-					countTodayInfected++;
-				}
-			}
-			System.out.println("Today's people infected by Covid19 in " + region + " are:" + countTodayInfected);
-		}
+		} while (a == false);
 	}
 	public static void totalInfected() {
-		System.out.println("You want to know total infected in Greece or in certain city?Insert [Greece] or [city]");
 		Scanner sc = new Scanner(System.in);
-		String answer = sc.next();
-	    int countTotalInfected = 0;
-		if (answer.equals("Grecce")) {
-			for (int i = 0 ; i < Person.personlist.size() ; i++) {
-				if(Person.personlist.get(i).isInfected() == true) {
-					countTotalInfected++;
+		boolean b = true;
+		do {
+			System.out.printf("You want to know total infected in Greece or in certain city?Insert [Greece] or [city] ");
+			String answer = sc.next();
+			int countTotalInfected = 0;
+			if (answer.equals("Greece")) {
+				for (int i = 0 ; i < Person.personlist.size() ; i++) {
+					if(Person.personlist.get(i).isInfected() == true) {
+						countTotalInfected++;
+					}
 				}
+				System.out.println("Total people infected by Covid19 in Greece are " + countTotalInfected);
+				b = true;
+			} else if (answer.equals("city")) {
+				do {
+					try {
+						System.out.printf("Insert the city you want to know the total number of people that are infected by Covid19 "
+								+ "(Athens,Thessaloniki,Larissa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Gianena)");
+						String region = sc.next();
+						if((!region.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
+							throw new Exception();
+						}
+						for (int i = 0 ; i < Person.personlist.size(); i++) {
+							if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getRegion().equals(region)) {
+								countTotalInfected++;
+							}
+						}
+						System.out.println("Total people infected by Covid19 in " + region + " are " + countTotalInfected);
+						b = true;
+					} catch(Exception e) {
+						System.out.println("Wrong input,not valid region");
+						b = false;
+						sc.nextLine();
+					} 
+				} while (b == false);
+			} else {
+				System.out.println("Wrong input, insert [Greece] or [city]");
+				b = false;
 			}
-			System.out.println("Total people infected by Covid19 in Greece are:" + countTotalInfected);
-		}else {
-			System.out.println("Insert the city you want to know the total number of people that are infected by Covid19");
-			String region = sc.next();
-			for (int i = 0 ; i < Person.personlist.size(); i++) {
-				if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getRegion().equals(region) );{
-					countTotalInfected++;
-				}
-			}
-			System.out.println("Total people infected by Covid19 in " + region + " are:" + countTotalInfected);
-		}
+		} while (b == false);
 	}
 	public static void mortalityrate() {  
 		double pdeath = Hospital.getNumberDead()/ countinfected * 100; 
