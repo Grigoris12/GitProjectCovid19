@@ -132,7 +132,7 @@ public class Statistics {
 		Scanner sc = new Scanner(System.in);
 		boolean a = true;
 		do {
-			System.out.printf("You want to know today's infected in Greece or in certain city?Insert [Greece] or [city] ");
+			System.out.print("You want to know today's infected in Greece or in certain city?Insert [Greece] or [city] ");
 			String answer = sc.next();
 			int countTodayInfected = 0;
 			if (answer.equals("Greece")) {
@@ -146,7 +146,7 @@ public class Statistics {
 			} else if (answer.equals("city")) {
 				do {
 					try {
-						System.out.printf("Insert the city you want to know the total number of people that are infected by Covid19 "
+						System.out.print("Insert the city you want to know the total number of people that are infected by Covid19 "
 								+ "(Athens,Thessaloniki,Larissa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Gianena)");
 						String region = sc.next();
 						if((!region.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
@@ -177,7 +177,7 @@ public class Statistics {
 		Scanner sc = new Scanner(System.in);
 		boolean b = true;
 		do {
-			System.out.println("You want to know total infected in Greece or in certain city?Insert [Greece] or [city] ");
+			System.out.print("You want to know total infected in Greece or in certain city?Insert [Greece] or [city] ");
 			String answer = sc.next();
 		    int countTotalInfected = 0;
 			if (answer.equals("Greece")) {
@@ -191,7 +191,7 @@ public class Statistics {
 			} else if (answer.equals("city")) {
 					do {
 						try {
-							System.out.printf("Insert the city you want to know the total number of people that are infected by Covid19 "
+							System.out.print("Insert the city you want to know the total number of people that are infected by Covid19 "
 									+ "(Athens,Thessaloniki,Larissa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Gianena)");
 							String region = sc.next();
 							if((!region.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
