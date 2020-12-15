@@ -1,7 +1,13 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-public class Person {
+public class Person implements Serializable {
 	//declarations//
 	public static ArrayList<Person> personlist = new ArrayList<Person>();
 	private String name;
@@ -45,7 +51,7 @@ public class Person {
 				}
 
 			}catch(Exception e){
-				System.out.println("Wrong input");
+				System.out.println("Wrong input ");
 				per=false;
 			}
 		}while(per == false);
@@ -195,9 +201,27 @@ public class Person {
 		personlist.add(new Person(n , s, b, g, r, d, m, y, a, i));
 		Statistics.gendercount(i, g);
 		Statistics.ageofPatients(b);
-
-
+		//Serialize arraylist//
+		try
+        {
+            FileOutputStream fos = new FileOutputStream("persondata");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(personlist);
+            oos.close();
+            fos.close();
+        } 
+        catch (IOException ioe) 
+        {
+            ioe.printStackTrace();
+        }
+		
+		
+         
 	}
+       
+
+
+	
 
 	@Override
 	public String toString() {
