@@ -63,9 +63,7 @@ public class MenuLauncher {
 					for(int i=0;i<Person.personlist.size();i++)
 						System.out.print(Person.personlist.get(i));
 				      break; 
-				case 5:
-					System.out.println("hi");
-					
+				
 				}
 
 			}catch(Exception e) {
