@@ -69,7 +69,7 @@ public class Statistics {
 		}
 	}
     //filling table with infection rates per month//
-	public static double[] infratepermonth(double[] infpermonth) {
+	public static double[] infratepermonth() {
 
 		for (int i = 0; i < 12; i++) {
 			monthinfrate[i] = infpermonth[i]/countinfected * 100;
