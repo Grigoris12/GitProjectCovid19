@@ -36,16 +36,17 @@ public class Statistics {
 		System.out.println(df2.format(pmale) + " % of the confirmed cases are male" );
 		System.out.println(df2.format(pfemale) + " % of the confirmed cases are female") ;
 	}
-	public static void ageofPatients(int age) { // calculates the percentage of cases in age category 
-		if (age <= 17) {
+	public static void ageofPatients(int age,boolean infected) { // calculates the percentage of cases in age category 
+		if (infected) { 
+			if (age <= 17) {
 			countkids++;
-		} else if (age <= 64) {
+			} else if (age <= 64) {
 			countadults++;
-		} else {
+			} else  {
 			countelders++;
+			}
 		}
 	}
-	
 	public static void agePercentages() { 
 		double pkids = countkids / countinfected * 100;
 		double padults = countadults / countinfected * 100;
@@ -69,7 +70,7 @@ public class Statistics {
 		}
 	}
     //filling table with infection rates per month//
-	public static double[] infratepermonth(double[] infpermonth) {
+	public static double[] infratepermonth() {
 
 		for (int i = 0; i < 12; i++) {
 			monthinfrate[i] = infpermonth[i]/countinfected * 100;
@@ -102,10 +103,10 @@ public class Statistics {
 	}
 	//printing infection rates per season//
 	public static void seasonPercentages(){
-		double pwinter = seasoninfrate[0] / countinfected * 100; 
-		double pspring = seasoninfrate[1] / countinfected * 100;
-		double psummer = seasoninfrate[2] / countinfected * 100;
-		double pautumn = seasoninfrate[3] / countinfected * 100;
+		double pwinter = seasoninfrate[0]; 
+		double pspring = seasoninfrate[1]; 
+		double psummer = seasoninfrate[2];
+		double pautumn = seasoninfrate[3];
 		System.out.println(df2.format(pwinter) + "% of the confirmed cases appeared in winter");
 		System.out.println(df2.format(pspring) + "% of the confirmed cases appeared in spring");
 		System.out.println(df2.format(psummer) + "% of the confirmed cases appeared in summer");
