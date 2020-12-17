@@ -8,18 +8,18 @@ public class Hospital {
 	Scanner scanner = new Scanner(System.in);
 	
 	// A list with all the people the needed icu
-	private static ArrayList<Person> entrancedPerson = new ArrayList<Person>();
-	
+	private static ArrayList<Person>  entrancedPerson = new ArrayList<Person>();
+	private static ArrayList<String> belongingHospital = new ArrayList<String>();
 	// Variables with the name of the hospital and the location of it
 	private String hospitalName, location;
 	
 	// The number of the icu's the hospital has
 	private int icu;
 	
-	// The number of available icus out of all hospitals
-	private static int freeIcu = 0;
+	// The number of available icus out of the current hospital
+	private  int freeIcu;
 
-	private static Hospital[] hospitals = new Hospital[6];
+	private static Hospital[] hospitals = new Hospital[20];
 	private static int count = 0;
 	
 	// Number of people that come out of the Icus alive and dead
@@ -34,25 +34,33 @@ public class Hospital {
 		this.hospitalName = hospitalName;
 		this.icu = icu;
 		this.location = location;
-		freeIcu += icu;	
+		this.freeIcu = icu;	
 	}
 
 	// Prints the available icus of every hospital
-	public void showAvailability() {
+	public static void showAvailability() {
 		for(int i = 0 ; i < hospitals.length ; i++) {
 			System.out.println("The remaining Icus of the " +  hospitals[i].hospitalName + 
 					 " are " + hospitals[i].icu);
 		}
 	}
 	
-	/*  Priortise the Hospitals with the most capacity in Icu's 
+	/*  Priortise the Hospitals with the most capacity in Icu's at the specific location
 	  	so the next Covid-19 case that needs the Icu can go there */
-	public int mostFreeIcus() {
-		int mostFreeIcus = hospitals[0].icu;
-		int mostEmptyHospital = 0;
-		for(int i = 1 ; i < hospitals.length ; i++) {
-			if(hospitals[i].icu > mostFreeIcus) {
-				mostFreeIcus = hospitals[i].icu;
+	public static int mostFreeIcus(String location) {
+		int maxFreeIcus = Integer.MIN_VALUE;
+		int mostEmptyHospital = -1;
+		int j;
+		for(j = 0; j < hospitals.length ; j++ ) {
+			if (location.equals(hospitals[j].location)) {
+				maxFreeIcus = hospitals[j].freeIcu;
+				mostEmptyHospital = j;
+				break;
+			}
+		}
+		for(int i = j+1 ; i < hospitals.length ; i++) {
+			if(hospitals[i].icu > maxFreeIcus && location.equals(hospitals[i].location)) {
+				maxFreeIcus = hospitals[i].freeIcu;
 				mostEmptyHospital = i;
 			}
 		}
@@ -60,28 +68,50 @@ public class Hospital {
 	}
 	
 	// The entrance of a new person who need icu
-	public void icuUpdate(Person person) {
-		for(int i = 0 ; i < hospitals.length ; i++) {
-			if(person.infected && person.getRegion() == hospitals[i].location ) {
-				entrancedPerson.add(person);
-				hospitals[mostFreeIcus()].icu--;
-				totalIcuCases++;
-			}
+	public static void icuUpdate(Person person) {
+		if(person.infected ) {
+
+			hospitals[mostFreeIcus(person.getRegion())].freeIcu--;
+			entrancedPerson.add(person);
+			belongingHospital.add(hospitals[mostFreeIcus(person.getRegion())].hospitalName);
+			totalIcuCases++;
 		}
 	}
 	
+	public static int findHospital(Person person) {
+		int place = 0;
+		for (int i = 0; i <= belongingHospital.size(); i++) {
+			for(int j=0; j <= hospitals.length; j++) {
+				if(belongingHospital.get(i).equals((hospitals[j].hospitalName))) {
+					place = i;
+				}
+			}
+		}
+		return place;
+	}
+	
 	// When a person is exiting the Icu 
-	public void icuExtraction(Person person) {
-		System.out.println("What is the current situation of the case: alive or dead;");
-		boolean alive = scanner.hasNext();
-		if(alive) {
+	public static void icuExtraction(Person person, String currentSituation) {
+		if(currentSituation.equals("Alive")) {
 			numberAlive++;
 		}else {
 			numberDead++;
 		}
-
+		hospitals[findHospital(person)].freeIcu--;
+		System.out.println("The hospital has now one more available Icu!");
 		}
+	
+
+	public int totalFreeIcus() {
+		int sum = 0;
+		for(int i =0 ; i < hospitals.length; i++) {
+			sum += hospitals[i].freeIcu;
+		}
+		return sum;
+	}
 		
+	
+	
 	public String getHospitalName() {
 		return hospitalName;
 	}
