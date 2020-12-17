@@ -1,22 +1,49 @@
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuLauncher {
 
 	public static void main(String[] args) {
+    	creationOfHospitals();
 
-		creationOfHospitals();
-		
 		Scanner sc= new Scanner(System.in);
 		boolean bol = false;
 		int x;
 		//main menu //
 		do {
+			//Deserialize list//
+			try
+	        {
+	            FileInputStream fis = new FileInputStream("persondata");
+	            ObjectInputStream ois = new ObjectInputStream(fis);
+	 
+	            Person.personlist = (ArrayList) ois.readObject();
+	 
+	            ois.close();
+	            fis.close();
+	        } 
+	        catch (IOException ioe) 
+	        {
+	            ioe.printStackTrace();
+	            return;
+	        } 
+	        catch (ClassNotFoundException c) 
+	        {
+	            System.out.println("Class not found");
+	            c.printStackTrace();
+	            return;
+	        }
+			
+			System.out.println("********MainMenu********"); 
 			System.out.println("1. Sign-Up ");
 			System.out.println("2. Covid Information");
 			System.out.println("3. Log in  (Hospital Manager only)");
-			System.out.print("Give [1-3] ");
+			System.out.print("Give [1-3] = ");
 			try {
-				x = sc.nextInt();
+				x =  sc.nextInt();
 				switch(x) {
 				case 1:
 					Person.addPerson();
@@ -71,15 +98,16 @@ public class MenuLauncher {
 						break;
 					}
 				case 4:
+					
 					for(int i=0;i<Person.personlist.size();i++)
 						System.out.print(Person.personlist.get(i));
-					break;
-					
+				      break; 
+				
 				}
 
 			}catch(Exception e) {
 				sc.nextLine();
-				System.out.println("Error,Try Again"); 
+				System.out.println("Error,Try Again "); 
 
 			}
 
@@ -89,8 +117,7 @@ public class MenuLauncher {
 
 
 	}
-
-	public static void creationOfHospitals() {
+  	public static void creationOfHospitals() {
 		Hospital hosp1 = new Hospital("Σωτηρία", 122, "Αθήνα");
 		Hospital hosp2 = new Hospital("Γ.Γεννηματά", 57, "Αθήνα");
 		Hospital hosp3 = new Hospital("Αττικόν", 47, "Αθήνα");
@@ -114,7 +141,9 @@ public class MenuLauncher {
 		Hospital hosp21 = new Hospital("Σισμανόγλειο", 16, "Κομοτηνή");
 	}
 
+
 }
+
 
 
 
