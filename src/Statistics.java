@@ -20,33 +20,38 @@ public class Statistics {
 
 	private static DecimalFormat df2 = new DecimalFormat("#.##");
 	
-	public static void gendercount(boolean infected,String gender){ // calculates the percentage of male and female infected by covid 
-		if(infected) {
-			countinfected++;
-			if (gender.equals("male")) {
-				countmale++;
-			}else {
-				countfemale++;
+	public static void gendercount(boolean infected, String gender){ // calculates the percentage of male and female infected by covid 
+		for (int i = 0; i < Person.personlist.size(); i++) {
+			if (Person.personlist.get(i).isInfected() == true) {
+				countinfected++;
+				if (Person.personlist.get(i).getGender().equals("male")) {
+					countmale++;
+				} else {
+					countfemale++;
+				}
 			}
 		}
-	} 
+	}
+		
 	public static void genderPercentages(){ 
 		double pmale = countmale / countinfected * 100;
 		double pfemale = countfemale / countinfected * 100;
 		System.out.println(df2.format(pmale) + " % of the confirmed cases are male" );
 		System.out.println(df2.format(pfemale) + " % of the confirmed cases are female") ;
 	}
-	public static void ageofPatients(int age,boolean infected) { // calculates the percentage of cases in age category 
-		if (infected) { 
-			if (age <= 17) {
-			countkids++;
-			} else if (age <= 64) {
-			countadults++;
-			} else  {
-			countelders++;
+	public static void ageofPatients(int age, boolean infected) { // calculates the percentage of cases in age category 
+		for (int i = 0; i < Person.personlist.size(); i++) {
+			if (Person.personlist.get(i).isInfected() == true) {
+				if (Person.personlist.get(i).getAge() <= 17) {
+					countkids++;
+				} else if (Person.personlist.get(i).getAge() <= 64) {
+					countadults++;
+				} else {
+					countelders++;
+				}
 			}
 		}
-	}
+	}	
 	public static void agePercentages() { 
 		double pkids = countkids / countinfected * 100;
 		double padults = countadults / countinfected * 100;
@@ -63,9 +68,11 @@ public class Statistics {
 	}
 	//counting total infections per month//
 	public static void countinfpermonth(boolean infected, int testmonth) {
-		for (int i = 0; i < 12; i++) {
-			if (infected && testmonth == i + 1) {
-				infpermonth[i]++;
+		for (int i = 0; i < Person.personlist.size(); i++) {
+			for (int j = 0; j < 12; j++) {
+				if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getTestmonth() == j + 1) {
+					infpermonth[j]++;
+				}
 			}
 		}
 	}
@@ -259,14 +266,17 @@ public class Statistics {
 	}
 	//finding total infections per region//
 	public static void countinfperregion(String region, boolean infected) {
-		if (infected) {
-			for (int i = 0; i < 9; i++) {
-				if (region == regions[i]) {
-					infperregion[i]++;
+		for (int i = 0; i < Person.personlist.size(); i++) {
+			if (Person.personlist.get(i).isInfected() == true) {
+				for (int j = 0; j < 9; j++) {
+					if (Person.personlist.get(i).getRegion() == regions[j]) {
+						infperregion[j]++;
+					}
 				}
 			}
 		}
 	}
+					
 	//finding region with the highest infection rate//
 	public static String mostinfregion() {
 		double maxinf = 0;
