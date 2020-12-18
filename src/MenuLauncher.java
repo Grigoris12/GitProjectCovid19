@@ -60,7 +60,7 @@ public class MenuLauncher {
 						System.out.println("Insert AMKA to find the person you want : ");
 						int AMKA = sc.nextInt();
 						System.out.print("Press a through c to choose the following or anything "
-								+ "else to stop the procedure...  ");
+								+ "else to stop the procedure... \n ");
 						String choice = sc.nextLine();
 						System.out.println("a) Is there a new case that needs icu?");
 						System.out.println("b) Is there a new Icu open?");
