@@ -2,12 +2,7 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class Statistics {
-	private static double countmale = 0;
-	private static double countfemale = 0;
-	private static double countinfected = 0;
-	private static double countkids = 0; 
-	private static double countadults = 0;
-	private static double countelders = 0; 
+	private static double countinfected = 0; 
 	private static double[] infpermonth = new double [12];
 	private static double[] monthinfrate = new double [12];
 	private static int maxmonth;
@@ -20,42 +15,56 @@ public class Statistics {
 
 	private static DecimalFormat df2 = new DecimalFormat("#.##");
 	
-	public static void gendercount(boolean infected,String gender){ // calculates the percentage of male and female infected by covid 
-		if(infected) {
-			countinfected++;
-			if (gender.equals("male")) {
-				countmale++;
-			}else {
-				countfemale++;
+	public static int getTotalInfections() {
+		int countinfected = 0;
+		for (int j = 0 ; j < Person.personlist.size() ; j++) {
+			if (Person.personlist.get(j).isInfected() == true) {
+				countinfected++;
 			}
 		}
+		return countinfected;
 	} 
-	public static void genderPercentages(){ 
-		double pmale = countmale / countinfected * 100;
-		double pfemale = countfemale / countinfected * 100;
+
+	public static void gendercount(){ // calculates the percentage of male and female infected by covid 
+		double countmale = 0;
+		double countfemale = 0;
+		for (int i = 0; i < Person.personlist.size(); i++) {
+			if(Person.personlist.get(i).isInfected() == true) {
+				if (Person.personlist.get(i).getGender().equals("male")) {
+					countmale++;
+				} else {
+					countfemale++;
+				}
+			}
+		}
+		double pmale = countmale / getTotalInfections() * 100;
+		double pfemale = countfemale / getTotalInfections()   * 100;
 		System.out.println(df2.format(pmale) + " % of the confirmed cases are male" );
 		System.out.println(df2.format(pfemale) + " % of the confirmed cases are female") ;
-	}
-	public static void ageofPatients(int age, boolean infected) { // calculates the percentage of cases in age category 
-	 if(infected) {
-		if (age <= 17) {
-			countkids++;
-		} else if (age <= 64) {
-			countadults++;
-		} else {
-			countelders++;
 		}
-	 }
-	}
-	
-	public static void agePercentages() { 
-		double pkids = countkids / countinfected * 100;
-		double padults = countadults / countinfected * 100;
-		double pelders = countelders / countinfected * 100;
+	public static void ageofPatients() { // calculates the percentage of cases in age category
+		double countkids = 0; 
+		double countadults = 0;
+		double countelders = 0;
+		for (int i = 0; i < Person.personlist.size(); i++) {
+			if (Person.personlist.get(i).isInfected() == true) {
+				if (Person.personlist.get(i).getAge() <= 17) {
+					countkids++;
+				} else if (Person.personlist.get(i).getAge() <= 64) {
+					countadults++;
+				} else {
+					countelders++;
+				}
+			}
+		}
+		double pkids = countkids / getTotalInfections() * 100;
+		double padults = countadults / getTotalInfections() * 100;
+		double pelders = countelders / getTotalInfections() * 100;
 		System.out.println(df2.format(pkids) + "% of the confirmed cases are kids");
 		System.out.println(df2.format(padults) + "% of the confirmed cases are adults");
 		System.out.println(df2.format(pelders) + "% of the confirmed cases are elders"); 
-	}
+	}	
+	
 	//table initialization with total infections per month//
 	public static void initialisation() {
 		for (int i = 0; i < 12; i++) {
@@ -64,9 +73,11 @@ public class Statistics {
 	}
 	//counting total infections per month//
 	public static void countinfpermonth(boolean infected, int testmonth) {
-		for (int i = 0; i < 12; i++) {
-			if (infected && testmonth == i + 1) {
-				infpermonth[i]++;
+		for (int i = 0; i < Person.personlist.size(); i++) {
+			for (int j = 0; j < 12; j++) {
+				if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getTestmonth() == j + 1) {
+					infpermonth[j]++;
+				}
 			}
 		}
 	}
@@ -105,7 +116,7 @@ public class Statistics {
 	}
 	//printing infection rates per season//
 	public static void seasonPercentages(){
-		double pwinter = seasoninfrate[0];
+		double pwinter = seasoninfrate[0]; 
 		double pspring = seasoninfrate[1]; 
 		double psummer = seasoninfrate[2];
 		double pautumn = seasoninfrate[3];
@@ -221,12 +232,12 @@ public class Statistics {
 	}
 	
 	public static void mortalityrate() {  
-		double pdeath = Hospital.getNumberDead()/ countinfected * 100; 
+		double pdeath = Hospital.getNumberDead()/ getTotalInfections()* 100; 
 		System.out.println("The mortality rate of Covid19 is " + df2.format(pdeath) + "%");
 	}
 	
 	public static void icurate() { // percentage of people that entered icu 
-		double pentrance = Hospital.getTotalIcuCases() / countinfected * 100; 
+		double pentrance = Hospital.getTotalIcuCases() / getTotalInfections()* 100; 
 		System.out.println(df2.format(pentrance) + " % of the confirmed cases needed icu");
 	}
 	
@@ -244,7 +255,7 @@ public class Statistics {
 			  case 1:
 				  regions[i] ="Thessaloniki";
 			  case 2:
-				  regions[i] = "Larissa";
+				  regions[i] ="Larissa";
 			  case 3:
 				  regions[i] = "Xania";
 			  case 4:
@@ -264,15 +275,17 @@ public class Statistics {
 	
 	//finding total infections per region//
 	public static void countinfperregion(String region, boolean infected) {
-		if (infected) {
-			for (int i = 0; i < 9; i++) {
-				if (region == regions[i]) {
-					infperregion[i]++;
+		for (int i = 0; i < Person.personlist.size(); i++) {
+			if (Person.personlist.get(i).isInfected() == true) {
+				for (int j = 0; j < 9; j++) {
+					if (Person.personlist.get(i).getRegion() == regions[j]) {
+						infperregion[j]++;
+					}
 				}
 			}
 		}
 	}
-	
+
 	//finding region with the highest infection rate//
 	public static String mostinfregion() {
 		double maxinf = 0;
@@ -289,11 +302,13 @@ public class Statistics {
 		}
 		return maxregion;
 	}
-	//filling table with infection rates per region//
-	public static double[] infrateperregion() {
+	//filling and printing table with infection rates per region//
+	public static void infrateperregion() {
 		for (int i = 0; i < 9; i++) {
 			regioninfrate[i] = infperregion[i] / countinfected * 100;
+		    System.out.println(df2.format(regioninfrate[i] + "% of people infected by Covid19 live in" + regions[i] ));
 		}
-		return regioninfrate;
+		
 	}
 }  
+

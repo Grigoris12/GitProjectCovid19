@@ -199,8 +199,6 @@ public class Person implements Serializable {
 
 
 		personlist.add(new Person(n , s, b, g, r, d, m, y, a, i));
-		Statistics.gendercount(i, g);
-		Statistics.ageofPatients(b,i);
 		Statistics.countinfpermonth(i, m);
 		Statistics.infratepermonth();
 		Statistics.infrateperseason();
@@ -221,10 +219,7 @@ public class Person implements Serializable {
 		
          
 	}
-       
 
-
-	
 
 	@Override
 	public String toString() {
@@ -294,5 +289,6 @@ public class Person implements Serializable {
 	public void setInfected(boolean infected) {
 		this.infected = infected;
 	}
+	
 }
 
