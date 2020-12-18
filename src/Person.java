@@ -104,7 +104,7 @@ public class Person {
 		do {
 			per=true;
 			try {
-				System.out.print("Give region = ");
+				System.out.print("Give region(Athens,Thessaloniki,Larissa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Gianena) = ");
 				r = sca.next();
 				if((!r.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
 					throw new Exception();
@@ -194,9 +194,10 @@ public class Person {
 
 		personlist.add(new Person(n , s, b, g, r, d, m, y, a, i));
 		Statistics.gendercount(i, g);
-		Statistics.ageofPatients(b);
-
-
+		Statistics.ageofPatients(b,i);
+		Statistics.countinfpermonth(i, m);
+		Statistics.infratepermonth();
+		Statistics.infrateperseason();
 	}
 
 	@Override
