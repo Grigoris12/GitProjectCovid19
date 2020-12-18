@@ -90,7 +90,7 @@ public class CovidInformation {
 							 MenuLauncher.main(null);
 							 break;
 							 
-					case 12: Statistics.genderPercentages();
+					case 12: Statistics.gendercount();
 							 MenuLauncher.main(null);
 							 break;
 							 
@@ -112,7 +112,7 @@ public class CovidInformation {
 						 break;
 							 
 					case 16: 
-						     Statistics.agePercentages();
+						     Statistics.ageofPatients();
 							 MenuLauncher.main(null);
 							 break;
 							 
