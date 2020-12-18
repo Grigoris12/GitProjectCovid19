@@ -19,7 +19,7 @@ public class Hospital {
 	// The number of available icus out of the current hospital
 	private  int freeIcu;
 
-	private static Hospital[] hospitals = new Hospital[20];
+	private static Hospital[] hospitals = new Hospital[21];
 	private static int count = 0;
 	
 	// Number of people that come out of the Icus alive and dead
