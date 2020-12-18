@@ -156,7 +156,7 @@ public class Statistics {
 						countTodayInfected++;
 					}
 				}
-				System.out.println("Today's people infected by Covid19 in Greece are " + countTodayInfected);
+				System.out.println(countTodayInfected + " people infected by Covid19 in Greece on" + day + "/" + month + "/" +year);
 				a = true;
 			} else if (answer.equals("city")) {
 				do {
@@ -172,7 +172,7 @@ public class Statistics {
 								countTodayInfected++;
 							}
 						}
-						System.out.println("Today's people infected by Covid19 in " + region + " are " + countTodayInfected);
+						System.out.println(countTodayInfected + "people infected by Covid19 in" + region + "on" + day + "/" + month + "/" + year);
 						a = true;
 					} catch (Exception e) {
 						System.out.println("Wrong input,not valid region");
