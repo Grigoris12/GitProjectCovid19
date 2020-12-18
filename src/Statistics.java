@@ -94,6 +94,7 @@ public class Statistics {
 		}
 		return maxmonth;
 	}
+	
     //filling table with infection rates per season//
 	public static double[] infrateperseason() { 
 		seasoninfrate[0] = monthinfrate[0] + monthinfrate[1] + monthinfrate[11];
@@ -130,6 +131,7 @@ public class Statistics {
 		}
 		return maxseason;
 	}
+	
 	public static void todayInfected(int day, int month , int year) { // calculates the number of cases on a given day 
 		Scanner sc = new Scanner(System.in);
 		boolean a = true;
@@ -174,7 +176,6 @@ public class Statistics {
 		} while (a == false);
 	}
 
-
 	public static void totalInfected() { // calculates the total number of cases 
 		Scanner sc = new Scanner(System.in);
 		boolean b = true;
@@ -218,6 +219,7 @@ public class Statistics {
 				}
 		} while (b == false);
 	}
+	
 	public static void mortalityrate() {  
 		double pdeath = Hospital.getNumberDead()/ countinfected * 100; 
 		System.out.println("The mortality rate of Covid19 is " + df2.format(pdeath) + "%");
@@ -232,6 +234,7 @@ public class Statistics {
 		double pexit = Hospital.getNumberAlive()/Hospital.getTotalIcuCases() * 100; 
 		System.out.println(df2.format(pexit) + " % of people infected by Covid 19 have exit icus ");
 	}
+	
 	//filling table with the regions investigated for possible infections//
 	public static void regionnames() {
 		for (int i = 0; i < 9; i++) {
@@ -258,6 +261,7 @@ public class Statistics {
 			}
 		}
 	}
+	
 	//finding total infections per region//
 	public static void countinfperregion(String region, boolean infected) {
 		if (infected) {
@@ -268,6 +272,7 @@ public class Statistics {
 			}
 		}
 	}
+	
 	//finding region with the highest infection rate//
 	public static String mostinfregion() {
 		double maxinf = 0;
@@ -292,19 +297,3 @@ public class Statistics {
 		return regioninfrate;
 	}
 }  
- 
-
-		
-				
-						
-	
-	
-
-    
-	
-	
-	
-	
-	
-	
-
