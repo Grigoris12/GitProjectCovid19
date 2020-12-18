@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public class CovidInformation {
 	/*Printing a list of options for users*/
-	public static void menu() { 
-		boolean b = true;
+	public static void menu() {
+		boolean b;
 		do {
+		    b = true;
 			Scanner sc = new Scanner(System.in);
 			try {
 				System.out.println("********Menu********");   
@@ -28,110 +29,111 @@ public class CovidInformation {
 				System.out.println("18)Go to main menu");
 				System.out.print("Give [1-18] ");
 				int choice = sc.nextInt();
-					switch (choice) {
-					case 1: covidSymptoms();
-							MenuLauncher.main(null);
-							break;
-							
-					case 2: instructionsForInfected();
-							MenuLauncher.main(null);
-							break;
-							
-					case 3: covidGuide();
-							MenuLauncher.main(null);
-							break;
-							
-					case 4:
-						boolean a = true;
-						do {
-							try {
-							Scanner s = new Scanner(System.in);
-								System.out.print("Insert the day that you want to know the number of infections: ");
-								int d = s.nextInt();
-								System.out.print("Insert the month that you want to know the number of infections: ");
-								int m = s.nextInt();
-								System.out.print("Insert the year that you want to know the number of infections: ");
-								int y = s.nextInt();
-								Statistics.todayInfected(d, m, y);
-								MenuLauncher.main(null);
-							} catch (Exception e) {
-								sc.nextLine();
-								System.out.println("Error,integers only!");
-								b = false;
-							}
-						} while (b == false);
+				switch (choice) {
+				case 1: covidSymptoms();
+						MenuLauncher.main(null);
+						break;
+					
+				case 2: instructionsForInfected();
+						MenuLauncher.main(null);
+						break;
+			
+				case 3: covidGuide();
+						MenuLauncher.main(null);
 						break;
 						
-					case 5: Statistics.totalInfected();
+				case 4:
+					boolean a = true;
+					do {
+						try {
+						Scanner s = new Scanner(System.in);
+							System.out.print("Insert the day that you want to know the number of infections: ");
+							int d = s.nextInt();
+							System.out.print("Insert the month that you want to know the number of infections: ");
+							int m = s.nextInt();
+							System.out.print("Insert the year that you want to know the number of infections: ");
+							int y = s.nextInt();
+							Statistics.todayInfected(d, m, y);
 							MenuLauncher.main(null);
-							break;
+						} catch (Exception e) {
+							sc.nextLine();
+							System.out.println("Error,integers only!");
+							a = false;
+						}
+					} while (a == false);
+					break;
+					
+				case 5: Statistics.totalInfected();
+						MenuLauncher.main(null);
+						break;
+						
+				case 6: 
+						MenuLauncher.main(null);
+						break;
 							
-					case 6:
-							MenuLauncher.main(null);
-							break;
+				case 7: 
+						MenuLauncher.main(null);
+						break;
 							
-					case 7:   
-							MenuLauncher.main(null);
-							break;
+				case 8: Statistics.mortalityrate();
+						MenuLauncher.main(null);
+						break;
 							
-					case 8: Statistics.mortalityrate();
-							MenuLauncher.main(null);
-							break;
+				case 9:	
+						MenuLauncher.main(null);
+						break;
 							
-					case 9:				
-							MenuLauncher.main(null);
-							break;
-							
-					case 10: Statistics.icurate();
-							 MenuLauncher.main(null);
-							 break;
+				case 10: Statistics.icurate();
+						 MenuLauncher.main(null);
+						 break;
+						 
+				case 11: 
+						MenuLauncher.main(null);
+						 break;
 							 
-					case 11: 
-							 MenuLauncher.main(null);
-							 break;
-							 
-					case 12: Statistics.gendercount();
-							 MenuLauncher.main(null);
-							 break;
-							 
-					case 13:
-							 MenuLauncher.main(null);
-							 break;
-							 
-					case 14: 
-						 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
-						 System.out.println("The month with the more infections is: " + Statistics.mostinfmonth());
+				case 12: Statistics.gendercount();
+						 MenuLauncher.main(null);
+						 break;
+						 
+				case 13:
 						 MenuLauncher.main(null);
 						 break;
 							 
-					case 15: 
-						 Statistics.seasonPercentages();
-						 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
-						 System.out.println("The season with the more infections is: " + Statistics.mostinfseason());
-						 MenuLauncher.main(null);
-						 break;
+				case 14: 
+					 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
+					 System.out.println("The month with the more infections is: " + Statistics.mostinfmonth());
+					 MenuLauncher.main(null);
+					 break;
 							 
-					case 16: 
-						     Statistics.ageofPatients();
-							 MenuLauncher.main(null);
-							 break;
+				case 15: 
+					 Statistics.seasonPercentages();
+					 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
+					 System.out.println("The season with the more infections is: " + Statistics.mostinfseason());
+					 MenuLauncher.main(null);
+					 break;
+						 
+				case 16: 
+				       Statistics.ageofPatients();
+					   MenuLauncher.main(null);
+						break;
 							 
 					case 17:
-							 MenuLauncher.main(null);
-							 break;
+						MenuLauncher.main(null);
+						break;
 							 
 					case 18:
-						     MenuLauncher.main(null);
-						     break;
+						MenuLauncher.main(null);
+						break;
 						     
-					default: System.out.println("Wrong input, try again!");
-							 break;
+					default: 
+						System.out.println("Wrong input, try again!");
+						break;
 					}
 			} catch (Exception e) {
 				sc.nextLine();
 				System.out.println("Error,integers only!"); 
 			}
-		}while (b == true);
+		}while (b == false);
 	}
 	
 	
