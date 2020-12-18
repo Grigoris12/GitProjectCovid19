@@ -12,7 +12,8 @@ public class CovidInformation {
 				System.out.println("1)Printing the symptoms of Covid19");
 				System.out.println("2)Printing the instructions for protecting from Covid19");
 				System.out.println("3)Printing the instructions if you have symptoms of Covid19");
-				System.out.println("4)Printing today's people infected by Covid19");
+				System.out.println("4)Printing the number of people infected by Covid19 a "
+						+ "specific day");
 				System.out.println("5)Printing total people infected by Covid19");
 				System.out.println("6)Printing today's deaths from Covid19");
 				System.out.println("7)Printing total deaths from Covid19");
@@ -31,15 +32,12 @@ public class CovidInformation {
 				int choice = sc.nextInt();
 				switch (choice) {
 				case 1: covidSymptoms();
-						MenuLauncher.main(null);
 						break;
 					
 				case 2: instructionsForInfected();
-						MenuLauncher.main(null);
 						break;
 			
 				case 3: covidGuide();
-						MenuLauncher.main(null);
 						break;
 						
 				case 4:
@@ -54,7 +52,7 @@ public class CovidInformation {
 							System.out.print("Insert the year that you want to know the number of infections: ");
 							int y = s.nextInt();
 							Statistics.todayInfected(d, m, y);
-							MenuLauncher.main(null);
+							a = true;
 						} catch (Exception e) {
 							sc.nextLine();
 							System.out.println("Error,integers only!");
@@ -64,65 +62,51 @@ public class CovidInformation {
 					break;
 					
 				case 5: Statistics.totalInfected();
-						MenuLauncher.main(null);
 						break;
 						
 				case 6: 
-						MenuLauncher.main(null);
 						break;
 							
 				case 7: 
-						MenuLauncher.main(null);
 						break;
 							
 				case 8: Statistics.mortalityrate();
-						MenuLauncher.main(null);
 						break;
 							
 				case 9:	
-						MenuLauncher.main(null);
 						break;
 							
 				case 10: Statistics.icurate();
-						 MenuLauncher.main(null);
 						 break;
 						 
 				case 11: 
-						MenuLauncher.main(null);
 						 break;
 							 
 				case 12: Statistics.gendercount();
-						 MenuLauncher.main(null);
 						 break;
 						 
 				case 13:
-						 MenuLauncher.main(null);
 						 break;
 							 
 				case 14: 
 					 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
 					 System.out.println("The month with the more infections is: " + Statistics.mostinfmonth());
-					 MenuLauncher.main(null);
 					 break;
 							 
 				case 15: 
 					 Statistics.seasonPercentages();
 					 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
 					 System.out.println("The season with the more infections is: " + Statistics.mostinfseason());
-					 MenuLauncher.main(null);
 					 break;
 						 
 				case 16: 
 				       Statistics.ageofPatients();
-					   MenuLauncher.main(null);
 						break;
 							 
 					case 17:
-						MenuLauncher.main(null);
 						break;
 							 
 					case 18:
-						MenuLauncher.main(null);
 						break;
 						     
 					default: 
