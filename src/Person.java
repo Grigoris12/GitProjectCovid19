@@ -199,7 +199,7 @@ public class Person implements Serializable {
 
 
 		personlist.add(new Person(n , s, b, g, r, d, m, y, a, i));
-		Statistics.countinfpermonth(i, m);
+		Statistics.countinfpermonth();
 		Statistics.infratepermonth();
 		Statistics.infrateperseason();
 		//Serialize arraylist//
