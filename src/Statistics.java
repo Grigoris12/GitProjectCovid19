@@ -1,8 +1,8 @@
+
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class Statistics {
-	private static double countinfected = 0; 
 	private static double[] infpermonth = new double [12];
 	private static double[] monthinfrate = new double [12];
 	private static int maxmonth;
@@ -72,9 +72,9 @@ public class Statistics {
 		}
 	}
 	//counting total infections per month//
-	public static void countinfpermonth(boolean infected, int testmonth) {
-		for (int i = 0; i < Person.personlist.size(); i++) {
+	public static void countinfpermonth() {
 			for (int j = 0; j < 12; j++) {
+				for (int i = 0; i < Person.personlist.size(); i++) {
 				if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getTestmonth() == j + 1) {
 					infpermonth[j]++;
 				}
@@ -85,13 +85,15 @@ public class Statistics {
 	public static double[] infratepermonth() {
 
 		for (int i = 0; i < 12; i++) {
-			monthinfrate[i] = infpermonth[i]/countinfected * 100;
+			monthinfrate[i] = infpermonth[i]/getTotalInfections()*100;
 		}
 		return monthinfrate;
 	}
 	//finding month with the highest infection rate//
-	public static int mostinfmonth() {
+	public static String mostinfmonth() {
+		String[] months = {"January", "February", "March", "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" ,"December"};
 		double maxinf = 0;
+		String max = "";
 		for (int i = 0; i < 12; i++) {
 			if ( i == 0) {
 				maxinf = infpermonth[i];
@@ -99,11 +101,11 @@ public class Statistics {
 			} else {
 				if (infpermonth[i] > maxinf) {
 					maxinf = infpermonth[i];
-					maxmonth = i + 1;
+					max = months[i];
 				}
 			}
 		}
-		return maxmonth;
+		return max;
 	}
 	
     //filling table with infection rates per season//
@@ -305,10 +307,9 @@ public class Statistics {
 	//filling and printing table with infection rates per region//
 	public static void infrateperregion() {
 		for (int i = 0; i < 9; i++) {
-			regioninfrate[i] = infperregion[i] / countinfected * 100;
+			regioninfrate[i] = infperregion[i] / getTotalInfections() * 100;
 		    System.out.println(df2.format(regioninfrate[i] + "% of people infected by Covid19 live in" + regions[i] ));
 		}
 		
 	}
 }  
-

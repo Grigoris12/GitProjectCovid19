@@ -89,14 +89,20 @@ public class CovidInformation {
 						 break;
 							 
 				case 14: 
-					 System.out.println("The month with the more infections is:" + Statistics.mostinfmonth());
-					 System.out.println("The month with the more infections is: " + Statistics.mostinfmonth());
+
+					 Statistics.countinfpermonth();
+					 Statistics.infratepermonth();
+					 Statistics.mostinfmonth();
+					 System.out.println("The month with the most infections is: " + Statistics.mostinfmonth());
 					 break;
 							 
 				case 15: 
+					 Statistics.countinfpermonth();
+					 Statistics.infratepermonth();
+					 Statistics.infrateperseason();
 					 Statistics.seasonPercentages();
-					 System.out.println("The season with the more infections is:" + Statistics.mostinfseason());
-					 System.out.println("The season with the more infections is: " + Statistics.mostinfseason());
+					 System.out.println("The season with the most infections is: " + Statistics.mostinfseason());
+
 					 break;
 						 
 				case 16: 
