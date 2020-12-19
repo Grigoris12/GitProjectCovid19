@@ -89,6 +89,7 @@ public class CovidInformation {
 						 break;
 							 
 				case 14: 
+
 					 Statistics.countinfpermonth();
 					 Statistics.infratepermonth();
 					 Statistics.mostinfmonth();
@@ -101,6 +102,7 @@ public class CovidInformation {
 					 Statistics.infrateperseason();
 					 Statistics.seasonPercentages();
 					 System.out.println("The season with the most infections is: " + Statistics.mostinfseason());
+
 					 break;
 						 
 				case 16: 
