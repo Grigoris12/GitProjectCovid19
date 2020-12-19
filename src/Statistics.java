@@ -158,7 +158,7 @@ public class Statistics {
 						countTodayInfected++;
 					}
 				}
-				System.out.println(countTodayInfected + " people infected by Covid19 in Greece on" + day + "/" + month + "/" +year);
+				System.out.println(countTodayInfected + " people infected by Covid19 in Greece on " + day + "/" + month + "/" +year);
 				a = true;
 			} else if (answer.equals("city")) {
 				do {
