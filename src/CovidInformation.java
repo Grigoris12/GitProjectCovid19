@@ -8,7 +8,7 @@ public class CovidInformation {
 		    b = true;
 			Scanner sc = new Scanner(System.in);
 			try {
-				System.out.println("********Menu********");   
+				System.out.println("********Menu********");
 				System.out.println("1)Printing the symptoms of Covid19");
 				System.out.println("2)Printing the instructions for protecting from Covid19");
 				System.out.println("3)Printing the instructions if you have symptoms of Covid19");
@@ -18,12 +18,14 @@ public class CovidInformation {
 				System.out.println("6)Printing today's deaths from Covid19");
 				System.out.println("7)Printing total deaths from Covid19");
 				System.out.println("8)Printing the percentage of mortality");
-				System.out.println("9)Printing the number of people infected by Covid19 that are into icus");
-				System.out.println("10)Printing the percentage of people infected by Covid19 that have enter icus"); 
+				System.out.println("9)Printing the number of people infected by Covid19 "
+						+ "that are into icus");
+				System.out.println("10)Printing the percentage of people infected by Covid19 that "
+						+ "have enter icus"); 
 				System.out.println("11)Printing the available icus of every hospital");
 				System.out.println("12)Printing the percentage of female and male infected by Covid19");
 				System.out.println("13)Printing the percentage of infections in every city right now");
-				System.out.println("14)Printing the percentage of infections per month");
+				System.out.println("14)Printing the month with the most infections");
 				System.out.println("15)Printing the percentage of infections per season");
 				System.out.println("16)Printing the percentage of infections in age category");
 				System.out.println("17)Printing the Covid-map");
@@ -31,15 +33,15 @@ public class CovidInformation {
 				System.out.print("Give [1-18] ");
 				int choice = sc.nextInt();
 				switch (choice) {
-				case 1: covidSymptoms();
-						break;
-					
-				case 2: instructionsForInfected();
-						break;
-			
-				case 3: covidGuide();
-						break;
-						
+				case 1:covidSymptoms();
+				break;
+
+				case 2:instructionsForInfected();
+				break;
+
+				case 3:covidGuide();
+				break;
+
 				case 4:
 					boolean a = true;
 					do {
@@ -61,64 +63,60 @@ public class CovidInformation {
 					} while (a == false);
 					break;
 					
-				case 5: Statistics.totalInfected();
-						break;
-						
+				case 5:Statistics.totalInfected();
+				break;
+				
 				case 6: 
-						break;
-							
+				break;
+
 				case 7: 
-						break;
-							
-				case 8: Statistics.mortalityrate();
-						break;
-							
+				break;
+
+				case 8:Statistics.mortalityrate();
+				break;
+
 				case 9:	
-						break;
-							
+				break;
+
 				case 10: Statistics.icurate();
-						 break;
-						 
-				case 11: 
-						 break;
-							 
+				break;
+				
+				case 11: Hospital.showAvailability();
+				break;
+		 
 				case 12: Statistics.gendercount();
-						 break;
-						 
+				break;
+		 
 				case 13:
-						 break;
-							 
+				break;
+
 				case 14: 
-
-					 Statistics.countinfpermonth();
-					 Statistics.infratepermonth();
-					 Statistics.mostinfmonth();
-					 System.out.println("The month with the most infections is: " + Statistics.mostinfmonth());
-					 break;
-							 
+					Statistics.countinfpermonth();
+					Statistics.infratepermonth();
+					Statistics.mostinfmonth();
+					System.out.println("The month with the most infections is: " + Statistics.mostinfmonth());
+					break;
+					
 				case 15: 
-					 Statistics.countinfpermonth();
-					 Statistics.infratepermonth();
-					 Statistics.infrateperseason();
-					 Statistics.seasonPercentages();
-					 System.out.println("The season with the most infections is: " + Statistics.mostinfseason());
+					Statistics.countinfpermonth();
+					Statistics.infratepermonth();
+					Statistics.infrateperseason();
+					Statistics.seasonPercentages();
+					System.out.println("The season with the most infections is: " + Statistics.mostinfseason());
+					break;
 
-					 break;
-						 
-				case 16: 
-				       Statistics.ageofPatients();
-						break;
-							 
-					case 17:
-						break;
-							 
-					case 18:
-						break;
-						     
-					default: 
-						System.out.println("Wrong input, try again!");
-						break;
-					}
+				case 16:Statistics.ageofPatients();
+				break;
+				
+				case 17:
+				break;
+				
+				case 18:
+				break;
+
+				default:System.out.println("Wrong input, try again!");
+				break;
+				}
 			} catch (Exception e) {
 				sc.nextLine();
 				System.out.println("Error,integers only!"); 
