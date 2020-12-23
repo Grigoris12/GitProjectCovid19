@@ -202,7 +202,7 @@ public class Statistics {
 						countTotalInfected++;
 					}
 				}
-				System.out.println("Total people infected by Covid19 in Greece are : " + countTotalInfected);
+				System.out.println("Total people infected by Covid19 in Greece is/are : " + countTotalInfected);
 				b = true;
 			} else if (answer.equals("city")) {
 					do {
@@ -218,7 +218,7 @@ public class Statistics {
 									countTotalInfected++;
 								}
 							}
-							System.out.println("Total people infected by Covid19 in " + region + " are " + countTotalInfected);
+							System.out.println("Total people infected by Covid19 in " + region + " is/are " + countTotalInfected);
 							b = true;
 						} catch(Exception e) {
 							System.out.println("Wrong input,not valid region");
