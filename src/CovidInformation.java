@@ -36,10 +36,10 @@ public class CovidInformation {
 				case 1:covidSymptoms();
 				break;
 
-				case 2:instructionsForInfected();
+				case 2:covidGuide();
 				break;
 
-				case 3:covidGuide();
+				case 3:instructionsForInfected();
 				break;
 
 				case 4:
