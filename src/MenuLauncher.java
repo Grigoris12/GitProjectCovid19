@@ -1,6 +1,10 @@
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -35,30 +39,8 @@ public class MenuLauncher {
 		Scanner sc= new Scanner(System.in);
 		boolean bol = false;
 		int x;
-		//main menu //
+		
 		do {
-			//Deserialize list//
-			try
-	        {
-	            FileInputStream fis = new FileInputStream("persondata");
-	            ObjectInputStream ois = new ObjectInputStream(fis);
-	 
-	            Person.personlist = (ArrayList) ois.readObject();
-	 
-	            ois.close();
-	            fis.close();
-	        } 
-	        catch (IOException ioe) 
-	        {
-	            ioe.printStackTrace();
-	            return;
-	        } 
-	        catch (ClassNotFoundException c) 
-	        {
-	            System.out.println("Class not found");
-	            c.printStackTrace();
-	            return;
-	        }
 			
 			System.out.println("********MainMenu********"); 
 			System.out.println("1. Sign-Up ");
@@ -69,7 +51,30 @@ public class MenuLauncher {
 				x =  sc.nextInt();
 				switch(x) {
 				case 1:
+				
 					Person.addPerson();
+					//Deserialize list//
+					try
+			        {
+			            FileInputStream fis = new FileInputStream("persondata");
+			            ObjectInputStream ois = new ObjectInputStream(fis);
+			 
+			            Person.personlist = (ArrayList) ois.readObject();
+			 
+			            ois.close();
+			            fis.close();
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			            return;
+			        } 
+			        catch (ClassNotFoundException c) 
+			        {
+			            System.out.println("Class not found");
+			            c.printStackTrace();
+			            return;
+			        }
 					break;
 
 				case 2:
@@ -200,6 +205,28 @@ public class MenuLauncher {
 					System.out.println("Thank you for your coperation!");
 					
 				case 5 :
+					//Deserialize list//
+					try
+			        {
+			            FileInputStream fis = new FileInputStream("persondata");
+			            ObjectInputStream ois = new ObjectInputStream(fis);
+			 
+			            Person.personlist = (ArrayList) ois.readObject();
+			 
+			            ois.close();
+			            fis.close();
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			            return;
+			        } 
+			        catch (ClassNotFoundException c) 
+			        {
+			            System.out.println("Class not found");
+			            c.printStackTrace();
+			            return;
+			        }
 					for(int i=0;i<Person.personlist.size();i++)
 						System.out.print(Person.personlist.get(i));
 				      break; 

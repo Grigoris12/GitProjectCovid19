@@ -1,4 +1,6 @@
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -40,6 +42,14 @@ public class Person implements Serializable {
 		String n=null;
 		String s=null;
 		boolean per = true;
+		
+		File f = new File("persondata");
+		try {
+			f.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		//name input//
 		do {
 			per=true;
@@ -202,24 +212,23 @@ public class Person implements Serializable {
 		Statistics.countinfpermonth();
 		Statistics.infratepermonth();
 		Statistics.infrateperseason();
+	
+		
 		//Serialize arraylist//
-		try
-        {
-            FileOutputStream fos = new FileOutputStream("persondata");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(personlist);
-            oos.close();
-            fos.close();
-        } 
-        catch (IOException ioe) 
-        {
-            ioe.printStackTrace();
-        }
-		
-		
-         
+				try
+		        {
+					FileOutputStream fos = new FileOutputStream(f,false);
+		            ObjectOutputStream oos = new ObjectOutputStream(fos);
+		            oos.writeObject(personlist);
+		            oos.close();
+		            fos.close();
+		        } 
+		        catch (IOException ioe) 
+		        {
+		            ioe.printStackTrace();
+		        }
 	}
-
+				
 
 	@Override
 	public String toString() {
