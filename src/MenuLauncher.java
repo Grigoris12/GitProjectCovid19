@@ -78,9 +78,53 @@ public class MenuLauncher {
 					break;
 
 				case 2:
+					//Deserialize list//
+					try
+			        {
+			            FileInputStream fis = new FileInputStream("persondata");
+			            ObjectInputStream ois = new ObjectInputStream(fis);
+			 
+			            Person.personlist = (ArrayList) ois.readObject();
+			 
+			            ois.close();
+			            fis.close();
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			            return;
+			        } 
+			        catch (ClassNotFoundException c) 
+			        {
+			            System.out.println("Class not found");
+			            c.printStackTrace();
+			            return;
+			        }
 					CovidInformation.menu();
 					break;
 				case 3:
+					//Deserialize list//
+					try
+			        {
+			            FileInputStream fis = new FileInputStream("persondata");
+			            ObjectInputStream ois = new ObjectInputStream(fis);
+			 
+			            Person.personlist = (ArrayList) ois.readObject();
+			 
+			            ois.close();
+			            fis.close();
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			            return;
+			        } 
+			        catch (ClassNotFoundException c) 
+			        {
+			            System.out.println("Class not found");
+			            c.printStackTrace();
+			            return;
+			        }
 					System.out.println("Give Password = ");
 					int p = sc.nextInt();
 					if(p==104) {
@@ -126,6 +170,28 @@ public class MenuLauncher {
 						break;
 					}
 				case 4:
+					//Deserialize list//
+					try
+			        {
+			            FileInputStream fis = new FileInputStream("persondata");
+			            ObjectInputStream ois = new ObjectInputStream(fis);
+			 
+			            Person.personlist = (ArrayList) ois.readObject();
+			 
+			            ois.close();
+			            fis.close();
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			            return;
+			        } 
+			        catch (ClassNotFoundException c) 
+			        {
+			            System.out.println("Class not found");
+			            c.printStackTrace();
+			            return;
+			        }
 					Hospital.showAvailability();
 					System.out.println("For more information about the hospitals that have Icus in Greece");
 					System.out.println("please type the name of the hospital that your are looking for else type end to exit:");
