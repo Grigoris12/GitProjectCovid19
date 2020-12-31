@@ -98,6 +98,7 @@ public class CovidInformation {
 					break;
 					
 				case 15: 
+					Statistics.initialisation();
 					Statistics.countinfpermonth();
 					Statistics.infratepermonth();
 					Statistics.infrateperseason();
