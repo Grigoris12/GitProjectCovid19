@@ -10,6 +10,7 @@ public class Hospital {
 	// A list with all the people the needed icu
 	private static ArrayList<Person>  entrancedPerson = new ArrayList<Person>();
 	private static ArrayList<String> belongingHospital = new ArrayList<String>();
+	private static ArrayList<String> exitingDay = new ArrayList<String>();
 	// Variables with the name of the hospital and the location of it
 	private String hospitalName, location;
 	
@@ -92,15 +93,39 @@ public class Hospital {
 	
 	// When a person is exiting the Icu 
 	public static void icuExtraction(Person person, String currentSituation) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Give the day that the person left the icu : ");
+		String departureDate = scanner.nextLine();
 		if(currentSituation.equals("Alive")) {
 			numberAlive++;
+			for( Person findPerson : Person.personlist) {
+				if(findPerson == person) {
+					person.setDepartmentDate(departureDate);
+					break;
+				}
+			}
 		}else {
 			numberDead++;
+			for( Person findPerson : Person.personlist) {
+				if(findPerson == person) {
+					person.setDepartmentDate(departureDate);
+					break;
+				}
+			}
 		}
 		hospitals[findHospital(person)].freeIcu--;
 		System.out.println("The hospital has now one more available Icu!");
 		}
 	
+	public int deadInADay(String date) {
+		int count = 0;
+		for(Person person : entrancedPerson) {
+			if(date.equals(person.getDepartmentDate())) {
+				count++;
+			}
+		}
+		return count;
+	}
 
 	public int totalFreeIcus() {
 		int sum = 0;

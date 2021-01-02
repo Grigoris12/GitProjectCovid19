@@ -21,6 +21,7 @@ public class Person implements Serializable {
 	private int testmonth;
 	private int testyear;
 	private int AMKA;
+	private String departmentDate = null;
 	boolean infected;
 	//Constructor for person//
 	public Person(String name, String surname, int age, String gender, String region, int testday,
@@ -299,5 +300,12 @@ public class Person implements Serializable {
 		this.infected = infected;
 	}
 	
+	public void setDepartmentDate(String date) {
+		departmentDate = date;
+	}
+	
+	public String getDepartmentDate() {
+		return departmentDate;
+	}
 }
 

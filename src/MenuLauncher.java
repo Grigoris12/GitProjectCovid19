@@ -127,47 +127,42 @@ public class MenuLauncher {
 			        }
 					System.out.println("Give Password = ");
 					int p = sc.nextInt();
+					Scanner scanner = new Scanner(System.in);
 					if(p==104) {
 						System.out.println("Correct Pasword...");
 						System.out.println("Insert AMKA to find the person you want : ");
 						int AMKA = sc.nextInt();
-						System.out.print("Press a through c to choose the following or anything "
-								+ "else to stop the procedure... \n ");
-						String choice = sc.nextLine();
-						System.out.println("a) Is there a new case that needs icu?");
-						System.out.println("b) Is there a new Icu open?");
-						System.out.println("c) Show the availabilty of the Icus of all the hospitals.");
-						switch (choice) {
-						// add of a covid-19 case to the icu
-						case "a" :
-							for (Person person : Person.personlist) {
-								if (person.getAMKA() == AMKA ) {
-									Hospital.icuUpdate(person);
-									break;	
+						for (Person person : Person.personlist) {
+							if (person.getAMKA() == AMKA ) {
+								System.out.println("Press 1 through 3 to choose the following or anything "
+										+ "else to stop the procedure...  ");
+								System.out.println("1) Is there a new case that needs icu?");
+								System.out.println("2) Is there a new Icu open?");
+								System.out.println("3) Show the availabilty of the Icus of all the hospitals.");
+								int choice = scanner.nextInt();
+								switch (choice) {
+									// add of a covid-19 case to the icu
+									case 1 :
+										Hospital.icuUpdate(person);
+										System.out.println("The addition has been successful!!");
+										break;
+									// end of the addition
+									// deleting-extracting a case from the icu - new icu-space	
+									case 2 :
+											System.out.println("What is the current situation of the case: alive or dead;");
+											String status = sc.nextLine();
+											Hospital.icuExtraction(person, status);
+											System.out.println("The extraction has been successful!!");
+										break;
+										// end of extraction	
+									case 3 :
+										Hospital.showAvailability();
+										break;
+										// end of showing availity			
 								}
+								break;
 							}
-							System.out.println("The addition has been successful!!");
-							break;
-						// end of the addition
-						// deleting-extracting a case from the icu - new icu-space	
-						case "b" :
-							for (Person person : Person.personlist) {
-								if (person.getAMKA() == AMKA ) {
-									System.out.println("What is the current situation of the case: alive or dead;");
-									String status = sc.nextLine();
-									Hospital.icuExtraction(person, status);
-									break;
-								}
-								System.out.println("The extraction has been successful!!");
-							}
-							break;
-						// end of extraction	
-						case "c" :
-							Hospital.showAvailability();
-							break;
-						// end of showing availity		
-						}	
-						break;
+						}
 					}
 				case 4:
 					//Deserialize list//
