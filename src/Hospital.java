@@ -116,7 +116,7 @@ public class Hospital {
 		System.out.println("The hospital has now one more available Icu!");
 		}
 	// give date to the method to count the number of deaths in that day
-	public int deadInADay(String date) {
+	public static int deadInADay(String date) {
 		int count = 0;
 		for(Person person : entrancedPerson) {
 			if(date.equals(person.getDepartmentDate())) {
