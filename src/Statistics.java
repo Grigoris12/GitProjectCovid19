@@ -202,7 +202,7 @@ public class Statistics {
 						countTotalInfected++;
 					}
 				}
-				System.out.println("Total people infected by Covid19 in Greece is/are : " + countTotalInfected);
+				System.out.println("Total people infected by Covid19 in Greece is/are  " + countTotalInfected);
 				b = true;
 			} else if (answer.equals("city")) {
 					do {

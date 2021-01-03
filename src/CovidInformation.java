@@ -70,10 +70,10 @@ public class CovidInformation {
 					Scanner sca = new Scanner(System.in);
 					System.out.print("Insert the date that you want to know the number of deaths: ");
 					String d=sca.next();
-					System.out.print("The deaths on" + d + "are" + Hospital.deadInADay(d) );
+					System.out.print("Total deaths in Greece on" + d + "are " + Hospital.deadInADay(d) );
 				break;
 
-				case 7: 
+				case 7:System.out.print("Total deaths in Greece are " + Hospital.getNumberDead());
 				break;
 
 				case 8:Statistics.mortalityrate();
