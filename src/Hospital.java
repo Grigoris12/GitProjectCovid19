@@ -10,7 +10,6 @@ public class Hospital {
 	// A list with all the people the needed icu
 	private static ArrayList<Person>  entrancedPerson = new ArrayList<Person>();
 	private static ArrayList<String> belongingHospital = new ArrayList<String>();
-	private static ArrayList<String> exitingDay = new ArrayList<String>();
 	// Variables with the name of the hospital and the location of it
 	private String hospitalName, location;
 	
@@ -116,7 +115,7 @@ public class Hospital {
 		hospitals[findHospital(person)].freeIcu--;
 		System.out.println("The hospital has now one more available Icu!");
 		}
-	
+	// give date to the method to count the number of deaths in that day
 	public int deadInADay(String date) {
 		int count = 0;
 		for(Person person : entrancedPerson) {
