@@ -164,6 +164,7 @@ public class MenuLauncher {
 							}
 						}
 					}
+					break;
 				case 4:
 					//Deserialize list//
 					try
@@ -264,7 +265,7 @@ public class MenuLauncher {
 						}
 					}
 					System.out.println("Thank you for your coperation!");
-					
+					break;
 				case 5 :
 					//Deserialize list//
 					try
