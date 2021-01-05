@@ -52,8 +52,6 @@ public class MenuLauncher {
 				switch(x) {
 				case 1:
 				
-					Person.addPerson();
-					//Deserialize list//
 					try
 			        {
 			            FileInputStream fis = new FileInputStream("persondata");
@@ -75,8 +73,8 @@ public class MenuLauncher {
 			            c.printStackTrace();
 			            return;
 			        }
-					break;
-
+					Person.addPerson();
+                     break;
 				case 2:
 					//Deserialize list//
 					try
@@ -291,8 +289,9 @@ public class MenuLauncher {
 			            c.printStackTrace();
 			            return;
 			        }
-					for(int i=0;i<Person.personlist.size();i++)
+					for(int i=0;i<Person.personlist.size();i++) {
 						System.out.print(Person.personlist.get(i));
+					}
 				      break; 
 				
 				}

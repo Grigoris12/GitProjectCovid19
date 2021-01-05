@@ -223,6 +223,7 @@ public class Person implements Serializable {
 		            oos.writeObject(personlist);
 		            oos.close();
 		            fos.close();
+		            
 		        } 
 		        catch (IOException ioe) 
 		        {
