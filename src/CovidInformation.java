@@ -15,7 +15,7 @@ public class CovidInformation {
 				System.out.println("4)Printing the number of people infected by Covid19 a "
 						+ "specific day");
 				System.out.println("5)Printing total people infected by Covid19");
-				System.out.println("6)Printing today's deaths from Covid19");
+				System.out.println("6)Printing the deaths from Covid19 on a specific day");
 				System.out.println("7)Printing total deaths from Covid19");
 				System.out.println("8)Printing the percentage of mortality");
 				System.out.println("9)Printing the number of people infected by Covid19 "
@@ -66,10 +66,14 @@ public class CovidInformation {
 				case 5:Statistics.totalInfected();
 				break;
 				
-				case 6: 
+				case 6:
+					Scanner sca = new Scanner(System.in);
+					System.out.print("Insert the date that you want to know the number of deaths: ");
+					String d=sca.next();
+					System.out.print("Total deaths in Greece on" + d + "are " + Hospital.deadInADay(d) );
 				break;
 
-				case 7: 
+				case 7:System.out.print("Total deaths in Greece are " + Hospital.getNumberDead());
 				break;
 
 				case 8:Statistics.mortalityrate();
