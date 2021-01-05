@@ -174,7 +174,7 @@ public class Statistics {
 								countTodayInfected++;
 							}
 						}
-						System.out.println(countTodayInfected + "people infected by Covid19 in" + region + "on" + day + "/" + month + "/" + year);
+						System.out.println(countTodayInfected + " people infected by Covid19 in " + region + " on " + day + "/" + month + "/" + year);
 						a = true;
 					} catch (Exception e) {
 						System.out.println("Wrong input,not valid region");
