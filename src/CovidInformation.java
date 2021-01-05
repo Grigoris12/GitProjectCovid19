@@ -22,13 +22,14 @@ public class CovidInformation {
 						+ "that are into icus");
 				System.out.println("10)Printing the percentage of people infected by Covid19 that "
 						+ "have enter icus"); 
-				System.out.println("11)Printing the available icus of every hospital");
-				System.out.println("12)Printing the percentage of female and male infected by Covid19");
-				System.out.println("13)Printing the percentage of infections in every city right now");
-				System.out.println("14)Printing the month with the most infections");
-				System.out.println("15)Printing the percentage of infections per season");
-				System.out.println("16)Printing the percentage of infections in age category");
-				System.out.println("17)Printing the Covid-map");
+				System.out.println("11)Printing the percentage of people infected by Covid19 that"
+						+ "have enter icus");
+				System.out.println("12)Printing the available icus of every hospital");
+				System.out.println("13)Printing the percentage of female and male infected by Covid19");
+				System.out.println("14)Printing the percentage of infections in every city right now");
+				System.out.println("15)Printing the month with the most infections");
+				System.out.println("16)Printing the percentage of infections per season");
+				System.out.println("17)Printing the percentage of infections in age category");
 				System.out.println("18)Go to main menu");
 				System.out.print("Give [1-18] ");
 				int choice = sc.nextInt();
@@ -82,38 +83,39 @@ public class CovidInformation {
 				case 9:	
 				break;
 
-				case 10: Statistics.icurate();
+				case 10:Statistics.icurate();
 				break;
 				
-				case 11: Hospital.showAvailability();
+				case 11:Statistics.icuexitrate();
 				break;
 		 
-				case 12: Statistics.gendercount();
+				case 12:Hospital.showAvailability();
 				break;
 		 
-				case 13:
+				case 13:Statistics.gendercount();
 				break;
 
 				case 14: 
+				
+					break;
+					
+				case 15: 
 					Statistics.countinfpermonth();
 					Statistics.infratepermonth();
 					Statistics.mostinfmonth();
 					System.out.println("The month with the most infections is " + Statistics.mostinfmonth());
 					break;
-					
-				case 15: 
+
+				case 16:
 					Statistics.initialisation();
 					Statistics.countinfpermonth();
 					Statistics.infratepermonth();
 					Statistics.infrateperseason();
 					Statistics.seasonPercentages();
 					System.out.println("The season with the most infections is " + Statistics.mostinfseason());
-					break;
-
-				case 16:Statistics.ageofPatients();
 				break;
 				
-				case 17:
+				case 17:Statistics.ageofPatients();
 				break;
 				
 				case 18:
