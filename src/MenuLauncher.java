@@ -143,7 +143,9 @@ public class MenuLauncher {
 								switch (choice) {
 									// add of a covid-19 case to the icu
 									case 1 :
-										Hospital.icuUpdate(person);
+										System.out.println("Does the patience need icu?");
+										boolean managerDecision = sc.hasNext();
+										Hospital.icuUpdate(person, managerDecision);
 										System.out.println("The addition has been successful!!");
 										break;
 									// end of the addition
@@ -164,6 +166,7 @@ public class MenuLauncher {
 							}
 						}
 					}
+					break;
 				case 4:
 					//Deserialize list//
 					try
@@ -264,7 +267,7 @@ public class MenuLauncher {
 						}
 					}
 					System.out.println("Thank you for your coperation!");
-					
+					break;
 				case 5 :
 					//Deserialize list//
 					try

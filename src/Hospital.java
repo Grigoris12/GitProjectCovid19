@@ -68,9 +68,8 @@ public class Hospital {
 	}
 	
 	// The entrance of a new person who need icu
-	public static void icuUpdate(Person person) {
-		if(person.infected ) {
-
+	public static void icuUpdate(Person person, boolean managerDecision) {
+		if(person.infected && managerDecision ) {
 			hospitals[mostFreeIcus(person.getRegion())].freeIcu--;
 			entrancedPerson.add(person);
 			belongingHospital.add(hospitals[mostFreeIcus(person.getRegion())].hospitalName);
@@ -93,7 +92,7 @@ public class Hospital {
 	// When a person is exiting the Icu 
 	public static void icuExtraction(Person person, String currentSituation) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Give the day that the person left the icu : ");
+		System.out.println("Give the date(DD/MM/YYY) that the person left the icu : ");
 		String departureDate = scanner.nextLine();
 		if(currentSituation.equals("Alive")) {
 			numberAlive++;
@@ -115,6 +114,8 @@ public class Hospital {
 		hospitals[findHospital(person)].freeIcu--;
 		System.out.println("The hospital has now one more available Icu!");
 		}
+	
+	
 	// give date to the method to count the number of deaths in that day
 	public int deadInADay(String date) {
 		int count = 0;
@@ -126,6 +127,7 @@ public class Hospital {
 		return count;
 	}
 
+	
 	public int totalFreeIcus() {
 		int sum = 0;
 		for(int i =0 ; i < hospitals.length; i++) {
