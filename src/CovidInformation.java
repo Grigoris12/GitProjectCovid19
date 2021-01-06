@@ -71,16 +71,17 @@ public class CovidInformation {
 					Scanner sca = new Scanner(System.in);
 					System.out.print("Insert the date that you want to know the number of deaths: ");
 					String d=sca.next();
-					System.out.print("Total deaths in Greece on" + d + "are " + Hospital.deadInADay(d) );
+					System.out.println("Total deaths in Greece on " + d + " are " + Hospital.deadInADay(d) );
 				break;
 
-				case 7:System.out.print("Total deaths in Greece are " + Hospital.getNumberDead());
+				case 7:System.out.println("Total deaths in Greece are " + Hospital.getNumberDead());
 				break;
 
 				case 8:Statistics.mortalityrate();
 				break;
 
-				case 9:	
+				case 9:System.out.println("The number of people infected by Covid19 that are into icus is " 
+				    + (Hospital.getTotalIcuCases() - Hospital.getNumberAlive() - Hospital.getNumberDead()));
 				break;
 
 				case 10:Statistics.icurate();
