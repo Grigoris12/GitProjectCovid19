@@ -94,16 +94,17 @@ public class CovidInformation {
 				break;
 		 
 				case 13: 
+					Statistics.gendercount();
+					break;
+
+				case 14: 
 					Statistics.regionnames();
 		            Statistics.countinfperregion();
 		            Statistics.infrateperregion();
 		         System.out.println("The region with the most infections is " +  Statistics.mostinfregion());
 				 break;
 				
-
-				case 14: 
 				
-					break;
 					
 				case 15: 
 					Statistics.countinfpermonth();
