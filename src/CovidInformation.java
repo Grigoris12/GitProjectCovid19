@@ -99,7 +99,8 @@ public class CovidInformation {
 
 				case 14: 
 					Statistics.regionnames();
-		            Statistics.countinfperregion();
+		            Statistics.infperregioninitialise();
+					Statistics.countinfperregion();
 		            Statistics.infrateperregion();
 		         System.out.println("The region with the most infections is " +  Statistics.mostinfregion());
 				 break;
@@ -114,7 +115,7 @@ public class CovidInformation {
 					break;
 
 				case 16:
-					Statistics.initialisation();
+					Statistics.infpermonthinitialise();
 					Statistics.countinfpermonth();
 					Statistics.infratepermonth();
 					Statistics.infrateperseason();
