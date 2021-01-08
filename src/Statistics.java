@@ -66,7 +66,7 @@ public class Statistics {
 	}	
 	
 	//table initialization with total infections per month//
-	public static void initialisation() {
+	public static void infpermonthinitialise() {
 		for (int i = 0; i < 12; i++) {
 			infpermonth[i] = 0;
 		}
@@ -272,6 +272,12 @@ public class Statistics {
 			}
 		}
 	}
+	public static void infperregioninitialise() {
+		for (int i = 0; i < 9; i++) {
+			infperregion[i] = 0;
+		}
+	}
+	
 	//finding total infections per region//
 	public static void countinfperregion() {
 		for (int j = 0; j < 9; j++) {
@@ -307,4 +313,4 @@ public class Statistics {
 		}
 		
 	}
-}   
+}
