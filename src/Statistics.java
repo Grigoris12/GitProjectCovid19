@@ -251,38 +251,33 @@ public class Statistics {
 	//filling table with the regions investigated for possible infections//
 	public static void regionnames() {
 		for (int i = 0; i < 9; i++) {
-			switch(i) {
-			  case 0:
-				  regions[i] ="Athens";
-			  case 1:
-				  regions[i] ="Thessaloniki";
-			  case 2:
-				  regions[i] ="Larissa";
-			  case 3:
-				  regions[i] = "Xania";
-			  case 4:
-				  regions[i] = "Patra";
-			  case 5:
-				  regions[i] = "Komotini";
-			  case 6:
-				  regions[i] = "Alexandroupoli";
-			  case 7:
-				  regions[i] = "Kalamata";
-			  case 8:
-				  regions[i] = "Gianena";
-				  break;
+			if (i == 0) {
+				regions[i] = "Athens";
+			} else if (i == 1) {
+				regions[i] = "Thessaloniki";
+			} else if (i == 2) {
+				regions[i] = "Larissa";
+			} else if (i == 3) {
+				regions[i] = "Xania";
+			} else if (i == 4) {
+				regions[i] = "Patra";
+			} else if (i == 5) {
+				regions[i] = "Komotini";
+			} else if (i == 6) {
+				regions[i] = "Alexandroupoli";
+			} else if (i == 7) {
+				regions[i] = "Kalamata";
+			} else {
+				regions[i] = "Gianena";
 			}
 		}
 	}
-	
 	//finding total infections per region//
-	public static void countinfperregion(String region, boolean infected) {
-		for (int i = 0; i < Person.personlist.size(); i++) {
-			if (Person.personlist.get(i).isInfected() == true) {
-				for (int j = 0; j < 9; j++) {
-					if (Person.personlist.get(i).getRegion() == regions[j]) {
-						infperregion[j]++;
-					}
+	public static void countinfperregion() {
+		for (int j = 0; j < 9; j++) {
+			for (int i = 0; i < Person.personlist.size(); i++) {
+				if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getRegion().equals (regions[j])) {
+					infperregion[j]++;
 				}
 			}
 		}
@@ -302,14 +297,14 @@ public class Statistics {
 				}
 			}
 		}
-		return maxregion;
+		return  maxregion;
 	}
 	//filling and printing table with infection rates per region//
 	public static void infrateperregion() {
 		for (int i = 0; i < 9; i++) {
 			regioninfrate[i] = infperregion[i] / getTotalInfections() * 100;
-		    System.out.println(df2.format(regioninfrate[i] + "% of people infected by Covid19 live in" + regions[i] ));
+		    System.out.println(df2.format(regioninfrate[i]) + "% of people infected by Covid19 live in " + regions[i]);
 		}
 		
 	}
-}  
+}   
