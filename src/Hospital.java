@@ -125,7 +125,11 @@ public class Hospital {
 		return sum;
 	}
 		
-	
+	public static void showIcuPerson() {
+		for(int i = 0; i < entrancedPerson.size() ; i++) {
+			System.out.println(entrancedPerson.get(i));
+		}
+	}
 	
 	public String getHospitalName() {
 		return hospitalName;
@@ -175,6 +179,61 @@ public class Hospital {
 		Hospital.totalIcuCases = totalIcuCases;
 	}
 
+	public static void hospitalMenu() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Give Password = ");
+		int password = sc.nextInt();
+		if(password == 104) {
+			System.out.println("Correct Pasword...");
+			System.out.println("Insert AMKA to find the person you want : ");
+			int AMKA = sc.nextInt();
+			boolean flag = true;
+			for(int i=0; i < Person.personlist.size(); i++) {
+				if (Person.personlist.get(i).getAMKA() == AMKA ) {
+					flag = false;
+					System.out.println("Press 1 through 4 to choose the following or anything "
+							+ "else to stop the procedure...  ");
+					System.out.println("1) Is there a new case that needs icu?");
+					System.out.println("2) Is there a new Icu open?");
+					System.out.println("3) Show the availabilty of the Icus of all the hospitals.");
+					System.out.println("4) To show the list of the person that have been entranced in Icu");
+					int choice = sc.nextInt();
+					switch (choice) {
+						// add of a covid-19 case to the icu
+						case 1 :
+							System.out.println("Does the patience need icu(true/false)?");
+							boolean managerDecision = sc.hasNext();
+							if(managerDecision) {
+								Hospital.icuUpdate(Person.personlist.get(i), managerDecision);
+								System.out.println("The addition has been successful!!");
+							} else {
+								System.out.println("The patient doesnt need Icu at the moment");
+							}
+							break;
+							// end of the addition
+							// deleting-extracting a case from the icu - new icu-space	
+						case 2 :
+							System.out.println("What is the current situation of the case: alive or dead;");
+							String status = sc.nextLine();
+							Hospital.icuExtraction(Person.personlist.get(i), status);
+							System.out.println("The extraction has been successful!!");
+							break;
+							// end of extraction	
+						case 3 :
+							Hospital.showAvailability();
+							break;
+							// end of showing availity		
+						case 4:
+							Hospital.showIcuPerson();
+						}
+					break;
+				}
+			}
+			if (flag == true) {
+				System.out.println("There's no patient with COVID-19 with that AMKA!!");
+			}
+		}
 
+	}
 }
 
