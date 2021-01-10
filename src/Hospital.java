@@ -68,8 +68,8 @@ public class Hospital {
 	}
 	
 	// The entrance of a new person who need icu
-	public static void icuUpdate(Person person, boolean managerDecision) {
-		if(person.infected && managerDecision ) {
+	public static void icuUpdate(Person person, String managerDecision) {
+		if(person.infected && managerDecision.equals("Yes") ) {
 			hospitals[mostFreeIcus(person.getRegion())].freeIcu--;
 			entrancedPerson.add(person);
 			belongingHospital.add(hospitals[mostFreeIcus(person.getRegion())].hospitalName);
