@@ -48,28 +48,17 @@ public class Hospital {
 	/*  Priortise the Hospitals with the most capacity in Icu's at the specific location
 	  	so the next Covid-19 case that needs the Icu can go there */
 	public static int mostFreeIcus(String location) {
-		int maxFreeIcus = Integer.MIN_VALUE;
-		int mostEmptyHospital = -1;
-		int j;
-		for(j = 0; j < hospitals.length ; j++ ) {
-			if (location.equals(hospitals[j].location)) {
-				maxFreeIcus = hospitals[j].freeIcu;
-				mostEmptyHospital = j;
-				break;
+		for(int i = 0 ; i < hospitals.length ; i++) {
+			if(hospitals[i].icu > 0 && location.equals(hospitals[i].location)) {
+				return i;
 			}
 		}
-		for(int i = j+1 ; i < hospitals.length ; i++) {
-			if(hospitals[i].icu > maxFreeIcus && location.equals(hospitals[i].location)) {
-				maxFreeIcus = hospitals[i].freeIcu;
-				mostEmptyHospital = i;
-			}
-		}
-		return mostEmptyHospital;
+		return 0;
 	}
 	
 	// The entrance of a new person who need icu
-	public static void icuUpdate(Person person, String managerDecision) {
-		if(person.infected && managerDecision.equals("Yes") ) {
+	public static void icuUpdate(Person person, boolean managerDecision) {
+		if(person.infected && managerDecision ) {
 			hospitals[mostFreeIcus(person.getRegion())].freeIcu--;
 			entrancedPerson.add(person);
 			belongingHospital.add(hospitals[mostFreeIcus(person.getRegion())].hospitalName);

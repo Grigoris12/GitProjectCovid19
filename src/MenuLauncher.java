@@ -142,10 +142,15 @@ public class MenuLauncher {
 								switch (choice) {
 									// add of a covid-19 case to the icu
 									case 1 :
-										System.out.println("Does the patience need icu(Yes or No)?");
-										String managerDecision = sc.nextLine();
-										Hospital.icuUpdate(person, managerDecision);
-										System.out.println("The addition has been successful!!");
+										System.out.println("Does the patience need icu(true/false)?");
+										
+										boolean managerDecision = sc.hasNext();
+										if(managerDecision) {
+											Hospital.icuUpdate(person, managerDecision);
+											System.out.println("The addition has been successful!!");
+										} else {
+											System.out.println("The patient doesnt need Icu at the moment");
+										}
 										break;
 									// end of the addition
 									// deleting-extracting a case from the icu - new icu-space	
