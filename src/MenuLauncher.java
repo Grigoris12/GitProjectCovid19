@@ -142,8 +142,8 @@ public class MenuLauncher {
 								switch (choice) {
 									// add of a covid-19 case to the icu
 									case 1 :
-										System.out.println("Does the patience need icu?");
-										boolean managerDecision = sc.hasNext();
+										System.out.println("Does the patience need icu(Yes or No)?");
+										String managerDecision = sc.nextLine();
 										Hospital.icuUpdate(person, managerDecision);
 										System.out.println("The addition has been successful!!");
 										break;
@@ -193,79 +193,71 @@ public class MenuLauncher {
 					System.out.println("For more information about the hospitals that have Icus in Greece");
 					System.out.println("please type the name of the hospital that your are looking for else type end to exit:");
 					String n = sc.nextLine();
-					boolean flag = false ; 
-					while ( flag = false) {
+					n = sc.nextLine();
+
 						if (n.equals(hosp1.getHospitalName())) {
 							System.out.println("The website of Hospital Σωτηρία is http://www.sotiria.gr/");
-							flag = true;
+
 						}else if  (n.equals(hosp2.getHospitalName())) {
 							System.out.println("The website of Hospital Γ.Γεννηματά is http://www.gna-gennimatas.gr/");
-							flag = true;
+
 						}else if  (n.equals(hosp3.getHospitalName())) {
 							System.out.println("The website of Hospital Αττικόν is http://www.attikonhospital.gr/ ");
-							flag = true;
+
 						}else if  (n.equals(hosp4.getHospitalName())) {
 							System.out.println("The website of Hospital Βουγιουκλάκειο  is https://vougiouklakio.gr/web/");
-							flag = true;
 						}else if  (n.equals(hosp5.getHospitalName())) {
 							System.out.println("The website of Hospital ΚΑΤ  is https://www.kat-hosp.gr/");
-							flag = true;
 						}else if  (n.equals(hosp6.getHospitalName())) {
 							System.out.println("The website of Hospital Ευαγγελισμός is https://www.evaggelismos-hosp.gr/ ");
-							flag = true;
 						}else if  (n.equals(hosp7.getHospitalName())) {
 							System.out.println("The website of Hospital Ιπποκράτειο is http://www.ippokratio.gr/ ");
-							flag = true;
+
 						}else if  (n.equals(hosp8.getHospitalName())) {
 							System.out.println("The website of Hospital ΑΧΕΠΑ  is http://www.ahepahosp.gr/ ");
-							flag = true;
+
 						}else if  (n.equals(hosp9.getHospitalName())) {
 							System.out.println("The website of Hospital Άγιος Δημήτριος is http://www.oagiosdimitrios.gr/");
-							flag = true;
+
 						}else if  (n.equals(hosp10.getHospitalName())) {
 							System.out.println("The website of Hospital Γ.Γεννηματά Θεσσαλονίκης is http://www.gennimatas-thess.gr/ ");
-							flag = true;
+
 						}else if  (n.equals(hosp11.getHospitalName())) {
 							System.out.println("The website of Hospital Άγιος Λουκάς is http://www.klinikiagiosloukas.gr/ ");
-							flag = true;
+
 						}else if  (n.equals(hosp12.getHospitalName())) {
 							System.out.println("The website of Hospital Άγιος Γεώργιος is http://www.chaniahospital.gr/ ");
-							flag = true;
+
 						}else if  (n.equals(hosp13.getHospitalName())) {
 							System.out.println("The website of Hospital Γενικό Νοσοκομείο Λάρισας  is http://www.uhl.gr/ ");
-							flag = true;
+
 						}else if  (n.equals(hosp14.getHospitalName())) {
 							System.out.println("The website of Hospital ΚΟΥΤΛΙΜΠΑΝΙΟ & ΤΡΙΑΝΤΑΦΥΛΛΕΙΟ Νοσοκομείο is http://www.ghl.gr/gnl.php ");
-							flag = true;
+
 						}else if  (n.equals(hosp15.getHospitalName())) {
 							System.out.println("The website of Hospital Άγιος Ανδρέας is http://www.agandreashosp.gr/");
-							flag = true;
+
 						}else if  (n.equals(hosp16.getHospitalName())) {
 							System.out.println("The website of Hospital Πανεπιστημιακό Γενικό Νοσοκομείο  is https://www.pgnp.gr/");
-							flag = true;
+
 						}else if  (n.equals(hosp17.getHospitalName())) {
 							System.out.println("The website of Hospital ΧΑΤΖΗΚΩΣΤΑ  is https://www.gni-hatzikosta.gr/");
-							flag = true;
+
 						}else if  (n.equals(hosp18.getHospitalName())) {
-							System.out.println("The website of Hospital Πανεπιστημιακό Νοσοκομείο Ιωαννίνων  is https://www.uhi.gr/ ");
-							flag = true;
+
 						}else if  (n.equals(hosp19.getHospitalName())) {
 							System.out.println("The website of Hospital ΕΚΑΒis https://www.nosokomeiokalamatas.gr/");
-							flag = true;
+
 						}else if  (n.equals(hosp20.getHospitalName())) {
 							System.out.println("The website of Hospital Πανεπιστημιακό Γενικό Νοσοκομείο Αλεξανδρούπολης is https://pgna.gr/ ");
-							flag = true;
+
 						}else if  (n.equals(hosp21.getHospitalName())) {
 							System.out.println("The website of Hospital Σισμανόγλειο is http://www.komotini-hospital.gr/ ");
-							flag = true;
+
 						} else if (n.equals("end")) {
-							flag = true;
-						}else {
-							System.out.println("Please type the name of the hospital again");
-							n = sc.nextLine();
+							System.out.println("Thank you for your coperation!");
 						}
-					}
-					System.out.println("Thank you for your coperation!");
+
 					break;
 				case 5 :
 					//Deserialize list//
