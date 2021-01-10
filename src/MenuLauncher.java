@@ -35,20 +35,21 @@ public class MenuLauncher {
 		Hospital hosp21 = new Hospital("Σισμανόγλειο", 16, "Κομοτηνή");
 		// end of creation
 		
-		
+		//Hospital.hospitalMenu();
+
+
 		Scanner sc= new Scanner(System.in);
 		boolean bol = false;
 		int x;
-		
 		do {
-			
+
 			System.out.println("********MainMenu********"); 
 			System.out.println("1. Sign-Up ");
 			System.out.println("2. Covid Information");
 			System.out.println("3. Log in  (Hospital Manager only)");
 			System.out.println("4. Information about the hospitals");
-			System.out.print("Give [1-3] = ");
-			try {
+			System.out.print("Give [1-4] = ");
+			//try {
 				x =  sc.nextInt();
 				switch(x) {
 				case 1:
@@ -124,53 +125,9 @@ public class MenuLauncher {
 			            c.printStackTrace();
 			            return;
 			        }
-					System.out.println("Give Password = ");
-					int p = sc.nextInt();
-					Scanner scanner = new Scanner(System.in);
-					if(p==104) {
-						System.out.println("Correct Pasword...");
-						System.out.println("Insert AMKA to find the person you want : ");
-						int AMKA = sc.nextInt();
-						for (Person person : Person.personlist) {
-							if (person.getAMKA() == AMKA ) {
-								System.out.println("Press 1 through 3 to choose the following or anything "
-										+ "else to stop the procedure...  ");
-								System.out.println("1) Is there a new case that needs icu?");
-								System.out.println("2) Is there a new Icu open?");
-								System.out.println("3) Show the availabilty of the Icus of all the hospitals.");
-								int choice = scanner.nextInt();
-								switch (choice) {
-									// add of a covid-19 case to the icu
-									case 1 :
-										System.out.println("Does the patience need icu(true/false)?");
-										
-										boolean managerDecision = sc.hasNext();
-										if(managerDecision) {
-											Hospital.icuUpdate(person, managerDecision);
-											System.out.println("The addition has been successful!!");
-										} else {
-											System.out.println("The patient doesnt need Icu at the moment");
-										}
-										break;
-									// end of the addition
-									// deleting-extracting a case from the icu - new icu-space	
-									case 2 :
-											System.out.println("What is the current situation of the case: alive or dead;");
-											String status = sc.nextLine();
-											Hospital.icuExtraction(person, status);
-											System.out.println("The extraction has been successful!!");
-										break;
-										// end of extraction	
-									case 3 :
-										Hospital.showAvailability();
-										break;
-										// end of showing availity			
-								}
-								break;
-							}
-						}
-					}
-					break;
+					Hospital.hospitalMenu();
+					
+				break; 
 				case 4:
 					//Deserialize list//
 					try
@@ -294,16 +251,14 @@ public class MenuLauncher {
 				
 				}
 
-			}catch(Exception e) {
+		/*	}catch(Exception e) {
 				sc.nextLine();
 				System.out.println("Error,Try Again "); 
-
-			}
+	*/
 
 		}while(bol==false);
+
 		sc.close();
-
-
 
 	}
 } 	
