@@ -5,7 +5,6 @@ import java.text.DecimalFormat;
 public class Statistics {
 	private static double[] infpermonth = new double [12];
 	private static double[] monthinfrate = new double [12];
-	private static int maxmonth;
 	private static String maxseason;
 	private static double[] seasoninfrate = new double [4];
 	private static String[] regions = new String[9];
@@ -97,7 +96,6 @@ public class Statistics {
 		for (int i = 0; i < 12; i++) {
 			if ( i == 0) {
 				maxinf = infpermonth[i];
-				maxmonth = i + 1;
 			} else {
 				if (infpermonth[i] > maxinf) {
 					maxinf = infpermonth[i];
@@ -244,8 +242,12 @@ public class Statistics {
 	}
 	
 	public static void icuexitrate() { // percentage of people that exit icu 
-		double pexit = Hospital.getNumberAlive()/Hospital.getTotalIcuCases() * 100; 
+		if (Hospital.entrancedPerson.size() == 0) {
+			System.out.println("0 % of people infected by Covid19 have exit icus");
+		}else {
+		double pexit = Hospital.getNumberAlive()/Hospital.entrancedPerson.size() * 100; 
 		System.out.println(df2.format(pexit) + " % of people infected by Covid 19 have exit icus ");
+	}
 	}
 	
 	//filling table with the regions investigated for possible infections//

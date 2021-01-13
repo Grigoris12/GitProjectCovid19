@@ -8,7 +8,7 @@ public class Hospital {
 	Scanner scanner = new Scanner(System.in);
 	
 	// A list with all the people the needed icu
-	private static ArrayList<Person>  entrancedPerson = new ArrayList<Person>();
+    static ArrayList<Person>  entrancedPerson = new ArrayList<Person>();
 	private static ArrayList<String> belongingHospital = new ArrayList<String>();
 	// Variables with the name of the hospital and the location of it
 	private String hospitalName, location;
