@@ -25,7 +25,7 @@ public class Hospital {
 	// Number of people that come out of the Icus alive and dead
 	private static int numberAlive = 0, numberDead = 0;
 
-	private static int totalIcuCases = 0;
+	private static double totalIcuCases = 0;
 	
 	// constructor for hospitals and their attributes
 	public Hospital(String hospitalName, int icu, String location) {
@@ -171,7 +171,7 @@ public class Hospital {
 		Hospital.numberDead = numberDead;
 	}
 
-	public static int getTotalIcuCases() {
+	public static double getTotalIcuCases() {
 		return totalIcuCases;
 	}
 

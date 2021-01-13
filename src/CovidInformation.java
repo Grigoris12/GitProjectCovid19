@@ -81,7 +81,7 @@ public class CovidInformation {
 				break;
 
 				case 9:System.out.println("The number of people infected by Covid19 that are into icus is " 
-				    + (Hospital.getTotalIcuCases() - Hospital.getNumberAlive() - Hospital.getNumberDead()));
+				    + (int)(Hospital.getTotalIcuCases() - Hospital.getNumberAlive() - Hospital.getNumberDead()));
 				break;
 
 				case 10:Statistics.icurate();
