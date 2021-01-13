@@ -5,7 +5,6 @@ import java.text.DecimalFormat;
 public class Statistics {
 	private static double[] infpermonth = new double [12];
 	private static double[] monthinfrate = new double [12];
-	private static int maxmonth;
 	private static String maxseason;
 	private static double[] seasoninfrate = new double [4];
 	private static String[] regions = new String[9];
@@ -97,7 +96,6 @@ public class Statistics {
 		for (int i = 0; i < 12; i++) {
 			if ( i == 0) {
 				maxinf = infpermonth[i];
-				maxmonth = i + 1;
 			} else {
 				if (infpermonth[i] > maxinf) {
 					maxinf = infpermonth[i];
