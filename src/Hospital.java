@@ -194,7 +194,7 @@ public class Hospital {
 					System.out.println("Press 1 through 4 to choose the following or anything "
 							+ "else to stop the procedure...  ");
 					System.out.println("1) Is there a new case that needs icu?");
-					System.out.println("2) Is there a new Icu open?");
+					System.out.println("2) Update patient status");
 					System.out.println("3) Show the availabilty of the Icus of all the hospitals.");
 					System.out.println("4) To show the list of the person that have been entranced in Icu");
 					System.out.println("5)Go to main menu");
