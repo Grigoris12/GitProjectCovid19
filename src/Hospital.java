@@ -193,7 +193,7 @@ public class Hospital {
 					flag = false;
 					System.out.println("Press 1 through 4 to choose the following or anything "
 							+ "else to stop the procedure...  ");
-					System.out.println("1) Is there a new case that needs icu?");
+					System.out.println("1) Insert person in icu");
 					System.out.println("2) Update patient status");
 					System.out.println("3) Show the availabilty of the Icus of all the hospitals.");
 					System.out.println("4) To show the list of the person that have been entranced in Icu");
@@ -203,11 +203,11 @@ public class Hospital {
 						// add of a covid-19 case to the icu
 						case 1 :
 							System.out.println("Does the patience need icu(true/false)?");
-							boolean managerDecision = sc.hasNext();
-							if(managerDecision) {
+							boolean managerDecision = sc.nextBoolean();
+							if(managerDecision==true){
 								Hospital.icuUpdate(Person.personlist.get(i), managerDecision);
 								System.out.println("The addition has been successful!!");
-							} else {
+							} else if(managerDecision==false){
 								System.out.println("The patient doesnt need Icu at the moment");
 							}
 							break;
