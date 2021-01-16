@@ -206,9 +206,9 @@ public class Statistics {
 					do {
 						try {
 							System.out.print("Insert the city you want to know the total number of people that are infected by Covid19 "
-									+ "(Athens,Thessaloniki,Larissa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Gianena)");
+									+ "(Athens,Thessaloniki,Larisa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Giannena)");
 							String region = sc.next();
-							if((!region.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
+							if((!region.matches("Athens|Thessaloniki|Larisa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Giannena"))){
 								throw new Exception();
 							}
 							for (int i = 0 ; i < Person.personlist.size(); i++) {
@@ -258,7 +258,7 @@ public class Statistics {
 			} else if (i == 1) {
 				regions[i] = "Thessaloniki";
 			} else if (i == 2) {
-				regions[i] = "Larissa";
+				regions[i] = "Larisa";
 			} else if (i == 3) {
 				regions[i] = "Xania";
 			} else if (i == 4) {
@@ -270,7 +270,7 @@ public class Statistics {
 			} else if (i == 7) {
 				regions[i] = "Kalamata";
 			} else {
-				regions[i] = "Gianena";
+				regions[i] = "Giannena";
 			}
 		}
 	}
