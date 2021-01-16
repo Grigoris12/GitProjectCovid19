@@ -197,6 +197,7 @@ public class Hospital {
 					System.out.println("2) Is there a new Icu open?");
 					System.out.println("3) Show the availabilty of the Icus of all the hospitals.");
 					System.out.println("4) To show the list of the person that have been entranced in Icu");
+					System.out.println("5)Go to main menu");
 					int choice = sc.nextInt();
 					switch (choice) {
 						// add of a covid-19 case to the icu
@@ -225,6 +226,8 @@ public class Hospital {
 							// end of showing availity		
 						case 4:
 							Hospital.showIcuPerson();
+						case 5:
+							break;
 						}
 					break;
 				}
