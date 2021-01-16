@@ -215,7 +215,7 @@ public class Hospital {
 							// deleting-extracting a case from the icu - new icu-space	
 						case 2 :
 							System.out.println("What is the current situation of the case: alive or dead;");
-							String status = sc.nextLine();
+							String status = sc.next();
 							Hospital.icuExtraction(Person.personlist.get(i), status);
 							System.out.println("The extraction has been successful!!");
 							break;
