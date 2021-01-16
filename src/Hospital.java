@@ -199,18 +199,30 @@ public class Hospital {
 					System.out.println("4) To show the list of the person that have been entranced in Icu");
 					System.out.println("5)Go to main menu");
 					int choice = sc.nextInt();
+					
 					switch (choice) {
 						// add of a covid-19 case to the icu
-						case 1 :
-							System.out.println("Does the patience need icu(true/false)?");
-							boolean managerDecision = sc.nextBoolean();
-							if(managerDecision==true){
-								Hospital.icuUpdate(Person.personlist.get(i), managerDecision);
-								System.out.println("The addition has been successful!!");
-							} else if(managerDecision==false){
-								System.out.println("The patient doesnt need Icu at the moment");
+					case 1 :
+						boolean per=true;
+						do {
+							try {
+								System.out.println("Does the patience need icu(true/false)?");
+								boolean managerDecision = sc.nextBoolean();
+								if(managerDecision==true){
+									Hospital.icuUpdate(Person.personlist.get(i), managerDecision);
+									System.out.println("The addition has been successful!!");
+								} else if(managerDecision==false){
+									System.out.println("The patient doesnt need Icu at the moment");
+								} 
+								per=true;
+							}catch(Exception e){
+								sc.next();
+								System.out.println("Wrong input,try again");
+								per = false;
 							}
+						}while(per == false);
 							break;
+
 							// end of the addition
 							// deleting-extracting a case from the icu - new icu-space	
 						case 2 :
