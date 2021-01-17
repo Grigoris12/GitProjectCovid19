@@ -68,8 +68,8 @@ public class Hospital {
 	
 	public static int findHospital(Person person) {
 		int place = 0;
-		for (int i = 0; i <= belongingHospital.size(); i++) {
-			for(int j=0; j <= hospitals.length; j++) {
+		for (int i = 0; i < belongingHospital.size(); i++) {
+			for(int j=0; j < hospitals.length; j++) {
 				if(belongingHospital.get(i).equals((hospitals[j].hospitalName))) {
 					place = i;
 				}
