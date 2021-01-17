@@ -23,7 +23,7 @@ public class CovidInformation {
 				System.out.println("10)Printing the percentage of people infected by Covid19 that "
 						+ "have enter icus"); 
 				System.out.println("11)Printing the percentage of people infected by Covid19 that"
-						+ "have exit icus");
+						+ "have exit icus alive");
 				System.out.println("12)Printing the available icus of every hospital");
 				System.out.println("13)Printing the percentage of female and male infected by Covid19");
 				System.out.println("14)Printing the percentage of infections in every city right now");
