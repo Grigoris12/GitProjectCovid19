@@ -49,7 +49,7 @@ public class MenuLauncher {
 			System.out.println("3. Log in  (Hospital Manager only)");
 			System.out.println("4. Information about the hospitals");
 			System.out.print("Give [1-4] = ");
-			//try {
+			try {
 				x =  sc.nextInt();
 				switch(x) {
 				case 1:
@@ -251,10 +251,10 @@ public class MenuLauncher {
 				
 				}
 
-		/*	}catch(Exception e) {
+			}catch(Exception e) {
 				sc.nextLine();
 				System.out.println("Error,Try Again "); 
-	*/
+			}
 
 		}while(bol==false);
 
