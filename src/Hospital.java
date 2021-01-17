@@ -226,10 +226,24 @@ public class Hospital {
 							// end of the addition
 							// deleting-extracting a case from the icu - new icu-space	
 						case 2 :
+							boolean per3 = true;
+							do {
+								per3=true;
+							try {
 							System.out.println("What is the current situation of the case: alive or dead;");
 							String status = sc.next();
+							if(!status.matches("alive|dead")) {
+
+								throw new Exception();
+							}
 							Hospital.icuExtraction(Person.personlist.get(i), status);
 							System.out.println("The extraction has been successful!!");
+							} catch(Exception e) {
+								System.out.println("Wrong input,put alive/dead");
+								per3=false;
+								sc.nextLine();
+							}
+							}while(per3 == false);
 							break;
 							// end of extraction	
 						case 3 :
