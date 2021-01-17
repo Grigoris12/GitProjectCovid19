@@ -91,7 +91,7 @@ public class Hospital {
 					break;
 				}
 			}
-		}else {
+		}else if(currentSituation.equals("dead")) {
 			numberDead++;
 			for( Person findPerson : Person.personlist) {
 				if(findPerson == person) {
