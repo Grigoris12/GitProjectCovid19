@@ -83,7 +83,7 @@ public class Hospital {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Give the date(DD/MM/YYY) that the person left the icu : ");
 		String departureDate = scanner.nextLine();
-		if(currentSituation.equals("Alive")) {
+		if(currentSituation.equals("alive")) {
 			numberAlive++;
 			for( Person findPerson : Person.personlist) {
 				if(findPerson == person) {
