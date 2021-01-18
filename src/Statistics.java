@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 
 public class Statistics {
 	private static double[] infpermonth = new double [12];
+	private static String maxmonth;
 	private static double[] monthinfrate = new double [12];
 	private static String maxseason;
 	private static double[] seasoninfrate = new double [4];
@@ -92,20 +93,21 @@ public class Statistics {
 	}
 	//finding month with the highest infection rate//
 	public static String mostinfmonth() {
-		String[] months = {"January", "February", "March", "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" ,"December"};
+		String[] months = {"January", "February", "March", "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" ,"December"}; 
 		double maxinf = 0;
-		String max = "";
+	    maxmonth = "";
 		for (int i = 0; i < 12; i++) {
 			if ( i == 0) {
 				maxinf = infpermonth[i];
+				maxmonth = months[i];
 			} else {
 				if (infpermonth[i] > maxinf) {
 					maxinf = infpermonth[i];
-					max = months[i];
+					maxmonth = months[i];
 				}
 			}
 		}
-		return max;
+		return maxmonth;
 	}
 	
     //filling table with infection rates per season//
