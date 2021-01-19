@@ -122,9 +122,9 @@ public class Person implements Serializable {
 		do {
 			per=true;
 			try {
-				System.out.print("Give region(Athens,Thessaloniki,Larissa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Gianena) = ");
+				System.out.print("Give region(Athens,Thessaloniki,Larisa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Giannena) = ");
 				r = sca.next();
-				if((!r.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
+				if((!r.matches("Athens|Thessaloniki|Larisa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Giannena"))){
 					throw new Exception();
 				}
 			} catch(Exception e) {

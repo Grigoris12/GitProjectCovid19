@@ -260,6 +260,7 @@ public class MenuLauncher {
 				sc.nextLine();
 				System.out.println("Error,Try Again "); 
 			}
+
 		}while(bol==false);
 
 		System.out.println("Thank you");

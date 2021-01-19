@@ -1,11 +1,13 @@
 
 import java.util.Scanner;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class Statistics {
 	private static double[] infpermonth = new double [12];
+	private static String maxmonth;
 	private static double[] monthinfrate = new double [12];
-	private static int maxmonth;
 	private static String maxseason;
 	private static double[] seasoninfrate = new double [4];
 	private static String[] regions = new String[9];
@@ -93,21 +95,21 @@ public class Statistics {
 	}
 	//finding month with the highest infection rate//
 	public static String mostinfmonth() {
-		String[] months = {"January", "February", "March", "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" ,"December"};
+		String[] months = {"January", "February", "March", "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" ,"December"}; 
 		double maxinf = 0;
-		String max = "";
+	    maxmonth = "";
 		for (int i = 0; i < 12; i++) {
 			if ( i == 0) {
 				maxinf = infpermonth[i];
-				maxmonth = i + 1;
+				maxmonth = months[i];
 			} else {
 				if (infpermonth[i] > maxinf) {
 					maxinf = infpermonth[i];
-					max = months[i];
+					maxmonth = months[i];
 				}
 			}
 		}
-		return max;
+		return maxmonth;
 	}
 	
     //filling table with infection rates per season//
@@ -165,12 +167,14 @@ public class Statistics {
 			} else if (location.equals("City")) {
 				//do {
 					try {
-					//	System.out.print("Insert the city you want to know the total number of people that are infected by Covid19 "
-							//	+ "(Athens,Thessaloniki,Larissa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Gianena)");
-					//	String region = sc.next();
-					//	if((!region.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
-					//		throw new Exception();
-					//	}
+
+						System.out.print("Insert the city you want to know the total number of people that are infected by Covid19 "
+								+ "(Athens,Thessaloniki,Larisa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Giannena)");
+						String region = sc.next();
+						if((!region.matches("Athens|Thessaloniki|Larisa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Giannena"))){
+							throw new Exception();
+						}
+
 						for (int j = 0 ; j < Person.personlist.size() ; j++) {
 							if (Person.personlist.get(j).isInfected() == true && Person.personlist.get(j).getRegion().equals(Butt2_4.comboBox.getItemAt(Butt2_4.comboBox.getSelectedIndex()))  && Person.personlist.get(j).getTestday() == day && Person.personlist.get(j).getTestmonth() == month &&  Person.personlist.get(j).getTestyear() == year) {
 								countTodayInfected++;
@@ -209,12 +213,14 @@ public class Statistics {
 			} else if (location.equals("city")) {
 				//	do {
 						try {
-						//	System.out.print("Insert the city you want to know the total number of people that are infected by Covid19 "
-							//		+ "(Athens,Thessaloniki,Larissa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Gianena)");
-						//	String region = sc.next();
-						//	if((!location.matches("Athens|Thessaloniki|Larissa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Gianena"))){
-							//	throw new Exception();
-						//	}
+
+							System.out.print("Insert the city you want to know the total number of people that are infected by Covid19 "
+									+ "(Athens,Thessaloniki,Larisa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Giannena)");
+							String region = sc.next();
+							if((!region.matches("Athens|Thessaloniki|Larisa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Giannena"))){
+								throw new Exception();
+							}
+
 							for (int i = 0 ; i < Person.personlist.size(); i++) {
 								if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getRegion().equals(Butt2_5.comboBox.getItemAt(Butt2_5.comboBox.getSelectedIndex()))) {
 									countTotalInfected++;
@@ -236,8 +242,13 @@ public class Statistics {
 	}
 	
 	public static void mortalityrate() {  
-		double pdeath = Hospital.getNumberDead()/ getTotalInfections()* 100; 
-		System.out.println("The mortality rate of Covid19 is " + df2.format(pdeath) + "%");
+		
+	    BigDecimal bd1 = new BigDecimal(Hospital.getNumberDead()); 
+	    BigDecimal bd2 = new BigDecimal(getTotalInfections()* 100);
+	    BigDecimal bd3 ;
+	    bd3 = bd1.divide(bd2, 5 ,RoundingMode.CEILING);
+	    String str = "The mortality rate of Covid19 is " +bd3 + "%";
+		System.out.println( str  );
 	}
 	
 	public static void icurate() { // percentage of people that entered icu 
@@ -246,8 +257,12 @@ public class Statistics {
 	}
 	
 	public static void icuexitrate() { // percentage of people that exit icu 
-		double pexit = Hospital.getNumberAlive()/Hospital.getTotalIcuCases() * 100; 
+		if (Hospital.entrancedPerson.size() == 0) {
+			System.out.println("0 % of people infected by Covid19 have exit icus");
+		}else {
+		double pexit = Hospital.getNumberAlive()/Hospital.entrancedPerson.size() * 100;  
 		System.out.println(df2.format(pexit) + " % of people infected by Covid 19 have exit icus ");
+	}
 	}
 	
 	//filling table with the regions investigated for possible infections//
@@ -258,7 +273,7 @@ public class Statistics {
 			} else if (i == 1) {
 				regions[i] = "Thessaloniki";
 			} else if (i == 2) {
-				regions[i] = "Larissa";
+				regions[i] = "Larisa";
 			} else if (i == 3) {
 				regions[i] = "Xania";
 			} else if (i == 4) {
@@ -270,7 +285,7 @@ public class Statistics {
 			} else if (i == 7) {
 				regions[i] = "Kalamata";
 			} else {
-				regions[i] = "Gianena";
+				regions[i] = "Giannena";
 			}
 		}
 	}
