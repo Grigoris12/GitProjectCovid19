@@ -1,25 +1,15 @@
 import java.awt.EventQueue;
-
-import java.util.Scanner;
-import javax.swing.JFrame;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
 import java.awt.Font;
-import java.awt.Insets;
-import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import javax.swing.SwingConstants;
-import java.awt.Color;
-import javax.swing.JPanel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 
 public class Gui {
@@ -62,6 +52,27 @@ public class Gui {
 				JButton btnNewButton = new JButton("Sign-up\r\n");
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						try
+				        {
+				            FileInputStream fis = new FileInputStream("persondata");
+				            ObjectInputStream ois = new ObjectInputStream(fis);
+				 
+				            Person.personlist = (ArrayList) ois.readObject();
+				 
+				            ois.close();
+				            fis.close();
+				        } 
+				        catch (IOException ioe) 
+				        {
+				            ioe.printStackTrace();
+				            return;
+				        } 
+				        catch (ClassNotFoundException c) 
+				        {
+				            System.out.println("Class not found");
+				            c.printStackTrace();
+				            return;
+				        }
 						Butt1.butt1();
 						frame.setVisible(false);
 					}
@@ -73,6 +84,27 @@ public class Gui {
 				JButton btnNewButton_1 = new JButton("Covid Information\r\n");
 				btnNewButton_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						try
+				        {
+				            FileInputStream fis = new FileInputStream("persondata");
+				            ObjectInputStream ois = new ObjectInputStream(fis);
+				 
+				            Person.personlist = (ArrayList) ois.readObject();
+				 
+				            ois.close();
+				            fis.close();
+				        } 
+				        catch (IOException ioe) 
+				        {
+				            ioe.printStackTrace();
+				            return;
+				        } 
+				        catch (ClassNotFoundException c) 
+				        {
+				            System.out.println("Class not found");
+				            c.printStackTrace();
+				            return;
+				        }
 						Butt2.window2();
 						frame.setVisible(false);
 					}
@@ -84,6 +116,27 @@ public class Gui {
 				JButton btnNewButton_2 = new JButton("Log in (Hospital Manager only)");
 				btnNewButton_2.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						try
+				        {
+				            FileInputStream fis = new FileInputStream("persondata");
+				            ObjectInputStream ois = new ObjectInputStream(fis);
+				 
+				            Person.personlist = (ArrayList) ois.readObject();
+				 
+				            ois.close();
+				            fis.close();
+				        } 
+				        catch (IOException ioe) 
+				        {
+				            ioe.printStackTrace();
+				            return;
+				        } 
+				        catch (ClassNotFoundException c) 
+				        {
+				            System.out.println("Class not found");
+				            c.printStackTrace();
+				            return;
+				        }
 						Butt3.Butt3();
 					}
 				});

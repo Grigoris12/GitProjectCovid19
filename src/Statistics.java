@@ -1,5 +1,4 @@
 
-import java.util.Scanner;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -150,11 +149,7 @@ public class Statistics {
 	}
 	
 	public static void todayInfected(int day, int month , int year , String location) { // calculates the number of cases on a given day 
-	//	Scanner sc = new Scanner(System.in);
-		//boolean a = true;
-		//do {
-		//	System.out.print("You want to know today's infected in Greece or in certain city?Insert [Greece] or [city] ");
-		//	String answer = sc.next();
+
 			countTodayInfected = 0;
 			if (location.equals("Greece")) {
 				for (int j = 0 ; j < Person.personlist.size() ; j++) {
@@ -162,45 +157,23 @@ public class Statistics {
 						countTodayInfected++;
 					}
 				}
-				System.out.println(countTodayInfected + " people infected by Covid19 in Greece on " + day + "/" + month + "/" +year);
-				//a = true;
+			
+			
 			} else if (location.equals("City")) {
-				//do {
-					try {
-
-						System.out.print("Insert the city you want to know the total number of people that are infected by Covid19 "
-								+ "(Athens,Thessaloniki,Larisa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Giannena)");
-						String region = sc.next();
-						if((!region.matches("Athens|Thessaloniki|Larisa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Giannena"))){
-							throw new Exception();
-						}
-
 						for (int j = 0 ; j < Person.personlist.size() ; j++) {
 							if (Person.personlist.get(j).isInfected() == true && Person.personlist.get(j).getRegion().equals(Butt2_4.comboBox.getItemAt(Butt2_4.comboBox.getSelectedIndex()))  && Person.personlist.get(j).getTestday() == day && Person.personlist.get(j).getTestmonth() == month &&  Person.personlist.get(j).getTestyear() == year) {
 								countTodayInfected++;
 							}
 						}
-						System.out.println(countTodayInfected + " people infected by Covid19 in " + Butt2_4.comboBox.getSelectedIndex() + " on " + day + "/" + month + "/" + year);
-					//	a = true;
-					} catch (Exception e) {
-						System.out.println("Wrong input,not valid region");
-						//a = false;
-						//sc.nextLine();
-					}
-			//} while (a == false);
-		//	} else {
-			//	System.out.println("Wrong input, insert [Greece] or [city]");
-			//	a = false;
 			}
-	//	} while (a == false);
-	}
+			
+		}
+
+	
+
 
 	public static void totalInfected(String location) { // calculates the total number of cases 
-	//	Scanner sc = new Scanner(System.in);
-	//	boolean b = true;
-	//	do {
-		//	System.out.print("You want to know total infected in Greece or in certain city?Insert [Greece] or [city] ");
-		//	String answer = sc.next();
+	
 		    countTotalInfected = 0;
 			if (location.equals("Greece")) {
 				for (int i = 0 ; i < Person.personlist.size() ; i++) {
@@ -208,37 +181,16 @@ public class Statistics {
 						countTotalInfected++;
 					}
 				}
-				System.out.println("Total people infected by Covid19 in Greece is/are  " + countTotalInfected);
-			//	b = true;
-			} else if (location.equals("city")) {
-				//	do {
-						try {
 
-							System.out.print("Insert the city you want to know the total number of people that are infected by Covid19 "
-									+ "(Athens,Thessaloniki,Larisa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Giannena)");
-							String region = sc.next();
-							if((!region.matches("Athens|Thessaloniki|Larisa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Giannena"))){
-								throw new Exception();
-							}
+			} else if (location.equals("city")) {
 
 							for (int i = 0 ; i < Person.personlist.size(); i++) {
 								if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getRegion().equals(Butt2_5.comboBox.getItemAt(Butt2_5.comboBox.getSelectedIndex()))) {
 									countTotalInfected++;
 								}
 							}
-							System.out.println("Total people infected by Covid19 in " + Butt2_5.comboBox.getItemAt(Butt2_5.comboBox.getSelectedIndex()) + " is/are " + countTotalInfected);
-						//	b = true;
-						} catch(Exception e) {
-							System.out.println("Wrong input,not valid region");
-						//	b = false;
-							//sc.nextLine();
-						} 
-				//	} while (b == false);
-			} else {
-				System.out.println("Wrong input, insert [Greece] or [city]");
-				//b = false;
-				}
-		//} while (b == false);
+						
+			}
 	}
 	
 	public static void mortalityrate() {  
