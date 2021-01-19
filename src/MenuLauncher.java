@@ -37,7 +37,7 @@ public class MenuLauncher {
 		
 		//Hospital.hospitalMenu();
 
-
+		Gui.graph();
 		Scanner sc= new Scanner(System.in);
 		boolean bol = false;
 		int x;
@@ -48,8 +48,9 @@ public class MenuLauncher {
 			System.out.println("2. Covid Information");
 			System.out.println("3. Log in  (Hospital Manager only)");
 			System.out.println("4. Information about the hospitals");
+			System.out.println("default ");
 			System.out.print("Give [1-4] = ");
-			//try {
+			try {
 				x =  sc.nextInt();
 				switch(x) {
 				case 1:
@@ -101,7 +102,7 @@ public class MenuLauncher {
 			            return;
 			        }
 					CovidInformation.menu();
-					break;
+					break; 
 				case 3:
 					//Deserialize list//
 					try
@@ -220,11 +221,12 @@ public class MenuLauncher {
 							System.out.println("Thank you for your coperation!");
 						}
 
-					break;
+					break; 
 				case 5 :
 					//Deserialize list//
 					try
 			        {
+
 			            FileInputStream fis = new FileInputStream("persondata");
 			            ObjectInputStream ois = new ObjectInputStream(fis);
 			 
@@ -248,20 +250,25 @@ public class MenuLauncher {
 						System.out.print(Person.personlist.get(i));
 					}
 				      break; 
+				   
+				case 6 :
+					bol = true;
 				
 				}
 
-		/*	}catch(Exception e) {
+			}catch(Exception e) {
 				sc.nextLine();
 				System.out.println("Error,Try Again "); 
-	*/
-
+			}
 		}while(bol==false);
 
+		System.out.println("Thank you");
 		sc.close();
-
+	
 	}
-} 	
+}
+
+ 	
 
 
 

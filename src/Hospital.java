@@ -9,7 +9,7 @@ public class Hospital {
 	
 	// A list with all the people the needed icu
 	private static ArrayList<Person>  entrancedPerson = new ArrayList<Person>();
-	private static ArrayList<String> belongingHospital = new ArrayList<String>();
+
 	// Variables with the name of the hospital and the location of it
 	private String hospitalName, location;
 	
@@ -38,11 +38,13 @@ public class Hospital {
 	}
 
 	// Prints the available icus of every hospital
-	public static void showAvailability() {
+	public static String showAvailability() {
+		String showHospitals = null;
 		for(int i = 0 ; i < hospitals.length ; i++) {
-			System.out.println("The remaining Icus of the " +  hospitals[i].hospitalName + 
-					 " are " + hospitals[i].icu);
+			showHospitals += "The remaining Icus of the " +  hospitals[i].hospitalName + 
+					 " are " + hospitals[i].icu +"\r\n";
 		}
+		return showHospitals;
 	}
 	
 	/*  Priortise the Hospitals with the most capacity in Icu's at the specific location
@@ -61,18 +63,16 @@ public class Hospital {
 		if(person.infected && managerDecision ) {
 			hospitals[mostFreeIcus(person.getRegion())].freeIcu--;
 			entrancedPerson.add(person);
-			belongingHospital.add(hospitals[mostFreeIcus(person.getRegion())].hospitalName);
+			person.setBelongingHospital(hospitals[mostFreeIcus(person.getRegion())].hospitalName);
 			totalIcuCases++;
 		}
 	}
 	
 	public static int findHospital(Person person) {
 		int place = 0;
-		for (int i = 0; i <= belongingHospital.size(); i++) {
-			for(int j=0; j <= hospitals.length; j++) {
-				if(belongingHospital.get(i).equals((hospitals[j].hospitalName))) {
-					place = i;
-				}
+		for(int j=0; j < hospitals.length; j++) {
+			if(person.getBelongingHospital().equals((hospitals[j].hospitalName))) {
+				place = j;
 			}
 		}
 		return place;
@@ -100,7 +100,7 @@ public class Hospital {
 				}
 			}
 		}
-		hospitals[findHospital(person)].freeIcu--;
+
 		System.out.println("The hospital has now one more available Icu!");
 		}
 	
@@ -203,6 +203,7 @@ public class Hospital {
 						case 1 :
 							System.out.println("Does the patience need icu(true/false)?");
 							boolean managerDecision = sc.hasNext();
+							 managerDecision = sc.hasNext();
 							if(managerDecision) {
 								Hospital.icuUpdate(Person.personlist.get(i), managerDecision);
 								System.out.println("The addition has been successful!!");
