@@ -32,7 +32,9 @@ public class MenuLauncher {
 		// end of creation
 		
 		//Hospital.hospitalMenu();
-
+		
+		Person.addPers();
+		
 		Gui.graph();
 		Scanner sc= new Scanner(System.in);
 		boolean bol = false;
@@ -220,7 +222,7 @@ public class MenuLauncher {
 					break; 
 				case 5 :
 					//Deserialize list//
-					try
+			/*		try
 			        {
 
 			            FileInputStream fis = new FileInputStream("persondata");
@@ -245,8 +247,12 @@ public class MenuLauncher {
 					for(int i=0;i<Person.personlist.size();i++) {
 						System.out.print(Person.personlist.get(i));
 					}
-				      break; 
+				      break;  */
 				   
+					for(Person person : Person.personlist) {
+						System.out.println(person);
+					}
+					break;
 				case 6 :
 					bol = true;
 				
