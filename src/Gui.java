@@ -52,7 +52,7 @@ public class Gui {
 				JButton btnNewButton = new JButton("Sign-up\r\n");
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						try
+				/*		try
 				        {
 				            FileInputStream fis = new FileInputStream("persondata");
 				            ObjectInputStream ois = new ObjectInputStream(fis);
@@ -72,7 +72,7 @@ public class Gui {
 				            System.out.println("Class not found");
 				            c.printStackTrace();
 				            return;
-				        }
+				        } */
 						Butt1.butt1();
 						frame.setVisible(false);
 					}
@@ -84,27 +84,7 @@ public class Gui {
 				JButton btnNewButton_1 = new JButton("Covid Information\r\n");
 				btnNewButton_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						try
-				        {
-				            FileInputStream fis = new FileInputStream("persondata");
-				            ObjectInputStream ois = new ObjectInputStream(fis);
-				 
-				            Person.personlist = (ArrayList) ois.readObject();
-				 
-				            ois.close();
-				            fis.close();
-				        } 
-				        catch (IOException ioe) 
-				        {
-				            ioe.printStackTrace();
-				            return;
-				        } 
-				        catch (ClassNotFoundException c) 
-				        {
-				            System.out.println("Class not found");
-				            c.printStackTrace();
-				            return;
-				        }
+						
 						Butt2.window2();
 						frame.setVisible(false);
 					}
@@ -116,27 +96,7 @@ public class Gui {
 				JButton btnNewButton_2 = new JButton("Log in (Hospital Manager only)");
 				btnNewButton_2.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						try
-				        {
-				            FileInputStream fis = new FileInputStream("persondata");
-				            ObjectInputStream ois = new ObjectInputStream(fis);
-				 
-				            Person.personlist = (ArrayList) ois.readObject();
-				 
-				            ois.close();
-				            fis.close();
-				        } 
-				        catch (IOException ioe) 
-				        {
-				            ioe.printStackTrace();
-				            return;
-				        } 
-				        catch (ClassNotFoundException c) 
-				        {
-				            System.out.println("Class not found");
-				            c.printStackTrace();
-				            return;
-				        }
+						
 						Butt3.Butt3();
 					}
 				});

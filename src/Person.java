@@ -34,10 +34,26 @@ public class Person implements Serializable {
 		this.testyear = testyear;
 		AMKA = aMKA;
 		this.infected = infected;
+		personlist.add(this);
 	}
+	
+	public static void addPers() {
+		Person p1 = new Person("kk","kk",11,"male","Xania",1,1,2019,1111,true);
+		Person p2 = new Person("aakk","kk",11,"male","Xania",12,1,2019,1111,true);
+		Person p3 = new Person("vvkk","kk",11,"male","Xania",13,1,2019,1111,true);
+		Person p4 = new Person("bbkk","kk",11,"male","Xania",14,1,2019,1111,true);
+		Person p5 = new Person("zzkk","kk",11,"male","Xania",1,11,2019,1111,true);
+		Person p6 = new Person("xxkk","kk",11,"male","Xania",1,10,2019,1111,true);
+		Person p7 = new Person("ookk","kk",11,"male","Xania",2,1,2019,1111,true);
+	}
+	
+	
+	
+	
+	
 	//method for adding person//
 	public static void addPerson() {
-		Scanner sca = new Scanner(System.in);
+	/*	Scanner sca = new Scanner(System.in);
 		String n=null;
 		String s=null;
 		boolean per = true;
@@ -212,9 +228,9 @@ public class Person implements Serializable {
 		Statistics.infratepermonth();
 		Statistics.infrateperseason();
 	
-		
+		*/
 		//Serialize arraylist//
-				try
+		/*		try
 		        {
 					FileOutputStream fos = new FileOutputStream(f,false);
 		            ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -226,7 +242,7 @@ public class Person implements Serializable {
 		        catch (IOException ioe) 
 		        {
 		            ioe.printStackTrace();
-		        }
+		        } */
 	}
 				
 
