@@ -1,5 +1,16 @@
 import java.awt.EventQueue;
 
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+
+import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -58,11 +69,22 @@ public class Butt2_6 {
 		JButton btnSumbit = new JButton("Sumbit");
 		btnSumbit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				String date = textField.getText();
+				JOptionPane.showMessageDialog(frame,"Total deaths in Greece on " + date + " are " + Hospital.deadInADay(date));
 			}
 		});
-		btnSumbit.setBounds(170, 114, 89, 23);
+		btnSumbit.setBounds(252, 115, 89, 23);
 		frame.getContentPane().add(btnSumbit);
+		
+		JButton btnMainMenu = new JButton("Main Menu");
+		btnMainMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Gui.graph();
+				frame.setVisible(false);
+			}
+		});
+		btnMainMenu.setBounds(86, 115, 118, 23);
+		frame.getContentPane().add(btnMainMenu);
 	}
 
 }

@@ -1,4 +1,5 @@
 import java.awt.EventQueue;
+
 import java.util.Scanner;
 import javax.swing.JFrame;
 import java.awt.GridLayout;
@@ -19,6 +20,8 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+
 
 
 public class Gui {
@@ -56,7 +59,7 @@ public class Gui {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.getContentPane().setLayout(null);
+				frame.getContentPane().setLayout(null);
 				
 				JButton btnNewButton = new JButton("Sign-up\r\n");
 				btnNewButton.addActionListener(new ActionListener() {
@@ -81,6 +84,11 @@ public class Gui {
 				frame.getContentPane().add(btnNewButton_1);
 				
 				JButton btnNewButton_2 = new JButton("Log in (Hospital Manager only)");
+				btnNewButton_2.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Butt3.Butt3();
+					}
+				});
 				btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 				btnNewButton_2.setBounds(90, 138, 247, 23);
 				frame.getContentPane().add(btnNewButton_2);
@@ -89,7 +97,6 @@ public class Gui {
 				btnInformationAboutThe.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						Butt4.butt4();
-						frame.setVisible(false);
 					}
 				});
 				btnInformationAboutThe.setFont(new Font("Tahoma", Font.PLAIN, 15));

@@ -1,3 +1,4 @@
+
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+	
 
 public class Butt4 {
 
@@ -111,21 +113,11 @@ public class Butt4 {
 			    } 
 		}
 		});
-		btnNewButton.setBounds(234, 174, 148, 23);
+		btnNewButton.setBounds(160, 171, 97, 25);
 		frame.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Choose the hospital that you want information");
 		lblNewLabel.setBounds(72, 31, 273, 16);
 		frame.getContentPane().add(lblNewLabel);
-		
-		JButton btnNewButton_1 = new JButton("Go to Main Menu");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Gui.graph();
-				frame.setVisible(false);
-			}
-		});
-		btnNewButton_1.setBounds(46, 174, 141, 25);
-		frame.getContentPane().add(btnNewButton_1);
 	}
 }

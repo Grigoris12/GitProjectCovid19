@@ -8,10 +8,14 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+
+
 import java.awt.event.ActionEvent;
 
 public class Butt1 {
@@ -52,7 +56,7 @@ public class Butt1 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 553, 405);
+		frame.setBounds(100, 100, 532, 377);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.getContentPane().setLayout(null);
@@ -159,7 +163,7 @@ public class Butt1 {
 		amkatext.setColumns(10);
 		
 		JLabel lblNewLabel_9 = new JLabel("Test COVID-19(positive) :");
-		lblNewLabel_9.setBounds(31, 272, 155, 14);
+		lblNewLabel_9.setBounds(31, 272, 124, 14);
 		frame.getContentPane().add(lblNewLabel_9);
 		
 		JRadioButton rdbtnFalse = new JRadioButton("false");
@@ -186,7 +190,7 @@ public class Butt1 {
 		frame.getContentPane().add(rdbtnFalse);
 		
 		JButton btnSumbit = new JButton("Submit");
-		btnSumbit.setBounds(275, 321, 105, 23);
+		btnSumbit.setBounds(233, 293, 96, 23);
 		btnSumbit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -250,42 +254,34 @@ public class Butt1 {
 				}else {
 					JOptionPane.showMessageDialog(frame,"Success");
 				}
-				try
-		        {
-		            FileInputStream fis = new FileInputStream("persondata");
-		            ObjectInputStream ois = new ObjectInputStream(fis);
-		 
-		            Person.personlist = (ArrayList) ois.readObject();
-		 
-		            ois.close();
-		            fis.close();
-		        } 
-		        catch (IOException ioe) 
-		        {
-		            ioe.printStackTrace();
-		            return;
-		        } 
-		        catch (ClassNotFoundException c) 
-		        {
-		            System.out.println("Class not found");
-		            c.printStackTrace();
-		            return;
-		        }
-			}
-			
-		});
-		frame.getContentPane().add(btnSumbit);
-		
-		JButton btnNewButton = new JButton("Go to Main Menu");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Gui.graph();
-				frame.setVisible(false);
+				String nameInput = nametext.getText();
+				String surnameInput = surnametext.getText();
+				int age = Integer.parseInt(ageinput);
+				int month = Integer.parseInt(monthinput);
+				int day = Integer.parseInt(dayinput);
+				int year = Integer.parseInt(yearinput);
+				int amka = Integer.parseInt(amkainput);
+				String gender = "male";
+				if(rdbtnMale.isSelected()) {
+					gender = "male";
+				} else if(rdbtnFemale.isSelected()) {
+					gender = "female";
+				}
+				String region = comboBox.getName();
+				boolean test = true;
+				if(rdbtnTrue.isSelected()) {
+					test = true;
+				} else if(rdbtnFalse.isSelected()) {
+					test = false;
+				}
+				Person.personlist.add(new Person(nameInput , surnameInput, age ,gender , region, day, month, year, amka,test ));
+				Statistics.countinfpermonth();
+				Statistics.infratepermonth();
+				Statistics.infrateperseason();
+				
 			}
 		});
-		btnNewButton.setBounds(114, 320, 129, 25);
-		frame.getContentPane().add(btnNewButton);
-		
+		frame.getContentPane().add(btnSumbit);	
 		
 	}
 
