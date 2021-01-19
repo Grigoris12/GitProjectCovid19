@@ -1,16 +1,12 @@
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuLauncher {
 
-	public static void main(String[] args) {
+	public static void main(String args[]) {
 		// creation of Hospital objects for all the Hospitals that have Icus in Greece
 		Hospital hosp1 = new Hospital("Σωτηρία", 122, "Αθήνα");
 		Hospital hosp2 = new Hospital("Γ.Γεννηματά", 57, "Αθήνα");
