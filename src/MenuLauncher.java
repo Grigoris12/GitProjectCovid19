@@ -126,7 +126,7 @@ public class MenuLauncher {
 			            c.printStackTrace();
 			            return;
 			        }
-					Hospital.hospitalMenu();
+				//	Hospital.hospitalMenu();
 					
 				break; 
 				case 4:

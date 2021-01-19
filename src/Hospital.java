@@ -79,11 +79,8 @@ public class Hospital {
 	}
 	
 	// When a person is exiting the Icu 
-	public static void icuExtraction(Person person, String currentSituation) {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Give the date(DD/MM/YYY) that the person left the icu : ");
-		String departureDate = scanner.nextLine();
-		if(currentSituation.equals("Alive")) {
+	public static void icuExtraction(Person person, String currentSituation,String departureDate) {
+		if(currentSituation.equals("alive")) {
 			numberAlive++;
 			for( Person findPerson : Person.personlist) {
 				if(findPerson == person) {
@@ -91,7 +88,7 @@ public class Hospital {
 					break;
 				}
 			}
-		}else {
+		}else if(currentSituation.equals("dead")) {
 			numberDead++;
 			for( Person findPerson : Person.personlist) {
 				if(findPerson == person) {
@@ -100,9 +97,10 @@ public class Hospital {
 				}
 			}
 		}
-
+		hospitals[findHospital(person)].freeIcu--;
 		System.out.println("The hospital has now one more available Icu!");
 		}
+	
 	
 	
 	// give date to the method to count the number of deaths in that day
@@ -179,7 +177,7 @@ public class Hospital {
 		Hospital.totalIcuCases = totalIcuCases;
 	}
 
-	public static void hospitalMenu() {
+/*	public static void hospitalMenu() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Give Password = ");
 		int password = sc.nextInt();
@@ -235,6 +233,6 @@ public class Hospital {
 			}
 		}
 
-	}
+	} */
 }
 
