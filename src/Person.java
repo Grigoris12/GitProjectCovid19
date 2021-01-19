@@ -22,6 +22,7 @@ public class Person implements Serializable {
 	private int testyear;
 	private int AMKA;
 	private String departmentDate = null;
+	private String belongingHospital = null;
 	boolean infected;
 	//Constructor for person//
 	public Person(String name, String surname, int age, String gender, String region, int testday,
@@ -307,6 +308,14 @@ public class Person implements Serializable {
 	
 	public String getDepartmentDate() {
 		return departmentDate;
+	}
+	
+	public void setBelongingHospital(String hospital) {
+		belongingHospital = hospital;
+	}
+	
+	public String getBelongingHospital() {
+		return belongingHospital;
 	}
 }
 
