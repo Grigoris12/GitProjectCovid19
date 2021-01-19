@@ -9,7 +9,7 @@ public class CovidInformation {
 			Scanner sc = new Scanner(System.in);
 			try {
 				System.out.println("********Menu********");
-				System.out.println("1)Printing the symptoms of Covid19");
+				System.out.println("1)Printing the symptoms of  Covid19");
 				System.out.println("2)Printing the instructions for protecting from Covid19");
 				System.out.println("3)Printing the instructions if you have symptoms of Covid19");
 				System.out.println("4)Printing the number of people infected by Covid19 a "
