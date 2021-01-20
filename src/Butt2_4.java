@@ -83,31 +83,31 @@ public class Butt2_4 {
 		lblInsertYear.setBounds(66, 92, 86, 14);
 		frame.getContentPane().add(lblInsertYear);
 		
-		JRadioButton rdbtnGreeceButton = new JRadioButton("Greece");
-		rdbtnGreeceButton.setBounds(236, 121, 69, 23);
-		frame.getContentPane().add(rdbtnGreeceButton);
+		JRadioButton greecebutton = new JRadioButton("Greece");
+		greecebutton.setBounds(236, 121, 69, 23);
+		frame.getContentPane().add(greecebutton);
 		
-		JRadioButton rdbtnCityButton = new JRadioButton("City");
-		rdbtnCityButton.setBounds(319, 121, 109, 23);
-		frame.getContentPane().add(rdbtnCityButton);
+		JRadioButton citybutton = new JRadioButton("City");
+		citybutton.setBounds(319, 121, 109, 23);
+		frame.getContentPane().add(citybutton);
 		
-		rdbtnGreeceButton.addActionListener(new ActionListener() {
+		greecebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnGreeceButton.isSelected()) {
-					rdbtnCityButton.setSelected(false);
+				if(greecebutton.isSelected()) {
+					citybutton.setSelected(false);
 				}
 			}
 		});
-		frame.getContentPane().add(rdbtnGreeceButton);
+		frame.getContentPane().add(greecebutton);
 		
-		rdbtnCityButton.addActionListener(new ActionListener() {
+		citybutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rdbtnCityButton.isSelected()) {
-					rdbtnGreeceButton.setSelected(false);
+				if(citybutton.isSelected()) {
+					greecebutton.setSelected(false);
 				}
 			}
 		});
-		frame.getContentPane().add(rdbtnCityButton);
+		frame.getContentPane().add(citybutton);
 		
 
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Athens", "Thessaloniki", "Larisa", "Xania", "Patra", "Komotini", "Alexandroupoli", "Kalamata", "Giannena"}));
@@ -117,26 +117,65 @@ public class Butt2_4 {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int k = 0;  
 				String dayInput = textField.getText();
-				int day = Integer.parseInt(dayInput);
 				String monthInput = textField_1.getText();
-				int month = Integer.parseInt(monthInput);
 				String yearInput = textField_2.getText();
-				int year = Integer.parseInt(yearInput);
-				String location;
-				if(rdbtnGreeceButton.isSelected()) {
-					location = "Greece";
-					Statistics.todayInfected(day, month, year, location);
-					JOptionPane.showMessageDialog(frame, Statistics.getCountTodayInfected() + " people infected by Covid19 in Greece on " + day + "/" + month + "/" +year);
-				} else {
-					location = "City";
-					Statistics.todayInfected(day, month, year,location);
-					JOptionPane.showMessageDialog(frame, Statistics.getCountTodayInfected() + " people infected by Covid19 in " + comboBox.getItemAt(comboBox.getSelectedIndex()) + " on " + day + "/" + month + "/" +year);
+				try {
+					 int y = Integer.parseInt(dayInput);
+					if (y>31 || y<=0) {
+						k++;
+					}
+				}catch(NumberFormatException es) {
+					k++;
+					JOptionPane.showMessageDialog(frame, "Invalid day insert");
 				}
-				
-				frame.setVisible(false);
-				Butt2.window2();
-
+				try {
+					int x = Integer.parseInt(monthInput);
+					if (x>12 || x<=0 ) {
+						k++;
+					}
+				}catch(NumberFormatException es) {
+					JOptionPane.showMessageDialog(frame, "Invalid month insert");
+					k++;
+				}
+				try {
+					int year = Integer.parseInt(yearInput);
+					if (year < 2020 || year>2023) {
+						k++;
+					}
+				}catch(NumberFormatException es) {
+					JOptionPane.showMessageDialog(frame, "Invalid year insert");
+					k++;
+				}
+				String location = "";
+				if(greecebutton.isSelected()) {
+					location = "Greece";
+				} else if(citybutton.isSelected()) {
+					location = "City";
+				}
+				 if (location.equals("")) {
+					 JOptionPane.showMessageDialog(frame, "Select Greece or city");	 
+				 }
+				if (k!=0 || location.equals(""))
+					JOptionPane.showMessageDialog(frame, "Try again");
+					else if(k==0 && location.equals("Greece")){
+						int day = Integer.parseInt(dayInput);
+						int month = Integer.parseInt(monthInput);
+						int year = Integer.parseInt(yearInput);
+						Statistics.todayInfected(day, month, year, location);
+						JOptionPane.showMessageDialog(frame, Statistics.getCountTodayInfected() + " people infected by Covid19 in Greece on " + day + "/" + month + "/" +year);
+						frame.setVisible(false);
+						Butt2.window2();
+					}else if (k==0 && location.contentEquals("City")) {
+						int day = Integer.parseInt(dayInput);
+						int month = Integer.parseInt(monthInput);
+						int year = Integer.parseInt(yearInput);
+						Statistics.todayInfected(day, month, year,location);
+						JOptionPane.showMessageDialog(frame, Statistics.getCountTodayInfected() + " people infected by Covid19 in " + comboBox.getItemAt(comboBox.getSelectedIndex()) + " on " + day + "/" + month + "/" +year);
+						frame.setVisible(false);
+						Butt2.window2();
+					}
 			}
 		});
 		btnSubmit.setBounds(155, 204, 89, 23);
@@ -154,5 +193,7 @@ public class Butt2_4 {
 		frame.getContentPane().add(lblNewLabel_2);
 		
 
-	}
-}
+	}}
+
+
+	
