@@ -84,7 +84,27 @@ public class Gui {
 				JButton btnNewButton_1 = new JButton("Covid Information\r\n");
 				btnNewButton_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+						try
+				        {
+				            FileInputStream fis = new FileInputStream("persondata");
+				            ObjectInputStream ois = new ObjectInputStream(fis);
+				 
+				            Person.personlist = (ArrayList) ois.readObject();
+				 
+				            ois.close();
+				            fis.close();
+				        } 
+				        catch (IOException ioe) 
+				        {
+				            ioe.printStackTrace();
+				            return;
+				        } 
+				        catch (ClassNotFoundException c) 
+				        {
+				            System.out.println("Class not found");
+				            c.printStackTrace();
+				            return;
+				        } 
 						Butt2.window2();
 						frame.setVisible(false);
 					}
