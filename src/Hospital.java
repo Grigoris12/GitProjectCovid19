@@ -40,12 +40,19 @@ public class Hospital {
 
 	// Prints the available icus of every hospital
 	public static String showAvailability() {
-		String showHospitals = null;
+		String showHospitals = "";
 		for(int i = 0 ; i < hospitals.length ; i++) {
 			showHospitals += "The remaining Icus of the " +  hospitals[i].hospitalName + 
 					 " are " + hospitals[i].icu +"\r\n";
 		}
 		return showHospitals;
+	}
+	public static String showEntranced(){
+		String showentranced = "";
+		for(Person entrancedperson : Hospital.entrancedPerson) {
+			showentranced += entrancedperson.toString() + "\r\n";
+		}
+		return showentranced;
 	}
 	
 	/*  Priortise the Hospitals with the most capacity in Icu's at the specific location

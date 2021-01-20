@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 public class Options {
@@ -130,7 +131,11 @@ public class Options {
 					Option2 opt2 = new Option2();
 					opt2.option2();
 					frame.dispose();
-				}else if(option5.isSelected()) {
+				}else if(option3.isSelected()) {
+					JOptionPane.showMessageDialog(frame, Hospital.showAvailability());
+				}else if(option4.isSelected()){
+					JOptionPane.showMessageDialog(frame, Hospital.showEntranced());	
+				} else {
 					Gui.graph();
 					frame.dispose();
 				}
