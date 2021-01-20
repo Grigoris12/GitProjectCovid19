@@ -271,8 +271,7 @@ public class Butt1 {
 				} else if(rdbtnFalse.isSelected()) {
 					test = false;
 				}
-				Person.personlist.add(new Person(nameInput , surnameInput, age ,gender , region, day, month, year, amka,test ));
-				Statistics.countinfpermonth();
+				Person p = new Person(nameInput , surnameInput, age ,gender , region, day, month, year, amka,test );				Statistics.countinfpermonth();
 				Statistics.infratepermonth();
 				Statistics.infrateperseason();
 				
