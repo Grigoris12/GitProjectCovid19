@@ -96,7 +96,7 @@ public class Gui {
 				JButton btnNewButton_2 = new JButton("Log in (Hospital Manager only)");
 				btnNewButton_2.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+						frame.dispose();
 						Butt3.Butt3();
 					}
 				});
@@ -107,6 +107,7 @@ public class Gui {
 				JButton btnInformationAboutThe = new JButton("Information about the hospitals");
 				btnInformationAboutThe.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						frame.dispose();
 						Butt4.butt4();
 					}
 				});
