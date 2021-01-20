@@ -52,7 +52,7 @@ public class Gui {
 				JButton btnNewButton = new JButton("Sign-up\r\n");
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-				/*		try
+						try
 				        {
 				            FileInputStream fis = new FileInputStream("persondata");
 				            ObjectInputStream ois = new ObjectInputStream(fis);
@@ -72,7 +72,7 @@ public class Gui {
 				            System.out.println("Class not found");
 				            c.printStackTrace();
 				            return;
-				        } */
+				        } 
 						Butt1.butt1();
 						frame.setVisible(false);
 					}
