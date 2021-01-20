@@ -38,26 +38,7 @@ public class Person implements Serializable {
 	}
 	
 	public static void addPers() {
-		Person p1 = new Person("kk","kk",11,"male","Xania",1,1,2019,1111,true);
-		Person p2 = new Person("aakk","kk",11,"male","Xania",12,1,2019,1111,true);
-		Person p3 = new Person("vvkk","kk",11,"male","Xania",13,1,2019,1111,true);
-		Person p4 = new Person("bbkk","kk",11,"male","Xania",14,1,2019,1111,true);
-		Person p5 = new Person("zzkk","kk",11,"male","Xania",1,11,2019,1111,true);
-		Person p6 = new Person("xxkk","kk",11,"male","Xania",1,10,2019,1111,true);
-		Person p7 = new Person("ookk","kk",11,"male","Xania",2,1,2019,1111,true);
-	}
 	
-	
-	
-	
-	
-	//method for adding person//
-	public static void addPerson() {
-	/*	Scanner sca = new Scanner(System.in);
-		String n=null;
-		String s=null;
-		boolean per = true;
-		
 		File f = new File("persondata");
 		try {
 			f.createNewFile();
@@ -65,185 +46,27 @@ public class Person implements Serializable {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		//name input//
-		do {
-			per=true;
-			try{
-				System.out.print("Give name = ");
-				n = sca.next();
-				if(!n.matches("^[a-zA-Z]+$")){
-					throw new Exception();
-				}
 
-			}catch(Exception e){
-				System.out.println("Wrong input ");
-				per=false;
-			}
-		}while(per == false);
-
-		//surname input//
-		do {
-			per=true;
-			try{
-				System.out.print("Give surname = ");
-				s = sca.next();
-				if(!s.matches("^[a-zA-Z]+$")){
-					throw new Exception();
-				}
-
-			}catch(Exception e){
-				System.out.println("Wrong input");
-				per=false;
-			}
-		}while(per == false);
-
-		//age input//
-		int b=0;
-		do {
-			per=true;
-			try {
-				System.out.print("Give age = ");
-				b = sca.nextInt();
-			}catch (InputMismatchException exception) 
-			{ 
-				System.out.println("Integers only, please."); 
-				per=false;
-				sca.nextLine();
-			} 
-		}while(per == false);
-
-		//gender input//
-		String g=null;
-		do {
-			per=true;
-			try {
-				System.out.print("Give gender male/female= "); 
-				g = sca.next();
-				if(!g.matches("male|female")) {
-
-					throw new Exception();
-				}
-			} catch(Exception e) {
-				System.out.println("Wrong input,put male/female");
-				per=false;
-				sca.nextLine();
-			}
-		}while(per == false);
-
-		//region input//
-		String r = null;
-		do {
-			per=true;
-			try {
-				System.out.print("Give region(Athens,Thessaloniki,Larisa,Xania,Patra,Komotini,Alexandroupoli,Kalamata,Giannena) = ");
-				r = sca.next();
-				if((!r.matches("Athens|Thessaloniki|Larisa|Xania|Patra|Komotini|Alexandroupoli|Kalamata|Giannena"))){
-					throw new Exception();
-				}
-			} catch(Exception e) {
-				System.out.println("Wrong input,not valid region");
-				per=false;
-				sca.nextLine();
-			}
-		}while(per == false);
-
-		//test day input//
-		int d=0;
-		do {
-			per=true;
-			try {
-				System.out.print("Give test day = ");
-				d = sca.nextInt();
-			}catch (InputMismatchException exception) 
-			{ 
-				System.out.println("Integers only, please."); 
-				per=false;
-				sca.nextLine();
-			} 
-		}while(per == false);
-
-		//test month input//
-		int m=0;
-		do {
-			per=true;
-			try {
-				System.out.print("Give test month = ");
-				m = sca.nextInt();
-			}catch (InputMismatchException exception) 
-			{ 
-				System.out.println("Integers only, please."); 
-				per=false;
-				sca.nextLine();
-			} 
-		}while(per == false);
-
-		//test year input//
-		int y=0;
-		do {
-			per=true;
-			try {
-				System.out.print("Give test year = ");
-				y = sca.nextInt();
-			}catch (InputMismatchException exception) 
-			{ 
-				System.out.println("Integers only, please."); 
-				per=false;
-				sca.nextLine();
-			} 
-		}while(per == false);
-
-
-		//AMKA input//
-		int a=0;
-		do {
-			per=true;
-			try {
-				System.out.print("Give AMKA = ");
-				a = sca.nextInt();
-			}catch (InputMismatchException exception) 
-			{ 
-				System.out.println("Integers only, please."); 
-				per=false;
-				sca.nextLine();
-			} 
-		}while(per == false);
-
-        //covid test input//
-		boolean i=true;
-		do {
-			per=true;
-			try {
-				System.out.print("You tested Positive  or Negatice for covid-19(true/false) = ");
-				i = sca.nextBoolean();
-			}catch(Exception e) {
-				System.out.println("only put true/false");  
-				per=false;
-				sca.nextLine();
-			}
-		}while(per == false);
-
-
-		personlist.add(new Person(n , s, b, g, r, d, m, y, a, i));
-		Statistics.countinfpermonth();
-		Statistics.infratepermonth();
-		Statistics.infrateperseason();
-	
-		*/
-		//Serialize arraylist//
-		/*		try
-		        {
-					FileOutputStream fos = new FileOutputStream(f,false);
-		            ObjectOutputStream oos = new ObjectOutputStream(fos);
-		            oos.writeObject(personlist);
-		            oos.close();
-		            fos.close();
-		            
-		        } 
-		        catch (IOException ioe) 
-		        {
-		            ioe.printStackTrace();
-		        } */
+		
+		try
+        {
+			FileOutputStream fos = new FileOutputStream(f,false);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(personlist);
+            oos.close();
+            fos.close();
+            
+        } 
+        catch (IOException ioe) 
+        {
+            ioe.printStackTrace();
+        }
+		
 	}
+		
+	
+	
+	
 				
 
 	@Override

@@ -1,6 +1,10 @@
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -271,6 +275,30 @@ public class Butt1 {
 				Statistics.countinfpermonth();
 				Statistics.infratepermonth();
 				Statistics.infrateperseason();
+				
+				File f = new File("persondata");
+				try {
+					f.createNewFile();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+				
+				try
+		        {
+					FileOutputStream fos = new FileOutputStream(f,false);
+		            ObjectOutputStream oos = new ObjectOutputStream(fos);
+		            oos.writeObject(Person.personlist);
+		            oos.close();
+		            fos.close();
+		            
+		        } 
+		        catch (IOException ioe) 
+		        {
+		            ioe.printStackTrace();
+		        }
+				
 				
 			}
 		});
