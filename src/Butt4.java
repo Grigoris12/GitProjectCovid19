@@ -104,11 +104,21 @@ public class Butt4 {
 			    } 
 		}
 		});
-		btnNewButton.setBounds(160, 171, 97, 25);
+		btnNewButton.setBounds(248, 171, 97, 25);
 		frame.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Choose the hospital that you want information");
 		lblNewLabel.setBounds(72, 31, 273, 16);
 		frame.getContentPane().add(lblNewLabel);
+		
+		JButton btnNewButton_1 = new JButton("Go to main menu");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				Gui.graph();
+			}
+		});
+		btnNewButton_1.setBounds(55, 171, 136, 25);
+		frame.getContentPane().add(btnNewButton_1);
 	}
 }
