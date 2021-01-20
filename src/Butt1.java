@@ -197,43 +197,56 @@ public class Butt1 {
 				int j = 0;
 				try {
 					int z = Integer.parseInt(ageinput);
-					if (z<0) {
+					if (z<0 || z>110) {
 						k++;
 					}
 				}catch(NumberFormatException es) {
+					JOptionPane.showMessageDialog(frame,"Invalid age insert");
 					k++;
 				}
 				String monthinput = monthtext.getText();
 				try {
 					int x = Integer.parseInt(monthinput);
-					if (x>12 || x<0 ) {
+					if (x>12 || x<=0 ) {
 						k++;
 					}
 				}catch(NumberFormatException es) {
+					JOptionPane.showMessageDialog(frame,"Invalid month insert");
 					k++;
 				}
 				String dayinput = daytext.getText();
 				try {
 					int y = Integer.parseInt(dayinput);
-					if (y>31 || y<0) {
+					if (y>31 || y<=0) {
 						k++;
 					}
 				}catch(NumberFormatException es) {
+					JOptionPane.showMessageDialog(frame,"Invalid day insert");
 					k++;
 				}
 				String yearinput = yeartext.getText();
 				try {
 					int x = Integer.parseInt(yearinput);
+					if (x > 2019 || x<2023) {
+						k++;
+					}
 				}catch(NumberFormatException es) {
+					JOptionPane.showMessageDialog(frame,"Invalid year insert");
 					k++;
 				}
 				String amkainput = amkatext.getText();
 				try {
 					int x = Integer.parseInt(amkainput);
 				}catch(NumberFormatException es) {
+					JOptionPane.showMessageDialog(frame,"Invalid amka insert");
 					k++;
 				}
-				Gui.graph();
+				if (!surnametext.getText().matches("^[a-zA-Z]+$")){
+					JOptionPane.showMessageDialog(frame,"Invalid surname insert");
+				}
+				if(!nametext.getText().matches("^[a-zA-Z]+$")) {
+					JOptionPane.showMessageDialog(frame,"Invalid name insert");
+				}
 				if (rdbtnMale.isSelected()){
 					j++;
 				}
@@ -246,59 +259,64 @@ public class Butt1 {
 				if (rdbtnTrue.isSelected()) {
 					i++;
 				}
+				if (i == 0) {
+					JOptionPane.showMessageDialog(frame,"Select true or false");
+				}
+				if( j == 0) {
+					JOptionPane.showMessageDialog(frame,"Select male or female");
+				}
+				Gui.graph();
 				if (!surnametext.getText().matches("^[a-zA-Z]+$") ||!nametext.getText().matches("^[a-zA-Z]+$") || i!=1 || j!=1 || k!=0){
 					JOptionPane.showMessageDialog(frame,"Invalid inserts, try again");
 				}else {
 					JOptionPane.showMessageDialog(frame,"Success");
-				}
-				String nameInput = nametext.getText();
-				String surnameInput = surnametext.getText();
-				int age = Integer.parseInt(ageinput);
-				int month = Integer.parseInt(monthinput);
-				int day = Integer.parseInt(dayinput);
-				int year = Integer.parseInt(yearinput);
-				int amka = Integer.parseInt(amkainput);
-				String gender = "male";
-				if(rdbtnMale.isSelected()) {
-					gender = "male";
-				} else if(rdbtnFemale.isSelected()) {
-					gender = "female";
-				}
-				String region = comboBox.getName();
-				boolean test = true;
-				if(rdbtnTrue.isSelected()) {
-					test = true;
-				} else if(rdbtnFalse.isSelected()) {
-					test = false;
-				}
-				Person p = new Person(nameInput , surnameInput, age ,gender , region, day, month, year, amka,test );				Statistics.countinfpermonth();
-				Statistics.infratepermonth();
-				Statistics.infrateperseason();
-				
-				File f = new File("persondata");
-				try {
-					f.createNewFile();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+					String nameInput = nametext.getText();
+					String surnameInput = surnametext.getText();
+					int age = Integer.parseInt(ageinput);
+					int month = Integer.parseInt(monthinput);
+					int day = Integer.parseInt(dayinput);
+					int year = Integer.parseInt(yearinput);
+					int amka = Integer.parseInt(amkainput);
+					String gender = "male";
+					if(rdbtnMale.isSelected()) {
+						gender = "male";
+					} else if(rdbtnFemale.isSelected()) {
+						gender = "female";
+					}
+					String region = comboBox.getName();
+					boolean test = true;
+					if(rdbtnTrue.isSelected()) {
+						test = true;
+					} else if(rdbtnFalse.isSelected()) {
+						test = false;
+					}
+					Person p = new Person(nameInput , surnameInput, age ,gender , region, day, month, year, amka,test );
+					
+					File f = new File("persondata");
+					try {
+						f.createNewFile();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 
-				
-				try
-		        {
-					FileOutputStream fos = new FileOutputStream(f,false);
-		            ObjectOutputStream oos = new ObjectOutputStream(fos);
-		            oos.writeObject(Person.personlist);
-		            oos.close();
-		            fos.close();
-		            
-		        } 
-		        catch (IOException ioe) 
-		        {
-		            ioe.printStackTrace();
-		        }
-				
-				
+					
+					try
+			        {
+						FileOutputStream fos = new FileOutputStream(f,false);
+			            ObjectOutputStream oos = new ObjectOutputStream(fos);
+			            oos.writeObject(Person.personlist);
+			            oos.close();
+			            fos.close();
+			            
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			        }
+					
+					
+				}
 			}
 		});
 		frame.getContentPane().add(btnSumbit);
