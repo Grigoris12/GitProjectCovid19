@@ -160,7 +160,7 @@ public class Butt1 {
 		amkatext.setColumns(10);
 		
 		JLabel lblNewLabel_9 = new JLabel("Test COVID-19(positive) :");
-		lblNewLabel_9.setBounds(31, 272, 124, 14);
+		lblNewLabel_9.setBounds(31, 272, 203, 14);
 		frame.getContentPane().add(lblNewLabel_9);
 		
 		JRadioButton rdbtnFalse = new JRadioButton("false");
@@ -187,7 +187,7 @@ public class Butt1 {
 		frame.getContentPane().add(rdbtnFalse);
 		
 		JButton btnSumbit = new JButton("Submit");
-		btnSumbit.setBounds(233, 293, 96, 23);
+		btnSumbit.setBounds(299, 294, 96, 23);
 		btnSumbit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -195,39 +195,58 @@ public class Butt1 {
 				int k = 0;
 				int i = 0; 
 				int j = 0;
+				String monthinput = monthtext.getText();
+				if(!nametext.getText().matches("^[a-zA-Z]+$")) {
+					JOptionPane.showMessageDialog(frame,"Invalid name ");
+				}
+				if (!surnametext.getText().matches("^[a-zA-Z]+$")){
+					JOptionPane.showMessageDialog(frame,"Invalid surname ");
+				}
 				try {
 					int z = Integer.parseInt(ageinput);
 					if (z<0 || z>110) {
+						JOptionPane.showMessageDialog(frame,"Invalid age ");
 						k++;
 					}
 				}catch(NumberFormatException es) {
-					JOptionPane.showMessageDialog(frame,"Invalid age insert");
+					JOptionPane.showMessageDialog(frame,"Invalid age ");
 					k++;
 				}
-				String monthinput = monthtext.getText();
-				try {
-					int x = Integer.parseInt(monthinput);
-					if (x>12 || x<=0 ) {
-						k++;
-					}
-				}catch(NumberFormatException es) {
-					JOptionPane.showMessageDialog(frame,"Invalid month insert");
-					k++;
+				if (rdbtnMale.isSelected()){
+					j++;
+				}
+				if (rdbtnFemale.isSelected()) {
+					j++;
+				}
+				if( j == 0) {
+					JOptionPane.showMessageDialog(frame,"Select gender");
 				}
 				String dayinput = daytext.getText();
 				try {
 					int y = Integer.parseInt(dayinput);
 					if (y>31 || y<=0) {
+						JOptionPane.showMessageDialog(frame,"Invalid day insert");
 						k++;
 					}
 				}catch(NumberFormatException es) {
 					JOptionPane.showMessageDialog(frame,"Invalid day insert");
 					k++;
 				}
+				try {
+					int x = Integer.parseInt(monthinput);
+					if (x>12 || x<=0 ) {
+						JOptionPane.showMessageDialog(frame,"Invalid month insert");
+						k++;
+					}
+				}catch(NumberFormatException es) {
+					JOptionPane.showMessageDialog(frame,"Invalid month insert");
+					k++;
+				}
 				String yearinput = yeartext.getText();
 				try {
 					int x = Integer.parseInt(yearinput);
-					if (x > 2019 || x<2023) {
+					if (x < 2019 || x>2023) {
+						JOptionPane.showMessageDialog(frame,"Invalid year insert");
 						k++;
 					}
 				}catch(NumberFormatException es) {
@@ -241,18 +260,7 @@ public class Butt1 {
 					JOptionPane.showMessageDialog(frame,"Invalid amka insert");
 					k++;
 				}
-				if (!surnametext.getText().matches("^[a-zA-Z]+$")){
-					JOptionPane.showMessageDialog(frame,"Invalid surname insert");
-				}
-				if(!nametext.getText().matches("^[a-zA-Z]+$")) {
-					JOptionPane.showMessageDialog(frame,"Invalid name insert");
-				}
-				if (rdbtnMale.isSelected()){
-					j++;
-				}
-				if (rdbtnFemale.isSelected()) {
-					j++;
-				}
+				
 				if (rdbtnFalse.isSelected()) {
 					i++;
 				}
@@ -262,14 +270,11 @@ public class Butt1 {
 				if (i == 0) {
 					JOptionPane.showMessageDialog(frame,"Select true or false");
 				}
-				if( j == 0) {
-					JOptionPane.showMessageDialog(frame,"Select male or female");
-				}
 				Gui.graph();
-				if (!surnametext.getText().matches("^[a-zA-Z]+$") || !nametext.getText().matches("^[a-zA-Z]+$") || i!=1 || j!=1 || k!=0){
+				if (!surnametext.getText().matches("^[a-zA-Z]+$") ||!nametext.getText().matches("^[a-zA-Z]+$") || i!=1 || j!=1 || k!=0){
 					JOptionPane.showMessageDialog(frame,"Invalid inserts, try again");
 				}else {
-					JOptionPane.showMessageDialog(frame,"Success");
+					JOptionPane.showMessageDialog(frame,"Successfully added");
 					String nameInput = nametext.getText();
 					String surnameInput = surnametext.getText();
 					int age = Integer.parseInt(ageinput);
@@ -283,7 +288,7 @@ public class Butt1 {
 					} else if(rdbtnFemale.isSelected()) {
 						gender = "female";
 					}
-					String region = (String) comboBox.getItemAt(comboBox.getSelectedIndex());
+					String region = comboBox.getName();
 					boolean test = true;
 					if(rdbtnTrue.isSelected()) {
 						test = true;
@@ -321,7 +326,16 @@ public class Butt1 {
 		});
 		frame.getContentPane().add(btnSumbit);
 		
+		JButton btnNewButton = new JButton("Go to main menu");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				Gui.graph();
+			}
+		});
+		btnNewButton.setBounds(97, 293, 154, 25);
+		frame.getContentPane().add(btnNewButton);
+		
 		
 	}
-
 }
