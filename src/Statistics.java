@@ -1,4 +1,3 @@
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -15,6 +14,10 @@ public class Statistics {
 	private static double[] regioninfrate = new double[9];
 	private static double pmale, pfemale, pkids, padults, pelders;
 	private static int countTodayInfected, countTotalInfected;
+	private static double pautumn, psummer, pwinter, pspring;
+
+
+
 
 	private static DecimalFormat df2 = new DecimalFormat("#.##");
 	
@@ -121,10 +124,10 @@ public class Statistics {
 	}
 	//printing infection rates per season//
 	public static void seasonPercentages(){
-		double pwinter = seasoninfrate[0]; 
-		double pspring = seasoninfrate[1]; 
-		double psummer = seasoninfrate[2];
-		double pautumn = seasoninfrate[3];
+		pwinter = seasoninfrate[0]; 
+		pspring = seasoninfrate[1]; 
+		psummer = seasoninfrate[2];
+		pautumn = seasoninfrate[3];
 		System.out.println(df2.format(pwinter) + "% of the confirmed cases appeared in winter");
 		System.out.println(df2.format(pspring) + "% of the confirmed cases appeared in spring");
 		System.out.println(df2.format(psummer) + "% of the confirmed cases appeared in summer");
@@ -309,5 +312,22 @@ public class Statistics {
 	
 	public static int getCountTotalInfected() {
 		return countTotalInfected;
+	}
+	
+
+	public static double getPwinter() {
+		return pwinter;
+	}
+
+	public static double getPautumn() {
+		return pautumn;
+	}
+
+	public static double getPsummer() {
+		return psummer;
+	}
+
+	public static double getPspring() {
+		return pspring;
 	}
 }

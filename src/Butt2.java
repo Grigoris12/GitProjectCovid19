@@ -178,7 +178,11 @@ public class Butt2 {
 					Statistics.infratepermonth();
 					Statistics.infrateperseason();
 					Statistics.seasonPercentages();
-					JOptionPane.showMessageDialog(frame, "The season with the most infections is " + Statistics.mostinfseason());
+					JOptionPane.showMessageDialog(frame, "The season with the most infections is " + Statistics.mostinfseason() + "\r\n" 
+									+ df2.format(Statistics.getPwinter()) + "% of the confirmed cases appeared in winter \r\n" 
+									+ df2.format(Statistics.getPspring()) + "% of the confirmed cases appeared in spring \r\n"
+									+ df2.format(Statistics.getPsummer()) + "% of the confirmed cases appeared in summer \r\n"
+									+ df2.format(Statistics.getPautumn()) + "% of the confirmed cases appeared in autumn");
 				
 				// seventeenth choice
 				} else if (comboBox.getSelectedItem().equals("17)Printing the percentage of infections in age category")){
