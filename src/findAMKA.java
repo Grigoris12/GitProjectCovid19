@@ -2,9 +2,12 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -67,6 +70,13 @@ public class findAMKA {
 		btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				File f2 = new File("hospital_icus");
+				try {
+					f2.createNewFile();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				try
 		        {
 		            FileInputStream fis = new FileInputStream("persondata");
@@ -95,6 +105,19 @@ public class findAMKA {
 				for(int i=0; i < Person.personlist.size(); i++) {
 					if (Person.personlist.get(i).getAMKA() == x ) {
 						o = 0;
+						try
+				        {
+							FileOutputStream fos = new FileOutputStream(f2,false);
+				            ObjectOutputStream oos = new ObjectOutputStream(fos);
+				            oos.writeObject(Person.personlist.get(i));
+				            oos.close();
+				            fos.close();
+				            
+				        } 
+				        catch (IOException ioe) 
+				        {
+				            ioe.printStackTrace();
+				        }
 					}
 				}
 				if (o == 0) {
