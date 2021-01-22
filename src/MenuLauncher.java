@@ -69,6 +69,7 @@ public class MenuLauncher {
 					}
 				      break;  
 				case 2: Person.addPers();
+			
 				   
 	
 	

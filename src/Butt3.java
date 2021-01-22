@@ -45,13 +45,7 @@ public class Butt3 {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		File f2 = new File("hospital_icus");
-		try {
-			f2.createNewFile();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		
 
 		frame = new JFrame();
 		frame.setBounds(100, 100, 492, 319);
@@ -81,19 +75,7 @@ public class Butt3 {
 					frame.setVisible(false);
 					findAMKA f = new findAMKA();
 					f.amka();
-					try
-			        {
-						FileOutputStream fos = new FileOutputStream(f2,false);
-			            ObjectOutputStream oos = new ObjectOutputStream(fos);
-			            oos.writeObject(Person.personlist);
-			            oos.close();
-			            fos.close();
-			            
-			        } 
-			        catch (IOException ioe) 
-			        {
-			            ioe.printStackTrace();
-			        }
+					
 				}else {
 					JOptionPane.showMessageDialog(frame,"Invalid password");
 					
