@@ -7,6 +7,29 @@ import java.util.Scanner;
 public class MenuLauncher {
 
 	public static void main(String args[]) {
+		// creation of Hospital objects for all the Hospitals that have Icus in Greece
+				Hospital hosp1 = new Hospital("Σωτηρία", 122, "Αθήνα");
+				Hospital hosp2 = new Hospital("Γ.Γεννηματά", 57, "Αθήνα");
+				Hospital hosp3 = new Hospital("Αττικόν", 47, "Αθήνα");
+				Hospital hosp4 = new Hospital("Βουγιουκλάκειο", 36, "Αθήνα");
+				Hospital hosp5 = new Hospital("ΚΑΤ", 60, "Αθήνα");
+				Hospital hosp6 = new Hospital("Ευαγγελισμός", 32, "Αθήνα");
+				Hospital hosp7 = new Hospital("Ιπποκράτειο", 97, "Θεσσαλονίκη");
+				Hospital hosp8 = new Hospital("ΑΧΕΠΑ", 66, "Θεσσαλονίκη");
+				Hospital hosp9 = new Hospital("Άγιος Δημήτριος", 22, "Θεσσαλονίκη");
+				Hospital hosp10 = new Hospital("Γ.Γεννηματά Θεσσαλονίκης", 46, "Θεσσαλονίκη");
+				Hospital hosp11 = new Hospital("Άγιος Λουκάς", 21, "Θεσσαλονίκη");
+				Hospital hosp12 = new Hospital("Άγιος Γεώργιος", 33, "Χανιά");
+				Hospital hosp13 = new Hospital("Γενικό Νοσοκομείο Λάρισας", 17, "Λάρισα");
+				Hospital hosp14 = new Hospital("ΚΟΥΤΛΙΜΠΑΝΙΟ & ΤΡΙΑΝΤΑΦΥΛΛΕΙΟ Νοσοκομείο", 27, "Λάρισα");
+				Hospital hosp15 = new Hospital("Άγιος Ανδρέας", 33, "Πάτρα");
+				Hospital hosp16 = new Hospital("Πανεπιστημιακό Γενικό Νοσοκομείο", 28, "Πάτρα");
+				Hospital hosp17 = new Hospital("ΧΑΤΖΗΚΩΣΤΑ", 43, "Ιωάννινα");
+				Hospital hosp18 = new Hospital("Πανεπιστημιακό Νοσοκομείο Ιωαννίνων", 12, "Ιωάννινα");
+				Hospital hosp19 = new Hospital("Γενικό Νοσοκομείο Καλαμάτας", 11,"Καλαμάτα");
+				Hospital hosp20 = new Hospital("Πανεπιστημιακό Γενικό Νοσοκομείο Αλεξανδρούπολης", 9, "Αλεξανδρούπολη");
+				Hospital hosp21 = new Hospital("Σισμανόγλειο", 16, "Κομοτηνή");
+				// end of creation
 		
 		Gui.graph();
 		Scanner sc= new Scanner(System.in);
