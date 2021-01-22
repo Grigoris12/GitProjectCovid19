@@ -288,7 +288,7 @@ public class Butt1 {
 					} else if(rdbtnFemale.isSelected()) {
 						gender = "female";
 					}
-					String region = comboBox.getName();
+					String region = (String) comboBox.getSelectedItem();
 					boolean test = true;
 					if(rdbtnTrue.isSelected()) {
 						test = true;

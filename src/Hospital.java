@@ -58,7 +58,7 @@ public class Hospital {
 	/*  Priortise the Hospitals with the most capacity in Icu's at the specific location
 	  	so the next Covid-19 case that needs the Icu can go there */
 	public static int mostFreeIcus(String location) {
-		for(int i = 0 ; i < hospitals.length ; i++) {
+		for(int i = 0 ; i <  hospitals.length ; i++) {
 			if(hospitals[i].icu > 0 && location.equals(hospitals[i].location)) {
 				return i;
 			}
