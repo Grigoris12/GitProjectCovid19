@@ -70,28 +70,7 @@ public class Butt2 {
 		btnSubmit.addActionListener(new ActionListener() {
 			// 	implementation of the menu and the different choices
 			public void actionPerformed(ActionEvent e) {
-				//Deserialize list//
-			/*	try
-		        {
-		            FileInputStream fis = new FileInputStream("persondata");
-		            ObjectInputStream ois = new ObjectInputStream(fis);
-		 
-		            Person.personlist = (ArrayList) ois.readObject();
-		 
-		            ois.close();
-		            fis.close();
-		        } 
-		        catch (IOException ioe) 
-		        {
-		            ioe.printStackTrace();
-		            return;
-		        } 
-		        catch (ClassNotFoundException c) 
-		        {
-		            System.out.println("Class not found");
-		            c.printStackTrace();
-		            return;
-		        } */
+				
 				// first choice
 				if(comboBox.getSelectedItem().equals("1)Printing the symptoms of Covid19")) {
 					JOptionPane.showMessageDialog(frame,CovidInformation.covidSymptoms());
