@@ -1,8 +1,13 @@
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Hospital {
+	
 	
 	Scanner scanner = new Scanner(System.in);
 	
@@ -68,11 +73,33 @@ public class Hospital {
 	
 	// The entrance of a new person who need icu
 	public static void icuUpdate(Person person, boolean managerDecision) {
+		File f2 = new File("hospital_icus");
+		try {
+			f2.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		if(person.infected && managerDecision ) {
 			hospitals[mostFreeIcus(person.getRegion())].freeIcu--;
 			entrancedPerson.add(person);
 			person.setBelongingHospital(hospitals[mostFreeIcus(person.getRegion())].hospitalName);
 			totalIcuCases++;
+			
+			try
+	        {
+				FileOutputStream fos = new FileOutputStream(f2,false);
+	            ObjectOutputStream oos = new ObjectOutputStream(fos);
+	            oos.writeObject(Hospital.entrancedPerson);
+	            oos.close();
+	            fos.close();
+	            
+	        } 
+	        catch (IOException ioe) 
+	        {
+	            ioe.printStackTrace();
+	        }
+			
 		}
 	}
 	

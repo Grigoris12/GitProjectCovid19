@@ -105,6 +105,27 @@ public class Gui {
 				            c.printStackTrace();
 				            return;
 				        } 
+						try
+				        {
+				            FileInputStream fis = new FileInputStream("hospital_icus");
+				            ObjectInputStream ois = new ObjectInputStream(fis);
+				 
+				            Hospital.entrancedPerson = (ArrayList) ois.readObject();
+				 
+				            ois.close();
+				            fis.close();
+				        } 
+				        catch (IOException ioe) 
+				        {
+				            ioe.printStackTrace();
+				            return;
+				        } 
+				        catch (ClassNotFoundException c) 
+				        {
+				            System.out.println("Class not found");
+				            c.printStackTrace();
+				            return;
+				        }
 						Butt2.window2();
 						frame.setVisible(false);
 					}
