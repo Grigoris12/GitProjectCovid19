@@ -69,7 +69,32 @@ public class MenuLauncher {
 					}
 				      break;  
 				case 2: Person.addPers();
-			
+				case 3:
+					try
+			        {
+			            FileInputStream fis = new FileInputStream("hospital_icus");
+			            ObjectInputStream ois = new ObjectInputStream(fis);
+			 
+			            Hospital.entrancedPerson = (ArrayList) ois.readObject();
+			 
+			            ois.close();
+			            fis.close();
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			            return;
+			        } 
+			        catch (ClassNotFoundException c) 
+			        {
+			            System.out.println("Class not found");
+			            c.printStackTrace();
+			            return;
+			        }
+					for(int i=0;i<Hospital.entrancedPerson.size();i++) {
+						System.out.print(Hospital.entrancedPerson.get(i));
+					}
+				      break;
 				   
 	
 	
