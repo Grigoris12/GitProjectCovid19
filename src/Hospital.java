@@ -1,6 +1,8 @@
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -80,6 +82,27 @@ public class Hospital {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		try
+        {
+            FileInputStream fis = new FileInputStream("hospital_icus");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+ 
+            Hospital.entrancedPerson = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            fis.close();
+        } 
+        catch (IOException ioe) 
+        {
+            ioe.printStackTrace();
+            return;
+        } 
+        catch (ClassNotFoundException c) 
+        {
+            System.out.println("Class not found");
+            c.printStackTrace();
+            return;
+        }
 		if(person.infected && managerDecision ) {
 			hospitals[mostFreeIcus(person.getRegion())].freeIcu--;
 			entrancedPerson.add(person);
