@@ -198,8 +198,8 @@ public class Statistics {
 	
 	public static BigDecimal mortalityrate() {  
 		
-	    BigDecimal bd1 = new BigDecimal(Hospital.deadPerson.size()); 
-	    BigDecimal bd2 = new BigDecimal(getTotalInfections()* 100);
+	    BigDecimal bd1 = new BigDecimal(Hospital.deadPerson.size()*100); 
+	    BigDecimal bd2 = new BigDecimal(getTotalInfections());
 	    BigDecimal bd3 ;
 	    bd3 = bd1.divide(bd2, 5 ,RoundingMode.CEILING);
 	    return bd3;
