@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -84,6 +85,7 @@ public class Gui {
 				JButton btnNewButton_1 = new JButton("Covid Information\r\n");
 				btnNewButton_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						
 						try
 				        {
 				            FileInputStream fis = new FileInputStream("persondata");
@@ -126,6 +128,49 @@ public class Gui {
 				            c.printStackTrace();
 				            return;
 				        }
+						try
+				        {
+				            FileInputStream fis = new FileInputStream("deadPerson");
+				            ObjectInputStream ois = new ObjectInputStream(fis);
+				 
+				            Hospital.deadPerson = (ArrayList) ois.readObject();
+				 
+				            ois.close();
+				            fis.close();
+				        } 
+				        catch (IOException ioe) 
+				        {
+				            ioe.printStackTrace();
+				            return;
+				        } 
+				        catch (ClassNotFoundException c) 
+				        {
+				            System.out.println("Class not found");
+				            c.printStackTrace();
+				            return;
+				        }
+						try
+				        {
+				            FileInputStream fis = new FileInputStream("alivePerson");
+				            ObjectInputStream ois = new ObjectInputStream(fis);
+				 
+				            Hospital.alivePerson = (ArrayList) ois.readObject();
+				 
+				            ois.close();
+				            fis.close();
+				        } 
+				        catch (IOException ioe) 
+				        {
+				            ioe.printStackTrace();
+				            return;
+				        } 
+				        catch (ClassNotFoundException c) 
+				        {
+				            System.out.println("Class not found");
+				            c.printStackTrace();
+				            return;
+				        }
+						
 						Butt2.window2();
 						frame.setVisible(false);
 					}
