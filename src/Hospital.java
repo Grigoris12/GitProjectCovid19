@@ -107,7 +107,7 @@ public class Hospital {
 			hospitals[mostFreeIcus(person.getRegion())].freeIcu--;
 			entrancedPerson.add(person);
 			person.setBelongingHospital(hospitals[mostFreeIcus(person.getRegion())].hospitalName);
-			totalIcuCases++;
+			
 			
 			try
 	        {
@@ -122,7 +122,6 @@ public class Hospital {
 	        {
 	            ioe.printStackTrace();
 	        }
-			
 		}
 	}
 	
@@ -234,7 +233,7 @@ public class Hospital {
 	}
 
 	public static double getTotalIcuCases() {
-		return totalIcuCases;
+		return totalIcuCases=Hospital.entrancedPerson.size();
 	}
 
 	public static void setTotalIcuCases(int totalIcuCases) {
