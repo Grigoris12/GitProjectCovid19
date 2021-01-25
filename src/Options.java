@@ -1,6 +1,10 @@
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -134,6 +138,7 @@ public class Options {
 				}else if(option3.isSelected()) {
 					JOptionPane.showMessageDialog(frame, Hospital.showAvailability());
 				}else if(option4.isSelected()){
+			
 					JOptionPane.showMessageDialog(frame, Hospital.showEntranced());	
 				} else {
 					Gui.graph();

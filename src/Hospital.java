@@ -57,6 +57,29 @@ public class Hospital {
 		return showHospitals;
 	}
 	public static String showEntranced(){
+		try
+        {
+
+            FileInputStream fis = new FileInputStream("hospital_icus");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+ 
+            Hospital.entrancedPerson = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            fis.close();
+        } 
+        catch (IOException ioe) 
+        {
+            ioe.printStackTrace();
+            
+        } 
+        catch (ClassNotFoundException c) 
+        {
+            System.out.println("Class not found");
+            c.printStackTrace();
+            
+        }
+		
 		String showentranced = "";
 		for(Person entrancedperson : Hospital.entrancedPerson) {
 			showentranced += entrancedperson.toString() + "\r\n";
