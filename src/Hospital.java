@@ -16,6 +16,8 @@ public class Hospital {
 	// A list with all the people the needed icu
 
 	static ArrayList<Person>  entrancedPerson = new ArrayList<Person>();
+	static ArrayList<Person>  deadPerson = new ArrayList<Person>();
+	static ArrayList<Person>  alivePerson = new ArrayList<Person>();
 	private static ArrayList<String> belongingHospital = new ArrayList<String>();
 
 	// Variables with the name of the hospital and the location of it
@@ -142,20 +144,64 @@ public class Hospital {
 	// When a person is exiting the Icu 
 
 	public static void icuExtraction(Person person, String currentSituation,String departureDate) {
-
+		File f3 = new File("deadPerson");
+		try {
+			f3.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		File f4 = new File("alivePerson");
+		try {
+			f4.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		if(currentSituation.equals("alive")) {
-			numberAlive++;
 			for( Person findPerson : Person.personlist) {
 				if(findPerson == person) {
+					Hospital.alivePerson.add(findPerson);
 					person.setDepartmentDate(departureDate);
+					try
+			        {
+						FileOutputStream fos = new FileOutputStream(f4,false);
+			            ObjectOutputStream oos = new ObjectOutputStream(fos);
+			            oos.writeObject(Hospital.alivePerson);
+			            oos.close();
+			            fos.close();
+			            
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			        }
+					
 					break;
 				}
 			}
 		}else if(currentSituation.equals("dead")) {
-			numberDead++;
 			for( Person findPerson : Person.personlist) {
 				if(findPerson == person) {
+					Hospital.deadPerson.add(findPerson);
 					person.setDepartmentDate(departureDate);
+					try
+			        {
+						FileOutputStream fos = new FileOutputStream(f3,false);
+			            ObjectOutputStream oos = new ObjectOutputStream(fos);
+			            oos.writeObject(Hospital.deadPerson);
+			            oos.close();
+			            fos.close();
+			            
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			        }
+					
+					
+					
 					break;
 				}
 			}
@@ -217,7 +263,7 @@ public class Hospital {
 	}
 
 	public static int getNumberAlive() {
-		return numberAlive;
+		return numberAlive=Hospital.alivePerson.size();
 	}
 
 	public static void setNumberAlive(int numberAlive) {
@@ -225,7 +271,7 @@ public class Hospital {
 	}
 
 	public static int getNumberDead() {
-		return numberDead;
+		return numberDead=Hospital.deadPerson.size();
 	}
 
 	public static void setNumberDead(int numberDead) {

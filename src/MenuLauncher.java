@@ -96,6 +96,61 @@ public class MenuLauncher {
 					}
 				      break;
 				   
+				case 4:
+					try
+			        {
+			            FileInputStream fis = new FileInputStream("deadPerson");
+			            ObjectInputStream ois = new ObjectInputStream(fis);
+			 
+			            Hospital.deadPerson = (ArrayList) ois.readObject();
+			 
+			            ois.close();
+			            fis.close();
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			            return;
+			        } 
+			        catch (ClassNotFoundException c) 
+			        {
+			            System.out.println("Class not found");
+			            c.printStackTrace();
+			            return;
+			        }
+					for(int i=0;i<Hospital.deadPerson.size();i++) {
+						System.out.print(Hospital.deadPerson.get(i));
+					}
+				      break;
+					
+				case 5:
+					try
+			        {
+			            FileInputStream fis = new FileInputStream("alivePerson");
+			            ObjectInputStream ois = new ObjectInputStream(fis);
+			 
+			            Hospital.alivePerson = (ArrayList) ois.readObject();
+			 
+			            ois.close();
+			            fis.close();
+			        } 
+			        catch (IOException ioe) 
+			        {
+			            ioe.printStackTrace();
+			            return;
+			        } 
+			        catch (ClassNotFoundException c) 
+			        {
+			            System.out.println("Class not found");
+			            c.printStackTrace();
+			            return;
+			        }
+					for(int i=0;i<Hospital.alivePerson.size();i++) {
+						System.out.print(Hospital.alivePerson.get(i));
+					}
+				      break;
+					
+				   
 	
 	
 	}
