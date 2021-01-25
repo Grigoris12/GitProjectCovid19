@@ -113,7 +113,7 @@ public class Butt2_5 {
 		lblSelectCity.setBounds(42, 88, 109, 19);
 		frame.getContentPane().add(lblSelectCity);
 		
-		JLabel lblincaseYouSelcted = new JLabel("(incase you selcted the above button)");
+		JLabel lblincaseYouSelcted = new JLabel("(incase you selected the above button)");
 		lblincaseYouSelcted.setBounds(42, 107, 195, 14);
 		frame.getContentPane().add(lblincaseYouSelcted);
 		
