@@ -105,8 +105,7 @@ public class Butt2 {
 				
 				// eigth choice
 				} else if (comboBox.getSelectedItem().equals("8)Printing the percentage of mortality")) {
-					double pdeath = Hospital.getNumberDead()/ Statistics.getTotalInfections()* 100; 
-					JOptionPane.showMessageDialog(frame,"The mortality rate of Covid19 is " + df2.format(pdeath) + "%");
+					JOptionPane.showMessageDialog(frame,"The mortality rate of Covid19 is " + Statistics.mortalityrate() + "%");
 					
 				// ninth choice
 				} else if (comboBox.getSelectedItem().equals("9)Printing the number of people infected by Covid19" + 

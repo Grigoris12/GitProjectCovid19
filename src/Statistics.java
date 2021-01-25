@@ -196,14 +196,13 @@ public class Statistics {
 			}
 	}
 	
-	public static void mortalityrate() {  
+	public static BigDecimal mortalityrate() {  
 		
-	    BigDecimal bd1 = new BigDecimal(Hospital.getNumberDead()); 
+	    BigDecimal bd1 = new BigDecimal(Hospital.deadPerson.size()); 
 	    BigDecimal bd2 = new BigDecimal(getTotalInfections()* 100);
 	    BigDecimal bd3 ;
 	    bd3 = bd1.divide(bd2, 5 ,RoundingMode.CEILING);
-	    String str = "The mortality rate of Covid19 is " +bd3 + "%";
-		System.out.println( str  );
+	    return bd3;
 	}
 	
 	public static void icurate() { // percentage of people that entered icu 
