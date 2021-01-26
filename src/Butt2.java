@@ -131,16 +131,18 @@ public class Butt2 {
 				// thirteenth choice
 				} else if (comboBox.getSelectedItem().equals("13)Printing the percentage of female and male infected by Covid19")){
 					Statistics.gendercount();
-					JOptionPane.showMessageDialog(frame, df2.format(Statistics.getPmale()) + " % of people infected by Covid 19 have exit icus \r\n" 
+					JOptionPane.showMessageDialog(frame, df2.format(Statistics.getPmale()) + " % of the confirmed cases are male \r\n" 
 						+	df2.format(Statistics.getPfemale()) + " % of the confirmed cases are female");
 					
 				// forteenth choice
 				} else if (comboBox.getSelectedItem().equals("14)Printing the percentage of infections in every city right now")){
+					String m ;
 					Statistics.regionnames();
 		            Statistics.infperregioninitialise();
 					Statistics.countinfperregion();
-		            Statistics.infrateperregion();
-		            JOptionPane.showMessageDialog(frame, "The region with the most infections is " +  Statistics.mostinfregion());
+		            m=Statistics.infrateperregion();
+		          
+		            JOptionPane.showMessageDialog(frame, "The region with the most infections is " +  Statistics.mostinfregion()+"\r\n"+m);
 					
 		        // fifteenth choice
 				} else if (comboBox.getSelectedItem().equals("15)Printing the month with the most infections")) {

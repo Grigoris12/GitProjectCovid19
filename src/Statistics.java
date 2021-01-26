@@ -152,7 +152,7 @@ public class Statistics {
 	}
 	
 	public static void todayInfected(int day, int month , int year , String location) { // calculates the number of cases on a given day 
-
+            String city = null;
 			countTodayInfected = 0;
 			if (location.equals("Greece")) {
 				for (int j = 0 ; j < Person.personlist.size() ; j++) {
@@ -163,6 +163,7 @@ public class Statistics {
 			
 			
 			} else if (location.equals("City")) {
+				city = (String) Butt2_4.comboBox.getSelectedItem();
 						for (int j = 0 ; j < Person.personlist.size() ; j++) {
 							if (Person.personlist.get(j).isInfected() == true && Person.personlist.get(j).getRegion().equals(Butt2_4.comboBox.getItemAt(Butt2_4.comboBox.getSelectedIndex()))  && Person.personlist.get(j).getTestday() == day && Person.personlist.get(j).getTestmonth() == month &&  Person.personlist.get(j).getTestyear() == year) {
 								countTodayInfected++;
@@ -178,6 +179,7 @@ public class Statistics {
 	public static void totalInfected(String location) { // calculates the total number of cases 
 	
 		    countTotalInfected = 0;
+		    String city;
 			if (location.equals("Greece")) {
 				for (int i = 0 ; i < Person.personlist.size() ; i++) {
 					if(Person.personlist.get(i).isInfected() == true) {
@@ -185,10 +187,10 @@ public class Statistics {
 					}
 				}
 
-			} else if (location.equals("city")) {
-
+			} else if (location.equals("City")) {
+                  city=(String) Butt2_5.comboBox.getSelectedItem();
 							for (int i = 0 ; i < Person.personlist.size(); i++) {
-								if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getRegion().equals(Butt2_5.comboBox.getItemAt(Butt2_5.comboBox.getSelectedIndex()))) {
+								if (Person.personlist.get(i).isInfected() == true && Person.personlist.get(i).getRegion().equals(city)) {
 									countTotalInfected++;
 								}
 							}
@@ -277,12 +279,13 @@ public class Statistics {
 		return  maxregion;
 	}
 	//filling and printing table with infection rates per region//
-	public static void infrateperregion() {
-		for (int i = 0; i < 9; i++) {
-			regioninfrate[i] = infperregion[i] / getTotalInfections() * 100;
-		    System.out.println(df2.format(regioninfrate[i]) + "% of people infected by Covid19 live in " + regions[i]);
+	public static String infrateperregion() {
+		String infRateReg= null;
+		for(int i=0;i<9;i++) {
+			regioninfrate[i]=infperregion[i]/getTotalInfections()*100;
+			infRateReg= df2.format(regioninfrate[i]+"% of people infected by Covid19 live in" + regions[i] + "\r\n");	
 		}
-		
+		return infRateReg;
 	}
 	
 	public static double getPmale() {
