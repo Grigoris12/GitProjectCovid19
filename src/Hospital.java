@@ -238,7 +238,28 @@ public class Hospital {
 	// give date to the method to count the number of deaths in that day
 	public static int deadInADay(String date) {
 		int count = 0;
-		for(Person person : entrancedPerson) {
+		try
+        {
+            FileInputStream fis = new FileInputStream("deadPerson");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+ 
+            Hospital.deadPerson = (ArrayList) ois.readObject();
+ 
+            ois.close();
+            fis.close();
+        } 
+        catch (IOException ioe) 
+        {
+            ioe.printStackTrace();
+           
+        } 
+        catch (ClassNotFoundException c) 
+        {
+            System.out.println("Class not found");
+            c.printStackTrace();
+            
+        }
+		for(Person person : deadPerson) {
 			if(date.equals(person.getDepartmentDate())) {
 				count++;
 			}
