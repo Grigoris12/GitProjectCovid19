@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 
 public class Hospital {
-	
-	
+
+
 	Scanner scanner = new Scanner(System.in);
-	
+
 	// A list with all the people the needed icu
 
 	static ArrayList<Person>  entrancedPerson = new ArrayList<Person>();
@@ -22,21 +22,21 @@ public class Hospital {
 
 	// Variables with the name of the hospital and the location of it
 	private String hospitalName, location;
-	
+
 	// The number of the icu's the hospital has
 	private int icu;
-	
+
 	// The number of available icus out of the current hospital
 	private  int freeIcu;
 
 	private static Hospital[] hospitals = new Hospital[21];
 	private static int count = 0;
-	
+
 	// Number of people that come out of the Icus alive and dead
 	private static int numberAlive = 0, numberDead = 0;
 
 	private static double totalIcuCases = 0;
-	
+
 	// constructor for hospitals and their attributes
 	public Hospital(String hospitalName, int icu, String location) {
 		hospitals[count] = this;
@@ -52,41 +52,41 @@ public class Hospital {
 		String showHospitals = "";
 		for(int i = 0 ; i < hospitals.length ; i++) {
 			showHospitals += "The remaining Icus of the " +  hospitals[i].hospitalName + 
-					 " are " + hospitals[i].icu +"\r\n";
+					" are " + hospitals[i].icu +"\r\n";
 		}
 		return showHospitals;
 	}
 	public static String showEntranced(){
 		try
-        {
+		{
 
-            FileInputStream fis = new FileInputStream("hospital_icus");
-            ObjectInputStream ois = new ObjectInputStream(fis);
- 
-            Hospital.entrancedPerson = (ArrayList) ois.readObject();
- 
-            ois.close();
-            fis.close();
-        } 
-        catch (IOException ioe) 
-        {
-            ioe.printStackTrace();
-            
-        } 
-        catch (ClassNotFoundException c) 
-        {
-            System.out.println("Class not found");
-            c.printStackTrace();
-            
-        }
-		
+			FileInputStream fis = new FileInputStream("hospital_icus");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			Hospital.entrancedPerson = (ArrayList) ois.readObject();
+
+			ois.close();
+			fis.close();
+		} 
+		catch (IOException ioe) 
+		{
+			ioe.printStackTrace();
+
+		} 
+		catch (ClassNotFoundException c) 
+		{
+			System.out.println("Class not found");
+			c.printStackTrace();
+
+		}
+
 		String showentranced = "";
 		for(Person entrancedperson : Hospital.entrancedPerson) {
 			showentranced += entrancedperson.toString() + "\r\n";
 		}
 		return showentranced;
 	}
-	
+
 	/*  Priortise the Hospitals with the most capacity in Icu's at the specific location
 	  	so the next Covid-19 case that needs the Icu can go there */
 	public static int mostFreeIcus(String location) {
@@ -97,7 +97,7 @@ public class Hospital {
 		}
 		return 0;
 	}
-	
+
 	// The entrance of a new person who need icu
 	public static void icuUpdate(Person person, boolean managerDecision) {
 		File f2 = new File("hospital_icus");
@@ -108,48 +108,48 @@ public class Hospital {
 			e1.printStackTrace();
 		}
 		try
-        {
-            FileInputStream fis = new FileInputStream("hospital_icus");
-            ObjectInputStream ois = new ObjectInputStream(fis);
- 
-            Hospital.entrancedPerson = (ArrayList) ois.readObject();
- 
-            ois.close();
-            fis.close();
-        } 
-        catch (IOException ioe) 
-        {
-            ioe.printStackTrace();
-            return;
-        } 
-        catch (ClassNotFoundException c) 
-        {
-            System.out.println("Class not found");
-            c.printStackTrace();
-            return;
-        }
+		{
+			FileInputStream fis = new FileInputStream("hospital_icus");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			Hospital.entrancedPerson = (ArrayList) ois.readObject();
+
+			ois.close();
+			fis.close();
+		} 
+		catch (IOException ioe) 
+		{
+			ioe.printStackTrace();
+			return;
+		} 
+		catch (ClassNotFoundException c) 
+		{
+			System.out.println("Class not found");
+			c.printStackTrace();
+			return;
+		}
 		if(person.infected && managerDecision ) {
 			hospitals[mostFreeIcus(person.getRegion())].freeIcu--;
 			entrancedPerson.add(person);
 			person.setBelongingHospital(hospitals[mostFreeIcus(person.getRegion())].hospitalName);
-			
-			
+
+
 			try
-	        {
+			{
 				FileOutputStream fos = new FileOutputStream(f2,false);
-	            ObjectOutputStream oos = new ObjectOutputStream(fos);
-	            oos.writeObject(Hospital.entrancedPerson);
-	            oos.close();
-	            fos.close();
-	            
-	        } 
-	        catch (IOException ioe) 
-	        {
-	            ioe.printStackTrace();
-	        }
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				oos.writeObject(Hospital.entrancedPerson);
+				oos.close();
+				fos.close();
+
+			} 
+			catch (IOException ioe) 
+			{
+				ioe.printStackTrace();
+			}
 		}
 	}
-	
+
 	public static int findHospital(Person person) {
 		int place = 0;
 
@@ -163,7 +163,7 @@ public class Hospital {
 		}
 		return place;
 	}
-	
+
 	// When a person is exiting the Icu 
 
 	public static void icuExtraction(Person person, String currentSituation,String departureDate) {
@@ -181,26 +181,26 @@ public class Hospital {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		if(currentSituation.equals("alive")) {
 			for( Person findPerson : Person.personlist) {
 				if(findPerson == person) {
 					Hospital.alivePerson.add(findPerson);
 					person.setDepartmentDate(departureDate);
 					try
-			        {
+					{
 						FileOutputStream fos = new FileOutputStream(f4,false);
-			            ObjectOutputStream oos = new ObjectOutputStream(fos);
-			            oos.writeObject(Hospital.alivePerson);
-			            oos.close();
-			            fos.close();
-			            
-			        } 
-			        catch (IOException ioe) 
-			        {
-			            ioe.printStackTrace();
-			        }
-					
+						ObjectOutputStream oos = new ObjectOutputStream(fos);
+						oos.writeObject(Hospital.alivePerson);
+						oos.close();
+						fos.close();
+
+					} 
+					catch (IOException ioe) 
+					{
+						ioe.printStackTrace();
+					}
+
 					break;
 				}
 			}
@@ -210,55 +210,55 @@ public class Hospital {
 					Hospital.deadPerson.add(findPerson);
 					person.setDepartmentDate(departureDate);
 					try
-			        {
+					{
 						FileOutputStream fos = new FileOutputStream(f3,false);
-			            ObjectOutputStream oos = new ObjectOutputStream(fos);
-			            oos.writeObject(Hospital.deadPerson);
-			            oos.close();
-			            fos.close();
-			            
-			        } 
-			        catch (IOException ioe) 
-			        {
-			            ioe.printStackTrace();
-			        }
-					
-					
-					
+						ObjectOutputStream oos = new ObjectOutputStream(fos);
+						oos.writeObject(Hospital.deadPerson);
+						oos.close();
+						fos.close();
+
+					} 
+					catch (IOException ioe) 
+					{
+						ioe.printStackTrace();
+					}
+
+
+
 					break;
 				}
 			}
 		}
 		hospitals[findHospital(person)].freeIcu--;
 		System.out.println("The hospital has now one more available Icu!");
-		}
-	
-	
-	
+	}
+
+
+
 	// give date to the method to count the number of deaths in that day
 	public static int deadInADay(String date) {
 		int count = 0;
 		try
-        {
-            FileInputStream fis = new FileInputStream("deadPerson");
-            ObjectInputStream ois = new ObjectInputStream(fis);
- 
-            Hospital.deadPerson = (ArrayList) ois.readObject();
- 
-            ois.close();
-            fis.close();
-        } 
-        catch (IOException ioe) 
-        {
-            ioe.printStackTrace();
-           
-        } 
-        catch (ClassNotFoundException c) 
-        {
-            System.out.println("Class not found");
-            c.printStackTrace();
-            
-        }
+		{
+			FileInputStream fis = new FileInputStream("deadPerson");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			Hospital.deadPerson = (ArrayList) ois.readObject();
+
+			ois.close();
+			fis.close();
+		} 
+		catch (IOException ioe) 
+		{
+			ioe.printStackTrace();
+
+		} 
+		catch (ClassNotFoundException c) 
+		{
+			System.out.println("Class not found");
+			c.printStackTrace();
+
+		}
 		for(Person person : deadPerson) {
 			if(date.equals(person.getDepartmentDate())) {
 				count++;
@@ -267,7 +267,7 @@ public class Hospital {
 		return count;
 	}
 
-	
+
 	public int totalFreeIcus() {
 		int sum = 0;
 		for(int i =0 ; i < hospitals.length; i++) {
@@ -275,13 +275,13 @@ public class Hospital {
 		}
 		return sum;
 	}
-		
+
 	public static void showIcuPerson() {
 		for(int i = 0; i < entrancedPerson.size() ; i++) {
 			System.out.println(entrancedPerson.get(i));
 		}
 	}
-	
+
 	public String getHospitalName() {
 		return hospitalName;
 	}
@@ -331,5 +331,27 @@ public class Hospital {
 	}
 
 
+	public static void hospitalCreation() {
+		Hospital hosp1 = new Hospital("Σωτηρία", 122, "Αθήνα");
+		Hospital hosp2 = new Hospital("Γ.Γεννηματά", 57, "Αθήνα");
+		Hospital hosp3 = new Hospital("Αττικόν", 47, "Αθήνα");
+		Hospital hosp4 = new Hospital("Βουγιουκλάκειο", 36, "Αθήνα");
+		Hospital hosp5 = new Hospital("ΚΑΤ", 60, "Αθήνα");
+		Hospital hosp6 = new Hospital("Ευαγγελισμός", 32, "Αθήνα");
+		Hospital hosp7 = new Hospital("Ιπποκράτειο", 97, "Θεσσαλονίκη");
+		Hospital hosp8 = new Hospital("ΑΧΕΠΑ", 66, "Θεσσαλονίκη");
+		Hospital hosp9 = new Hospital("Άγιος Δημήτριος", 22, "Θεσσαλονίκη");
+		Hospital hosp10 = new Hospital("Γ.Γεννηματά Θεσσαλονίκης", 46, "Θεσσαλονίκη");
+		Hospital hosp11 = new Hospital("Άγιος Λουκάς", 21, "Θεσσαλονίκη");
+		Hospital hosp12 = new Hospital("Άγιος Γεώργιος", 33, "Χανιά");
+		Hospital hosp13 = new Hospital("Γενικό Νοσοκομείο Λάρισας", 17, "Λάρισα");
+		Hospital hosp14 = new Hospital("ΚΟΥΤΛΙΜΠΑΝΙΟ & ΤΡΙΑΝΤΑΦΥΛΛΕΙΟ Νοσοκομείο", 27, "Λάρισα");
+		Hospital hosp15 = new Hospital("Άγιος Ανδρέας", 33, "Πάτρα");
+		Hospital hosp16 = new Hospital("Πανεπιστημιακό Γενικό Νοσοκομείο", 28, "Πάτρα");
+		Hospital hosp17 = new Hospital("ΧΑΤΖΗΚΩΣΤΑ", 43, "Ιωάννινα");
+		Hospital hosp18 = new Hospital("Πανεπιστημιακό Νοσοκομείο Ιωαννίνων", 12, "Ιωάννινα");
+		Hospital hosp19 = new Hospital("Γενικό Νοσοκομείο Καλαμάτας", 11,"Καλαμάτα");
+		Hospital hosp20 = new Hospital("Πανεπιστημιακό Γενικό Νοσοκομείο Αλεξανδρούπολης", 9, "Αλεξανδρούπολη");
+		Hospital hosp21 = new Hospital("Σισμανόγλειο", 16, "Κομοτηνή");
+	}
 }
-
