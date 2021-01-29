@@ -2,12 +2,9 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -30,6 +27,7 @@ public class findAMKA {
 	 */
 	public static void amka() {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					findAMKA window = new findAMKA();
@@ -56,66 +54,66 @@ public class findAMKA {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel lblInsertAmkaTo = new JLabel("Insert AMKA to find the person you want :");
 		lblInsertAmkaTo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblInsertAmkaTo.setBounds(24, 31, 408, 92);
 		frame.getContentPane().add(lblInsertAmkaTo);
-		
+
 		amkatext = new JTextField();
 		amkatext.setBounds(98, 136, 220, 22);
 		frame.getContentPane().add(amkatext);
 		amkatext.setColumns(10);
-		
+
 		btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				try
 		        {
 		            FileInputStream fis = new FileInputStream("persondata");
 		            ObjectInputStream ois = new ObjectInputStream(fis);
-		 
+
 		            Person.personlist = (ArrayList) ois.readObject();
-		 
+
 		            ois.close();
 		            fis.close();
-		        } 
-		        catch (IOException ioe) 
+		        }
+		        catch (IOException ioe)
 		        {
 		            ioe.printStackTrace();
 		            return;
-		        } 
-		        catch (ClassNotFoundException c) 
+		        }
+		        catch (ClassNotFoundException c)
 		        {
 		            System.out.println("Class not found");
 		            c.printStackTrace();
 		            return;
 		        }
 				String amkainput = amkatext.getText();
-				amka = Integer.parseInt(amkainput); 
+				amka = Integer.parseInt(amkainput);
 				int x = Integer.parseInt(amkainput);
-				int o = 1;  
+				int o = 1;
 				for(int i=0; i < Person.personlist.size(); i++) {
 					if (Person.personlist.get(i).getAMKA() == x ) {
 						o = 0;
-						
 					}
 				}
 				if (o == 0) {
 					Options opt = new Options();
 					opt.options();
 					frame.setVisible(false);
-				} else { 
+				} else {
 					JOptionPane.showMessageDialog(frame,"There's no patient with COVID-19 with that AMKA");
 				}
 			}
 		});
 		btnSubmit.setBounds(246, 194, 97, 25);
 		frame.getContentPane().add(btnSubmit);
-		
+
 		JButton btnNewButton = new JButton("Go to Main Menu");
 		btnNewButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Gui.graph();
 				frame.dispose();
@@ -123,6 +121,5 @@ public class findAMKA {
 		});
 		btnNewButton.setBounds(61, 194, 146, 25);
 		frame.getContentPane().add(btnNewButton);
-			
 	}
 }
