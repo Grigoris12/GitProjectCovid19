@@ -24,6 +24,7 @@ public class Butt2_4 {
 	 */
 	public static void window2_4() {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					Butt2_4 window = new Butt2_4();
@@ -43,7 +44,7 @@ public class Butt2_4 {
 	}
 
 	public static JComboBox comboBox = new JComboBox();
-	
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -52,46 +53,51 @@ public class Butt2_4 {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		textField = new JTextField();
 		textField.setBounds(274, 29, 86, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
-		
+
+		//Field for day insertion
 		JLabel lblNewLabel = new JLabel("Insert day :");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setBounds(66, 29, 86, 17);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		textField_1 = new JTextField();
 		textField_1.setBounds(274, 60, 86, 20);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
-		
+
+		//Field for month insertion
 		JLabel lblNewLabel_1 = new JLabel("Insert month :");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_1.setBounds(66, 60, 104, 17);
 		frame.getContentPane().add(lblNewLabel_1);
-		
+
 		textField_2 = new JTextField();
 		textField_2.setBounds(274, 91, 86, 20);
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
-		
-		JLabel lblInsertYear = new JLabel("Insert Year :");
+
+		//Field for year insertion
+		JLabel lblInsertYear = new JLabel("Insert year :");
 		lblInsertYear.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblInsertYear.setBounds(66, 92, 86, 14);
 		frame.getContentPane().add(lblInsertYear);
-		
+
+		//Creation of buttons Greece,City
 		JRadioButton greecebutton = new JRadioButton("Greece");
 		greecebutton.setBounds(236, 121, 69, 23);
 		frame.getContentPane().add(greecebutton);
-		
+
 		JRadioButton citybutton = new JRadioButton("City");
 		citybutton.setBounds(319, 121, 109, 23);
 		frame.getContentPane().add(citybutton);
-		
+
 		greecebutton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(greecebutton.isSelected()) {
 					citybutton.setSelected(false);
@@ -99,8 +105,9 @@ public class Butt2_4 {
 			}
 		});
 		frame.getContentPane().add(greecebutton);
-		
+
 		citybutton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(citybutton.isSelected()) {
 					greecebutton.setSelected(false);
@@ -108,16 +115,16 @@ public class Butt2_4 {
 			}
 		});
 		frame.getContentPane().add(citybutton);
-		
 
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Athens", "Thessaloniki", "Larisa", "Xania", "Patra", "Komotini", "Alexandroupoli", "Kalamata", "Giannena"}));
 		comboBox.setBounds(274, 170, 97, 20);
 		frame.getContentPane().add(comboBox);
-		
+
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				int k = 0;  
+				int k = 0;
 				String dayInput = textField.getText();
 				String monthInput = textField_1.getText();
 				String yearInput = textField_2.getText();
@@ -155,7 +162,7 @@ public class Butt2_4 {
 					location = "City";
 				}
 				 if (location.equals("")) {
-					 JOptionPane.showMessageDialog(frame, "Select Greece or city");	 
+					 JOptionPane.showMessageDialog(frame, "Select Greece or city");
 				 }
 				if (k!=0 || location.equals(""))
 					JOptionPane.showMessageDialog(frame, "Try again");
@@ -180,20 +187,15 @@ public class Butt2_4 {
 		});
 		btnSubmit.setBounds(155, 204, 89, 23);
 		frame.getContentPane().add(btnSubmit);
-		
+
 		JLabel lblInsertLocation = new JLabel("Choose :");
 		lblInsertLocation.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblInsertLocation.setBounds(66, 123, 115, 14);
 		frame.getContentPane().add(lblInsertLocation);
-		
-		
+
 		JLabel lblNewLabel_2 = new JLabel("Choose city :");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_2.setBounds(66, 157, 86, 17);
 		frame.getContentPane().add(lblNewLabel_2);
-		
-
-	}}
-
-
-	
+	}
+}

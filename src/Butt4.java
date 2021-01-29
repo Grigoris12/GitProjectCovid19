@@ -1,8 +1,6 @@
-	
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -46,19 +44,20 @@ public class Butt4 {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(46, 89, 358, 22);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Σωτηρία(Αθήνα)", "Γ.Γεννηματά(Αθήνα)", "Αττικόν(Αθήνα)", "Βουγιουκλάκειο(Αθήνα)", "ΚΑΤ(Αθήνα)", "Ευαγγελισμός(Αθήνα)", "Ιπποκράτειο(Θεσσαλονίκη)", "ΑΧΕΠΑ(Θεσσαλονίκη)", "Άγιος Δημήτριος(Θεσσαλονίκη)", "Γ.Γεννηματά Θεσσαλονίκης", "Άγιος Λουκάς(Θεσσαλονίκη)", "Άγιος Γεώργιος(Χανιά)", "Γενικό Νοσοκομείο Λάρισας", "ΚΟΥΤΛΙΜΠΑΝΙΟ & ΤΡΙΑΝΤΑΦΥΛΛΕΙΟ Νοσοκομείο(Λάρισα)", "Άγιος Ανδρέας(Πάτρα)", "Πανεπιστημιακό Γενικό Νοσοκομείο(Πάτρα)", "ΧΑΤΖΗΚΩΣΤΑ(Ιωάννινα)", "Πανεπιστημιακό Νοσοκομείο Ιωαννίνων", "Γενικό Νοσοκομείο Καλαμάτας", "Πανεπιστημιακό Γενικό Νοσοκομείο Αλεξανδρούπολης", "Σισμανόγλειο(Κομοτηνή)"}));
 		frame.getContentPane().add(comboBox);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBounds(309, 87, 10, 10);
 		frame.getContentPane().add(panel);
-		
+
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Printing the websites of hospitals
 				if (comboBox.getSelectedItem().equals("Σωτηρία(Αθήνα)")) {
 					JOptionPane.showMessageDialog(frame, "The website of Hospital Σωτηρία is http://www.sotiria.gr/");
 				} else if (comboBox.getSelectedItem().equals("Γ.Γεννηματά(Αθήνα)")) {
@@ -106,11 +105,11 @@ public class Butt4 {
 		});
 		btnNewButton.setBounds(248, 171, 97, 25);
 		frame.getContentPane().add(btnNewButton);
-		
+
 		JLabel lblNewLabel = new JLabel("Choose the hospital that you want information");
 		lblNewLabel.setBounds(72, 31, 273, 16);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JButton btnNewButton_1 = new JButton("Go to main menu");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

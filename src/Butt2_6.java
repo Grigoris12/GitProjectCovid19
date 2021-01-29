@@ -19,6 +19,7 @@ public class Butt2_6 {
 	 */
 	public static void window2_6() {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					Butt2_6 window = new Butt2_6();
@@ -45,19 +46,20 @@ public class Butt2_6 {
 		frame.setBounds(100, 100, 460, 205);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel lblDate = new JLabel("Date (DD/MM/YYYY) :");
 		lblDate.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDate.setBounds(36, 67, 168, 14);
 		frame.getContentPane().add(lblDate);
-		
+
 		textField = new JTextField();
 		textField.setBounds(287, 66, 86, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
-		
+
 		JButton btnSumbit = new JButton("Sumbit");
 		btnSumbit.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				String date = textField.getText();
 				JOptionPane.showMessageDialog(frame,"Total deaths in Greece on " + date + " are " + Hospital.deadInADay(date));
@@ -65,9 +67,10 @@ public class Butt2_6 {
 		});
 		btnSumbit.setBounds(252, 115, 89, 23);
 		frame.getContentPane().add(btnSumbit);
-		
+
 		JButton btnMainMenu = new JButton("Main Menu");
 		btnMainMenu.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Gui.graph();
 				frame.setVisible(false);
@@ -76,5 +79,4 @@ public class Butt2_6 {
 		btnMainMenu.setBounds(86, 115, 118, 23);
 		frame.getContentPane().add(btnMainMenu);
 	}
-
 }

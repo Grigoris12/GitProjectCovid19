@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+
 public class Person implements Serializable {
+
 	//declarations//
 	public static ArrayList<Person> personlist = new ArrayList<Person>();
 	private String name;
@@ -21,6 +21,7 @@ public class Person implements Serializable {
 	private String departmentDate = null;
 	private String belongingHospital = null;
 	boolean infected;
+
 	//Constructor for person//
 	public Person(String name, String surname, int age, String gender, String region, int testday,
 			int testmonth, int testyear, int aMKA, boolean infected) {
@@ -36,9 +37,9 @@ public class Person implements Serializable {
 		this.infected = infected;
 		personlist.add(this);
 	}
-	
+
 	public static void addPers() {
-	
+
 		File f = new File("persondata");
 		try {
 			f.createNewFile();
@@ -47,7 +48,6 @@ public class Person implements Serializable {
 			e1.printStackTrace();
 		}
 
-		
 		try
         {
 			FileOutputStream fos = new FileOutputStream(f,false);
@@ -55,103 +55,114 @@ public class Person implements Serializable {
             oos.writeObject(personlist);
             oos.close();
             fos.close();
-            
-        } 
-        catch (IOException ioe) 
+        }
+        catch (IOException ioe)
         {
             ioe.printStackTrace();
         }
-		
 	}
-		
-	
-	
-	
-				
 
 	@Override
 	public String toString() {
 		return "name=" + name + ", surname=" + surname + ", age=" + age + ", gender=" + gender
 				+ ", region=" + region + ", testday=" + testday + ", testmonth=" + testmonth + ", testyear=" + testyear
-				+ ", AMKA=" + AMKA + ", infected=" + infected +"\n";	
+				+ ", AMKA=" + AMKA + ", infected=" + infected +"\n";
 	}
+
 	//getters and setters//
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
-
 	}
+
 	public String getSurname() {
 		return surname;
 	}
+
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
+
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
 	public String getRegion() {
 		return region;
 	}
+
 	public void setRegion(String region) {
 		this.region = region;
 	}
+
 	public int getTestday() {
 		return testday;
 	}
+
 	public void setTestday(int testday) {
 		this.testday = testday;
 	}
+
 	public int getTestmonth() {
 		return testmonth;
 	}
+
 	public void setTestmonth(int testmonth) {
 		this.testmonth = testmonth;
 	}
+
 	public int getTestyear() {
 		return testyear;
 	}
+
 	public void setTestyear(int testyear) {
 		this.testyear = testyear;
 	}
+
 	public int getAMKA() {
 		return AMKA;
 	}
+
 	public void setAMKA(int aMKA) {
 		AMKA = aMKA;
 	}
+
 	public boolean isInfected() {
 		return infected;
 	}
+
 	public void setInfected(boolean infected) {
 		this.infected = infected;
 	}
-	
+
 	public void setDepartmentDate(String date) {
 		departmentDate = date;
 	}
-	
+
 	public String getDepartmentDate() {
 		return departmentDate;
 	}
-	
+
 	public void setBelongingHospital(String hospital) {
 		belongingHospital = hospital;
 	}
-	
+
 	public String getBelongingHospital() {
 		return belongingHospital;
 	}
 }
-
