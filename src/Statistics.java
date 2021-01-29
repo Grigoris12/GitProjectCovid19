@@ -279,14 +279,15 @@ public class Statistics {
 		return  maxregion;
 	}
 	//filling and printing table with infection rates per region//
-	public static String infrateperregion() {
-		String infRateReg= "";
-		for(int i=0;i<9;i++) {
-			regioninfrate[i]=infperregion[i]/getTotalInfections()*100;
-			infRateReg= (regioninfrate[i] + "% of people infected by Covid19 live in" + regions[i] + "\r\n");
+		public static String infrateperregion() {
+			String infRateReg= "";
+
+			for(int i=0;i<9;i++) {
+				regioninfrate[i]=infperregion[i]/getTotalInfections()*100;
+				infRateReg += (df2.format(regioninfrate[i]) + "% of people infected by Covid19 live in " + regions[i] + "\r\n");
+			}
+			return infRateReg;
 		}
-		return infRateReg;
-	}
 
 	public static double getPmale() {
 		return pmale;
