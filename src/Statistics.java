@@ -3,7 +3,6 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class Statistics {
-
 	private static double[] infpermonth = new double [12];
 	private static String maxmonth;
 	private static double[] monthinfrate = new double [12];
@@ -16,6 +15,9 @@ public class Statistics {
 	private static double pmale, pfemale, pkids, padults, pelders;
 	private static int countTodayInfected, countTotalInfected;
 	private static double pautumn, psummer, pwinter, pspring;
+
+
+
 
 	private static DecimalFormat df2 = new DecimalFormat("#.##");
 
@@ -46,7 +48,6 @@ public class Statistics {
 		System.out.println(df2.format(pmale) + " % of the confirmed cases are male" );
 		System.out.println(df2.format(pfemale) + " % of the confirmed cases are female") ;
 		}
-
 	public static void ageofPatients() { // calculates the percentage of cases in age category
 		double countkids = 0;
 		double countadults = 0;
@@ -76,7 +77,6 @@ public class Statistics {
 			infpermonth[i] = 0;
 		}
 	}
-
 	//counting total infections per month//
 	public static void countinfpermonth() {
 			for (int j = 0; j < 12; j++) {
@@ -87,8 +87,7 @@ public class Statistics {
 			}
 		}
 	}
-
-	//filling table with infection rates per month//
+    //filling table with infection rates per month//
 	public static double[] infratepermonth() {
 
 		for (int i = 0; i < 12; i++) {
@@ -96,7 +95,6 @@ public class Statistics {
 		}
 		return monthinfrate;
 	}
-
 	//finding month with the highest infection rate//
 	public static String mostinfmonth() {
 		String[] months = {"January", "February", "March", "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" ,"December"};
@@ -116,7 +114,7 @@ public class Statistics {
 		return maxmonth;
 	}
 
-	//filling table with infection rates per season//
+    //filling table with infection rates per season//
 	public static double[] infrateperseason() {
 		seasoninfrate[0] = monthinfrate[0] + monthinfrate[1] + monthinfrate[11];
 		seasoninfrate[1] = monthinfrate[2] + monthinfrate[3] + monthinfrate[4];
@@ -124,7 +122,6 @@ public class Statistics {
 		seasoninfrate[3] = monthinfrate[8] + monthinfrate[9] + monthinfrate[10];
 		return seasoninfrate;
 	}
-
 	//printing infection rates per season//
 	public static void seasonPercentages(){
 		pwinter = seasoninfrate[0];
@@ -136,7 +133,6 @@ public class Statistics {
 		System.out.println(df2.format(psummer) + "% of the confirmed cases appeared in summer");
 		System.out.println(df2.format(pautumn) + "% of the confirmed cases appeared in autumn");
 	}
-
 	//finding season with highest infection rate//
 	public static String mostinfseason() {
 		String[] season = {"Winter", "Spring", "Summer", "Autumn"};
@@ -164,6 +160,8 @@ public class Statistics {
 						countTodayInfected++;
 					}
 				}
+
+
 			} else if (location.equals("City")) {
 				city = (String) Butt2_4.comboBox.getSelectedItem();
 						for (int j = 0 ; j < Person.personlist.size() ; j++) {
@@ -172,7 +170,11 @@ public class Statistics {
 							}
 						}
 			}
+
 		}
+
+
+
 
 	public static void totalInfected(String location) { // calculates the total number of cases
 
@@ -184,6 +186,7 @@ public class Statistics {
 						countTotalInfected++;
 					}
 				}
+
 			} else if (location.equals("City")) {
                   city=(String) Butt2_5.comboBox.getSelectedItem();
 							for (int i = 0 ; i < Person.personlist.size(); i++) {
@@ -191,6 +194,7 @@ public class Statistics {
 									countTotalInfected++;
 								}
 							}
+
 			}
 	}
 
@@ -214,7 +218,7 @@ public class Statistics {
 		}else {
 		double pexit = Hospital.getNumberAlive()/Hospital.entrancedPerson.size() * 100;
 		System.out.println(df2.format(pexit) + " % of people infected by Covid 19 have exit icus ");
-		}
+	}
 	}
 
 	//filling table with the regions investigated for possible infections//
@@ -241,7 +245,6 @@ public class Statistics {
 			}
 		}
 	}
-
 	public static void infperregioninitialise() {
 		for (int i = 0; i < 9; i++) {
 			infperregion[i] = 0;
@@ -275,13 +278,12 @@ public class Statistics {
 		}
 		return  maxregion;
 	}
-
 	//filling and printing table with infection rates per region//
 	public static String infrateperregion() {
-		String infRateReg= null;
+		String infRateReg= "";
 		for(int i=0;i<9;i++) {
 			regioninfrate[i]=infperregion[i]/getTotalInfections()*100;
-			infRateReg= df2.format(regioninfrate[i]+"% of people infected by Covid19 live in" + regions[i] + "\r\n");
+			infRateReg= (regioninfrate[i] + "% of people infected by Covid19 live in" + regions[i] + "\r\n");
 		}
 		return infRateReg;
 	}
@@ -313,6 +315,7 @@ public class Statistics {
 	public static int getCountTotalInfected() {
 		return countTotalInfected;
 	}
+
 
 	public static double getPwinter() {
 		return pwinter;
