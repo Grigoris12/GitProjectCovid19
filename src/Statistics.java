@@ -278,10 +278,10 @@ public class Statistics {
 
 	//filling and printing table with infection rates per region//
 	public static String infrateperregion() {
-		String infRateReg= null;
+		String infRateReg= "";
 		for(int i=0;i<9;i++) {
 			regioninfrate[i]=infperregion[i]/getTotalInfections()*100;
-			infRateReg= df2.format(regioninfrate[i]+"% of people infected by Covid19 live in" + regions[i] + "\r\n");
+			infRateReg= (regioninfrate[i] + "% of people infected by Covid19 live in" + regions[i] + "\r\n");
 		}
 		return infRateReg;
 	}
