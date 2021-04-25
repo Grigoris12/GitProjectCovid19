@@ -1,3 +1,2 @@
-# GitProjectCovid19
-University project for Covid-19
+# GitProjectCovid19(University project for Covid-19)
 
